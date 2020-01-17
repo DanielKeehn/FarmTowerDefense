@@ -23,6 +23,8 @@ public class AnimalManager : MonoBehaviour
             string name = child.gameObject.name;
             animalDict.Add(name,child.gameObject);
         }
+        // This is temporary because the upgrade system is not implemented yet
+        UnlockAnimal("Cow");
     }
 
     // Update is called once per frame
@@ -49,5 +51,12 @@ public class AnimalManager : MonoBehaviour
         spawnPosition = playerPos + playerDirection*spawnDistance;
         GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, playerRotation);
         currAnimal.SetActive(true);
+        UnlockAnimal("Cow");
+    }
+
+    public void UnlockAnimal(string name) {
+        GameObject foundAnimal = animalDict[name];
+        Animal animalScript = foundAnimal.gameObject.GetComponent<Animal>();
+        animalScript.isUnlocked = true;
     }
 }

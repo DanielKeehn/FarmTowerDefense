@@ -8,6 +8,9 @@ public class SpawnManager : MonoBehaviour
     // This is the currency that determines if an animal can be spawned or not
     public int spawnPoints;
 
+    Dictionary<string, GameObject> unlockedAnimalsDict;
+    int unlockedAnimalDictSize;
+
     // The player transform that will be used to determine the position of a spawn
     public Transform playerPos;
 
@@ -16,6 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
         // The initial amount of spawn points a player has
         spawnPoints = 100;
+        unlockedAnimalDictSize = 0;
     }
 
     // Update is called once per frame

@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void setPitchForkActive() {
-        Transform pitchFork = transform.FindChild("Pitchfork");
+        Transform pitchFork = transform.Find("Pitchfork");
         if (pitchFork == null) {
             Debug.Log("Couldn't find the pitchfork, make sure there are no spelling errors");
         } else {
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void setPitchForkInActive() {
-        Transform pitchFork = transform.FindChild("Pitchfork");
+        Transform pitchFork = transform.Find("Pitchfork");
         if (pitchFork == null) {
             Debug.Log("Couldn't find the pitchfork, make sure there are no spelling errors");
         } else {
