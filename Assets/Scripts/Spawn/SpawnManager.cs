@@ -24,7 +24,6 @@ public class SpawnManager : MonoBehaviour
     {
         unlockedAnimalsDict = new Dictionary<string, GameObject>();
         // The initial amount of spawn points a player has
-        spawnPoints = 100;
         unlockedAnimalDictSize = 0;
 
         FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
@@ -52,6 +51,7 @@ public class SpawnManager : MonoBehaviour
 
     // This checks is an animal can be spawned
     void CheckForSpawnAnimal() {
+        //All the code in this method is temporary for now
         if (Input.GetButtonDown("Fire1")) {
             SpawnAnimal("Cow");
         }
@@ -60,12 +60,19 @@ public class SpawnManager : MonoBehaviour
     // This spawns an animal onto the screen
     void SpawnAnimal(string name) { 
         GameObject foundAnimal = unlockedAnimalsDict[name];
-        playerPos = playerTransform.position;
-        playerDirection = playerTransform.forward;
-        playerRotation = playerTransform.rotation;
-        spawnDistance = 10;
-        spawnPosition = playerPos + playerDirection*spawnDistance;
-        GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, playerRotation);
-        currAnimal.SetActive(true);
+        int costToSpawn = foundAnimal.GetComponent<Animal>().costToSpawn;
+        if (isSpawnable(costToSpawn)) {
+            playerPos = playerTransform.position;
+            playerDirection = playerTransform.forward;
+            playerRotation = playerTransform.rotation;
+            spawnDistance = 10;
+            spawnPosition = playerPos + playerDirection*spawnDistance;
+            GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, playerRotation);
+            currAnimal.SetActive(true);
+            spawnPoints -= costToSpawn;
+            FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+        } else {
+            Debug.Log("You can't spawn animal");
+        }
     }
 }

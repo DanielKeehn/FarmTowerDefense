@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e8718691edf9d4a9c66044b85dd29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: 100
+  spawnPoints: 80
   playerTransform: {fileID: 415935074}
 --- !u!1 &1695369897
 GameObject:
@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff43f8d0986787d49975ee6f2e2f6ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsAmount: {fileID: 0}
+  spawnPointsAmount: {fileID: 218955184}
 --- !u!1 &2096371176
 GameObject:
   m_ObjectHideFlags: 0
