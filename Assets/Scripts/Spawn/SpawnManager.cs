@@ -28,8 +28,35 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    // returns a boolean value and determines if a animal can be spawned or not
+    // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
     bool isSpawnable(int cost) {
         return (cost <= spawnPoints);
     }
+
+    // This method runs after an animal is unlocked in the animal manager and allows an animal to be spawned
+    public void addAnimalToUnlockedDict(GameObject unlockedAnimal) {
+        unlockedAnimalDictSize++;
+        string name = unlockedAnimal.gameObject.name;
+        unlockedAnimalsDict.Add(name,unlockedAnimal);
+    }
+
+    //    // This checks is an animal can be spawned
+    // void CheckForSpawnAnimal() {
+    //     if (Input.GetButtonDown("Fire1")) {
+    //         SpawnAnimal("Cow");
+    //     }
+    // }
+
+    // // This spawns an animal onto the screen
+    // void SpawnAnimal(string name) { 
+    //     GameObject foundAnimal = animalDict[name];
+    //     playerPos = playerTransform.position;
+    //     playerDirection = playerTransform.forward;
+    //     playerRotation = playerTransform.rotation;
+    //     spawnDistance = 10;
+    //     spawnPosition = playerPos + playerDirection*spawnDistance;
+    //     GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, playerRotation);
+    //     currAnimal.SetActive(true);
+    //     UnlockAnimal("Cow");
+    // }
 }
