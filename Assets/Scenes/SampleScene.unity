@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: 100
-  playerPos: {fileID: 415935074}
+  playerTransform: {fileID: 415935074}
 --- !u!1 &1695369897
 GameObject:
   m_ObjectHideFlags: 0
