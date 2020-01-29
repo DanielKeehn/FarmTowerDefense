@@ -8,12 +8,6 @@ public class AnimalManager : MonoBehaviour
 {
 
     public Dictionary<string, GameObject> animalDict;
-    public Transform playerTransform;
-    Vector3 playerPos;
-    Vector3 playerDirection;
-    Quaternion playerRotation;
-    float spawnDistance;
-    Vector3 spawnPosition;
 
     // Start is called before the first frame update
     void Start()

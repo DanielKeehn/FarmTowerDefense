@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour
     }
 
     public delegate void AttackModeDelegate();
-    public event AttackModeDelegate attackModeEvent;   
+    public event AttackModeDelegate attackModeEvent;
+
+    public delegate void RunAttackModeDelegate();
+    public event RunAttackModeDelegate runAttackMode;   
 
     public delegate void SpawnModeDelegate();
-    public event SpawnModeDelegate spawnModeEvent;   
+    public event SpawnModeDelegate spawnModeEvent;
+    
+    public delegate void RunSpawnModeDelegate();
+    public event RunSpawnModeDelegate runSpawnMode;   
 
     // Start is called before the first frame update
     void Start()
@@ -59,9 +65,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void updateAttackMode() {
+        if (runAttackMode != null) { 
+            runAttackMode();
+        }
+    }
+
     void goToSpawnMode() {
         if (spawnModeEvent != null) { 
             spawnModeEvent();
+        }
+    }
+
+    void updateSpawnMode() {
+        if (runSpawnMode != null) { 
+            runSpawnMode();
         }
     }
 
