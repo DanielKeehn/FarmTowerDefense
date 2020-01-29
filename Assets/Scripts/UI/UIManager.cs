@@ -18,4 +18,9 @@ public class UIManager : MonoBehaviour
     {
         
     }
+
+    public void changeSpawnPointsAmountUI(int newNum){
+        string newNumString = newNum.ToString();
+        spawnPointsAmount.GetComponent<TMPro.TextMeshProUGUI>().text = newNumString;
+    }
 }

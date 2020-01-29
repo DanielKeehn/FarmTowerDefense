@@ -1230,8 +1230,8 @@ Canvas:
   m_GameObject: {fileID: 1069844885}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff43f8d0986787d49975ee6f2e2f6ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1069844885}
+  spawnPointsAmount: {fileID: 0}
 --- !u!1 &2096371176
 GameObject:
   m_ObjectHideFlags: 0

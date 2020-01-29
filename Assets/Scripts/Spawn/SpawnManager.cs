@@ -28,6 +28,8 @@ public class SpawnManager : MonoBehaviour
         unlockedAnimalDictSize = 0;
 
         FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
+
+        FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
     }
 
     // Update is called once per frame
