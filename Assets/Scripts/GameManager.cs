@@ -45,11 +45,13 @@ public class GameManager : MonoBehaviour
         } else if (currState == ((int)gameState.SETTINGS)) {
  
         } else if (currState == ((int)gameState.ATTACKMODE)) {
+            updateAttackMode();
             if (Input.GetButtonDown("SpawnMode")) {
                 goToSpawnMode();
                 currState = ((int)gameState.SPAWNMODE); 
             }
         } else if (currState == ((int)gameState.SPAWNMODE)) {
+            updateSpawnMode();
             if (Input.GetButtonDown("SpawnMode")) {
                 goToAttackMode();
                 currState = ((int)gameState.ATTACKMODE); 

@@ -26,12 +26,14 @@ public class SpawnManager : MonoBehaviour
         // The initial amount of spawn points a player has
         spawnPoints = 100;
         unlockedAnimalDictSize = 0;
+
+        FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckForSpawnAnimal();
+
     }
 
     // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
