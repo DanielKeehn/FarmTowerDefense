@@ -72,7 +72,7 @@ public class SpawnManager : MonoBehaviour
             spawnPoints -= costToSpawn;
             FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
         } else {
-            Debug.Log("You can't spawn animal");
+            Debug.Log("You can't spawn a " + name);
         }
     }
 }
