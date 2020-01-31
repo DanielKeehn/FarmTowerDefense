@@ -47,14 +47,14 @@ public class GameManager : MonoBehaviour
         } else if (currState == ((int)gameState.ATTACKMODE)) {
             updateAttackMode();
             if (Input.GetButtonDown("SpawnMode")) {
-                goToSpawnMode();
                 currState = ((int)gameState.SPAWNMODE); 
+                goToSpawnMode();
             }
         } else if (currState == ((int)gameState.SPAWNMODE)) {
             updateSpawnMode();
             if (Input.GetButtonDown("SpawnMode")) {
-                goToAttackMode();
                 currState = ((int)gameState.ATTACKMODE); 
+                goToAttackMode();
             } 
         } else if (currState == ((int)gameState.UPGRADEMENU)) {
  
@@ -83,6 +83,10 @@ public class GameManager : MonoBehaviour
         if (runSpawnMode != null) { 
             runSpawnMode();
         }
+    }
+
+    public int getCurrentState() {
+        return currState;
     }
 
 }
