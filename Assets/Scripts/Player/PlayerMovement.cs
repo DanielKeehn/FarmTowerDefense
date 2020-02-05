@@ -15,38 +15,55 @@ CODE OVERVIEW:
 public class PlayerMovement : MonoBehaviour
 {
 
-    // This is a refrence to the character controller
-    public CharacterController controller;
-
     // This float controls how fast player moves left and right and up and down
-    public float speed = 12f;
+    [SerializeField] private float speed = 12f;
+	// The speed will change when the player is crouched
+	[SerializeField] private float crouchSpeed = 4f;
+	// This constant is used when calculating gravity
+	[SerializeField] private float gravity = -9.81f;
+	// This determines how high a player can jump
+	[SerializeField] private float jumpHeight = 3f;
+	// This refrences sphere which checks for ground
+	[SerializeField] private Transform groundCheck;
+	/// This is the radius of sphere
+	[SerializeField] private float groundDistance = 0.4f;
+	// This controls what objects ground check should check for
+	[SerializeField] private LayerMask groundMask;
+	// This is a reference to the pitchfork
+	[SerializeField] private Transform pitchfork;
 
-    // The speed will change when the player is crouched
-    public float crouchSpeed = 4f;
 
-    // This constant is used when calculating gravity
-    public float gravity = -9.81f;
-    // This determines how high a player can jump
-    public float jumpHeight = 3f;
-    // This refrences sphere which checks for ground
-    public Transform groundCheck;
-    /// This is the radius of sphere
-    public float groundDistance = 0.4f;
-    // This controls what objects ground check should check for
-    public LayerMask groundMask;
-
-    // This vector stores player velocity which will be used to implement jumping/gravity
-    Vector3 velocity;
-    // This bool checks if the player is on the ground which will be used to implement jumping/gravity
-    bool isGrounded;
-
+	// This is a refrence to the character controller
+	private CharacterController controller;
+	// This vector stores player velocity which will be used to implement jumping/gravity
+	private Vector3 velocity;
+	// This vector stores player velocity for moving
+	private Vector3 move;
+	// This bool checks if the player is on the ground which will be used to implement jumping/gravity
+	private bool isGrounded;
     // Determies is the player is crouched down or not
-    bool isCrouched = false;
+    private bool isCrouched = false;
+	//This is a reference to the player's animator
+	private Animator animator;
+	// This is a reference to the gameManager
+	private GameManager gameManager;
 
     void Start()
     {
-        FindObjectOfType<GameManager>().attackModeEvent += setPitchForkActive;
-        FindObjectOfType<GameManager>().spawnModeEvent += setPitchForkInActive;
+		gameManager = FindObjectOfType<GameManager>();
+		if (!gameManager)
+		{
+			Debug.LogWarning("No game manager found");
+		}
+		gameManager.attackModeEvent += setPitchForkActive;
+		gameManager.spawnModeEvent += setPitchForkInActive;
+
+		controller = GetComponent<CharacterController>();
+		animator = GetComponentInChildren<Animator>();
+		if (!animator)
+		{
+			Debug.LogWarning("No animator found");
+		}
     }
 
     // Update is called once per frame
@@ -67,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         // This creates the new position of the player based on x and z movement
-        Vector3 move =  transform.right * x + transform.forward * z;
+        move =  transform.right * x + transform.forward * z;
         
         // This actually moves the player by refrencing the player controller
         // speed determines how far and player moves and Time.delatTime allows this to run independent of framerate
@@ -102,23 +119,29 @@ public class PlayerMovement : MonoBehaviour
                 isCrouched = false;
             }
         }
+		UpdateAnimator();
     }
 
-    public void setPitchForkActive() {
-        Transform pitchFork = transform.Find("Pitchfork");
-        if (pitchFork == null) {
+	private void UpdateAnimator()
+	{
+		animator.SetBool("Walking", (move.x > 0 || move.x < 0 || move.z > 0) ? true : false);
+		animator.SetBool("inAttackState", (gameManager.getCurrentState() == 3) ? true : false);
+		animator.SetBool("inSpawnState", (gameManager.getCurrentState() == 4) ? true : false);
+	}
+
+	public void setPitchForkActive() {
+        if (pitchfork == null) {
             Debug.Log("Couldn't find the pitchfork, make sure there are no spelling errors");
         } else {
-            pitchFork.gameObject.SetActive(true);
+			pitchfork.gameObject.SetActive(true);
         }
     }
 
     public void setPitchForkInActive() {
-        Transform pitchFork = transform.Find("Pitchfork");
-        if (pitchFork == null) {
+        if (pitchfork == null) {
             Debug.Log("Couldn't find the pitchfork, make sure there are no spelling errors");
         } else {
-            pitchFork.gameObject.SetActive(false);
+			pitchfork.gameObject.SetActive(false);
         }
     }
 }
