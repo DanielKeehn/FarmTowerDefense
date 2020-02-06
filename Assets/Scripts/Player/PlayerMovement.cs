@@ -14,7 +14,6 @@ CODE OVERVIEW:
 
 public class PlayerMovement : MonoBehaviour
 {
-
     // This float controls how fast player moves left and right and up and down
     [SerializeField] private float speed = 12f;
 	// The speed will change when the player is crouched
@@ -27,12 +26,11 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Transform groundCheck;
 	/// This is the radius of sphere
 	[SerializeField] private float groundDistance = 0.4f;
-	// This controls what objects ground check should check for
-	[SerializeField] private LayerMask groundMask;
 	// This is a reference to the pitchfork
 	[SerializeField] private Transform pitchfork;
 
-
+	// This controls what objects ground check should check for
+	private LayerMask groundMask;
 	// This is a refrence to the character controller
 	private CharacterController controller;
 	// This vector stores player velocity which will be used to implement jumping/gravity
@@ -58,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 		gameManager.attackModeEvent += setPitchForkActive;
 		gameManager.spawnModeEvent += setPitchForkInActive;
 
+		groundMask = LayerMask.GetMask("Environment");
 		controller = GetComponent<CharacterController>();
 		animator = GetComponentInChildren<Animator>();
 		if (!animator)
