@@ -26,11 +26,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4488694076733219696}
-  m_LocalRotation: {x: -0.19743827, y: -0.1649163, z: 0.033117432, w: 0.9657764}
-  m_LocalPosition: {x: -0.03886029, y: 0.054236576, z: 0.1952232}
-  m_LocalScale: {x: 0.33333352, y: 0.33333343, z: 0.33333325}
+  m_LocalRotation: {x: -0.19758706, y: -0.1745085, z: -0.00043264817, w: 0.9646274}
+  m_LocalPosition: {x: -0.024793724, y: 0.547352, z: 0.23515601}
+  m_LocalScale: {x: 0.3333336, y: 0.33333346, z: 0.33333322}
   m_Children: []
-  m_Father: {fileID: 1672672581483653520}
+  m_Father: {fileID: 8999208586697812039}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -0.84700006, z: 0}
 --- !u!20 &4488694076733219698
@@ -198,9 +198,6 @@ MonoBehaviour:
   jumpHeight: 3
   groundCheck: {fileID: 4488694076747853629}
   groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
   pitchfork: {fileID: 0}
 --- !u!1001 &4488694076619613309
 PrefabInstance:
@@ -302,9 +299,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4488694076619613309}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1672672581483653520 stripped
+--- !u!4 &8999208586697812039 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2989701457832414701, guid: dba68aa870885bb4dbbf3ef98be6375b,
+  m_CorrespondingSourceObject: {fileID: 4803256113787784250, guid: dba68aa870885bb4dbbf3ef98be6375b,
     type: 3}
   m_PrefabInstance: {fileID: 4488694076619613309}
   m_PrefabAsset: {fileID: 0}
