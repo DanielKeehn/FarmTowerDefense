@@ -17,14 +17,14 @@ CODE OVERVIEW:
 public class MouseLook : MonoBehaviour
 {
 
-    // This value changes the speed of the camera
-    public float mouseSensitivity = 100f;
+	// This value changes the speed of the camera
+	[SerializeField] private float mouseSensitivity = 100f;
 
-    // This is the transform of the Player Object
-    public Transform playerBody;
+	// This is the transform of the Player Object
+	[SerializeField] private Transform playerBody;
 
     // This value deals with how much the camera is rotated when mouse is moved on y axis
-    float xRotation = 0f;
+    private float xRotation = 0f;
 
     // Start is called before the first frame update
     void Start()

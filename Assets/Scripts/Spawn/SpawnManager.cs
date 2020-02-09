@@ -11,16 +11,15 @@ public class SpawnManager : MonoBehaviour
     public Dictionary<string, GameObject> unlockedAnimalsDict;
     int unlockedAnimalDictSize;
 
-    // The player transform that will be used to determine the position of a spawn
-    public Transform playerTransform;
-    Vector3 playerPos;
-    Vector3 playerDirection;
-    Quaternion playerRotation;
-    float spawnDistance;
-    Vector3 spawnPosition;
+	private Grid grid;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		grid = FindObjectOfType<Grid>();
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         unlockedAnimalsDict = new Dictionary<string, GameObject>();
         // The initial amount of spawn points a player has
@@ -53,25 +52,39 @@ public class SpawnManager : MonoBehaviour
     void CheckForSpawnAnimal() {
         //All the code in this method is temporary for now
         if (Input.GetButtonDown("Fire1")) {
-            SpawnAnimal("Cow");
+			RaycastHit hitInfo;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			if (Physics.Raycast(ray, out hitInfo))
+			{
+				SpawnAnimal("Cow", hitInfo.point);
+			}
         }
     }
 
     // This spawns an animal onto the screen
-    void SpawnAnimal(string name) { 
+    void SpawnAnimal(string name, Vector3 nearPoint) {
         GameObject foundAnimal = unlockedAnimalsDict[name];
         int costToSpawn = foundAnimal.GetComponent<Animal>().costToSpawn;
+
         if (isSpawnable(costToSpawn)) {
-            playerPos = playerTransform.position;
-            playerDirection = playerTransform.forward;
-            playerRotation = playerTransform.rotation;
-            spawnDistance = 10;
-            spawnPosition = playerPos + playerDirection*spawnDistance;
-            GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, playerRotation);
-            currAnimal.SetActive(true);
-            spawnPoints -= costToSpawn;
-            FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
-        } else {
+            Quaternion worldRotation = transform.rotation;
+			Vector3 spawnPosition = grid.GetNearestPointOnGrid(nearPoint);
+			if (spawnPosition != Vector3.zero)
+			{
+				GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, worldRotation);
+				currAnimal.SetActive(true);
+
+				spawnPoints -= costToSpawn;
+				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+			}
+			else
+			{
+				Debug.Log("There is something on this tile");
+			}
+		}
+		else
+		{
             Debug.Log("You can't spawn a " + name);
         }
     }
