@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd89bb1f566b6cc47919fcf493f31977
+guid: 42ec47a4aaeeea649b73eaa4424f56bb
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -41,8 +41,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
