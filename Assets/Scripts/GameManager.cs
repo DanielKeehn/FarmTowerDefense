@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
                 goToSpawnMode();
             }
             if (Input.GetButtonDown("UpgradeMode")) {
-                currState = ((int)gameState.SPAWNMODE); 
+                currState = ((int)gameState.UPGRADEMENU); 
                 goToSpawnMode();
             }
         } else if (currState == ((int)gameState.SPAWNMODE)) {
@@ -67,12 +67,12 @@ public class GameManager : MonoBehaviour
                 goToAttackMode();
             }
             if (Input.GetButtonDown("UpgradeMode")) {
-                currState = ((int)gameState.SPAWNMODE); 
+                currState = ((int)gameState.UPGRADEMENU); 
                 goToSpawnMode();
             } 
         } else if (currState == ((int)gameState.UPGRADEMENU)) {
             updateUpgradeMode();
-            if (Input.GetButtonDown("SpawnMode")) {
+            if (Input.GetButtonDown("UpgradeMode")) {
                 currState = ((int)gameState.ATTACKMODE); 
                 goToAttackMode();
             } 
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
 
     void updateUpgradeMode() {
-        if (runSpawnMode != null) { 
+        if (runUpgradeMode != null) { 
             runUpgradeMode();
         }
     }

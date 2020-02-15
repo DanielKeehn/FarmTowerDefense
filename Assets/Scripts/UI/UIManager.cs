@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     {
         FindObjectOfType<GameManager>().attackModeEvent += updateStateUI;
         FindObjectOfType<GameManager>().spawnModeEvent += updateStateUI;
+        FindObjectOfType<GameManager>().upgradeModeEvent += updateStateUI;
     }
 
     // Update is called once per frame
@@ -43,6 +44,13 @@ public class UIManager : MonoBehaviour
                 if (currUIMode.tag == "SpawnMode") {
                     currUIMode.SetActive(true);
                 } else {
+                    currUIMode.SetActive(false);
+                }
+            }
+            if (currState == 5) {
+                if (currUIMode.tag == "UpgradeMode") {
+                    currUIMode.SetActive(true);
+                } else {    
                     currUIMode.SetActive(false);
                 }
             }
