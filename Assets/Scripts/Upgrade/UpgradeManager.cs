@@ -15,6 +15,7 @@ public class UpgradeManager : MonoBehaviour
         // This gets the unlcoked animals dict from the spawn manager
          animalDict = FindObjectOfType<SpawnManager>().GetComponent<SpawnManager>().getAnimalDict();
          currentAnimal = "Cow";
+         
     }
 
     // Update is called once per frame
@@ -26,10 +27,15 @@ public class UpgradeManager : MonoBehaviour
     // This changes what the current animal is
     void changeCurrentAnimal(string animal) {
         currentAnimal = animal;
+        updateUpgradeMenuUI();
     }
 
-    public string getCurrentAnimal() {
-        return currentAnimal;
+    void updateUpgradeMenuUI() {
+        FindObjectOfType<UIManager>().GetComponent<UIManager>().changeUpgradeStatsUI();
+    }
+
+    public GameObject getCurrentAnimal() {
+        return animalDict[currentAnimal];
     }
 
 }

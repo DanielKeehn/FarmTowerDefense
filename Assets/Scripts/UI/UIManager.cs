@@ -7,6 +7,12 @@ public class UIManager : MonoBehaviour
 
     public GameObject spawnPointsAmount;
 
+    // This is all of the UI that will be altered when in the upgrade menu
+    public GameObject currentAnimalUI;
+    public GameObject currentHealthUI;
+    public GameObject currentCostToSpawnUI;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +65,13 @@ public class UIManager : MonoBehaviour
 
     // This function updates the UI for what is shown on the upgrade menu
     public void changeUpgradeStatsUI() {
-        string currentAnimal = FindObjectOfType<UpgradeManager>().GetComponent<UpgradeManager>().getAnimalDict();
+        GameObject currentAnimal = FindObjectOfType<UpgradeManager>().GetComponent<UpgradeManager>().getCurrentAnimal();
+        string name = currentAnimal.GetComponent<Animal>().name;
+        string health = currentAnimal.GetComponent<Animal>().health.ToString();
+        string costToSpawn = currentAnimal.GetComponent<Animal>().costToSpawn.ToString();
+        currentAnimalUI.GetComponent<TMPro.TextMeshProUGUI>().text = name;
+        currentHealthUI.GetComponent<TMPro.TextMeshProUGUI>().text = health;
+        currentCostToSpawnUI.GetComponent<TMPro.TextMeshProUGUI>().text = costToSpawn;
     }
+
 }

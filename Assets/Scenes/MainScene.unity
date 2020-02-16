@@ -2260,7 +2260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1711561071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2690,6 +2690,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPointsAmount: {fileID: 218955184}
+  currentAnimalUI: {fileID: 399910370}
+  currentHealthUI: {fileID: 1684379331}
+  currentCostToSpawnUI: {fileID: 703012192}
 --- !u!1001 &2037620733
 PrefabInstance:
   m_ObjectHideFlags: 0
