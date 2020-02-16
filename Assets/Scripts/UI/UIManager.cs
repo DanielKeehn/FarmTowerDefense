@@ -56,4 +56,9 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    // This function updates the UI for what is shown on the upgrade menu
+    public void changeUpgradeStatsUI() {
+        string currentAnimal = FindObjectOfType<UpgradeManager>().GetComponent<UpgradeManager>().getAnimalDict();
+    }
 }
