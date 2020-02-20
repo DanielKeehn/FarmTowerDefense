@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     public Dictionary<string, GameObject> unlockedAnimalsDict;
     int unlockedAnimalDictSize;
+	[HideInInspector] public string playerSelectedAnimal;
 
 	private Grid grid;
 
@@ -57,7 +58,7 @@ public class SpawnManager : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hitInfo))
 			{
-				SpawnAnimal("Cow", hitInfo.point);
+				SpawnAnimal(playerSelectedAnimal, hitInfo.point);
 			}
         }
     }
