@@ -27,7 +27,13 @@ public class GameManager : MonoBehaviour
     public event SpawnModeDelegate spawnModeEvent;
     
     public delegate void RunSpawnModeDelegate();
-    public event RunSpawnModeDelegate runSpawnMode;   
+    public event RunSpawnModeDelegate runSpawnMode; 
+
+    public delegate void UpgradeModeDelegate();
+    public event UpgradeModeDelegate upgradeModeEvent;
+    
+    public delegate void RunUpgradeModeDelegate();
+    public event RunUpgradeModeDelegate runUpgradeMode;   
 
     // Start is called before the first frame update
     void Start()
@@ -50,14 +56,26 @@ public class GameManager : MonoBehaviour
                 currState = ((int)gameState.SPAWNMODE); 
                 goToSpawnMode();
             }
+            if (Input.GetButtonDown("UpgradeMode")) {
+                currState = ((int)gameState.UPGRADEMENU); 
+                goToSpawnMode();
+            }
         } else if (currState == ((int)gameState.SPAWNMODE)) {
             updateSpawnMode();
             if (Input.GetButtonDown("SpawnMode")) {
                 currState = ((int)gameState.ATTACKMODE); 
                 goToAttackMode();
+            }
+            if (Input.GetButtonDown("UpgradeMode")) {
+                currState = ((int)gameState.UPGRADEMENU); 
+                goToSpawnMode();
             } 
         } else if (currState == ((int)gameState.UPGRADEMENU)) {
- 
+            updateUpgradeMode();
+            if (Input.GetButtonDown("UpgradeMode")) {
+                currState = ((int)gameState.ATTACKMODE); 
+                goToAttackMode();
+            } 
         } 
     }
 
@@ -82,6 +100,19 @@ public class GameManager : MonoBehaviour
     void updateSpawnMode() {
         if (runSpawnMode != null) { 
             runSpawnMode();
+        }
+    }
+
+    
+    void goToUpgradeMode() {
+        if (spawnModeEvent != null) { 
+            upgradeModeEvent();
+        }
+    }
+
+    void updateUpgradeMode() {
+        if (runUpgradeMode != null) { 
+            runUpgradeMode();
         }
     }
 

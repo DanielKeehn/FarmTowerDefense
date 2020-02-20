@@ -88,4 +88,8 @@ public class SpawnManager : MonoBehaviour
             Debug.Log("You can't spawn a " + name);
         }
     }
+
+    public Dictionary<string, GameObject> getAnimalDict() {
+        return unlockedAnimalsDict;
+    }
 }
