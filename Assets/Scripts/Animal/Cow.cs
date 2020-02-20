@@ -10,6 +10,6 @@ public class Cow : Animal
         name = "Cow";
         health = 10;
         costToSpawn = 10;
-        isUnlocked = true;
+        isUnlocked = false;
     }
 }
