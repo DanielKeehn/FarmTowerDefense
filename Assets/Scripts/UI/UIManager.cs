@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("Hello World!");
     }
 
     public void changeSpawnPointsAmountUI(int newNum){
