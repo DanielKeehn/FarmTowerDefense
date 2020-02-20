@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class AnimalManager : MonoBehaviour
 {
-
     public Dictionary<string, GameObject> animalDict;
 
     // Start is called before the first frame update
@@ -17,9 +16,13 @@ public class AnimalManager : MonoBehaviour
         foreach (Transform child in transform) {
             string name = child.gameObject.name;
             animalDict.Add(name,child.gameObject);
+
+			Animal animal = child.gameObject.GetComponent<Animal>();
+			if (animal.isUnlocked)
+			{
+				UnlockAnimal(animal.name);
+			}
         }
-        // This is temporary because the upgrade system is not implemented yet
-        UnlockAnimal("Cow");
     }
 
     // Update is called once per frame
