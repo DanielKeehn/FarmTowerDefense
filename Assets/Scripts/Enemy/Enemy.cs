@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int healthLost) {
         this.health -= healthLost;
         if (this.health <= 0) {
+            Destroy(gameObject);
             Debug.Log(this.name + " has died");
         }
         Debug.Log(this.name + " took " + healthLost + " damage");

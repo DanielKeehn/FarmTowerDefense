@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   attackRange: 10
+  attackCoolDown: 1
 --- !u!1 &350580098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,8 +1514,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835538455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23, y: 2.58, z: -35.45}
-  m_LocalScale: {x: 2.708986, y: 2.2282581, z: 3.8803449}
+  m_LocalPosition: {x: 23, y: 4.04, z: -35.45}
+  m_LocalScale: {x: 4.6518707, y: 3.804494, z: 3.8803449}
   m_Children: []
   m_Father: {fileID: 350580099}
   m_RootOrder: 0

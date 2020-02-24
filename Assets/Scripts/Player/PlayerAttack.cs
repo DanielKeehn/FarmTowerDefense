@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public Camera camera;
     public Weapon weaponScript;
 
+    private float attackTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,9 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Attack")) {
+        attackTimer += Time.deltaTime;
+        if (Input.GetButtonDown("Attack") && attackTimer >= weaponScript.attackCoolDown) {
+            attackTimer = 0.0f;
             DoAttack();
         }
     }
