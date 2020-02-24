@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Test Enemy
-  health: 100
+  health: 34
 --- !u!1 &839270415
 GameObject:
   m_ObjectHideFlags: 0

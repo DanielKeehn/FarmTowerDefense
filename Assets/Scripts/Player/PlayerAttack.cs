@@ -14,11 +14,12 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         weaponScript = gameObject.GetComponent<Weapon>();
+        FindObjectOfType<GameManager>().runAttackMode += CheckForAttack;
         
     }
 
     // Update is called once per frame
-    void Update()
+    void CheckForAttack()
     {
         attackTimer += Time.deltaTime;
         if (Input.GetButtonDown("Attack") && attackTimer >= weaponScript.attackCoolDown) {
