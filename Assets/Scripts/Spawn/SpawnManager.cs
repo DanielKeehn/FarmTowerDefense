@@ -34,7 +34,6 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
@@ -75,7 +74,7 @@ public class SpawnManager : MonoBehaviour
 			{
 				GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, worldRotation);
 				currAnimal.SetActive(true);
-
+                currAnimal.transform.position += new Vector3(0, 3, 0);
 				spawnPoints -= costToSpawn;
 				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
 			}
