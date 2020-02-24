@@ -34,7 +34,6 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("HI");
     }
 
     // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
