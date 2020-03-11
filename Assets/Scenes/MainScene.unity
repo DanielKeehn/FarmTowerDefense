@@ -1641,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.7, y: 1.0900002}
+  m_AnchoredPosition: {x: -0.69999695, y: 1.0900002}
   m_SizeDelta: {x: 3.76, y: 2.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754116575
@@ -2956,6 +2956,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1509178088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509178090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8378f9831f786794bb13f39fc5943160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healthbar: {fileID: 1699655321}
 --- !u!65 &1509178091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3218,6 +3233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1699655319}
   - component: {fileID: 1699655320}
+  - component: {fileID: 1699655321}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -3243,7 +3259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.52, y: -2.51}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.00000023841858}
   m_SizeDelta: {x: 197.45, y: 35.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699655320
@@ -3298,6 +3314,49 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1699655321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699655318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c83f3587fcf84ca43084ef75ce359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1699655320}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.06575353, b: 0, a: 1}
+    key1: {r: 0.99636734, g: 1, b: 0, a: 1}
+    key2: {r: 0.033018887, g: 1, b: 0.08925304, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 15420
+    ctime1: 40092
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  fill: {fileID: 754116575}
 --- !u!1 &1711561070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,6 +3992,7 @@ GameObject:
   - component: {fileID: 2136151805}
   - component: {fileID: 2136151804}
   - component: {fileID: 2136151803}
+  - component: {fileID: 2136151806}
   m_Layer: 5
   m_Name: HealthBarCanvas
   m_TagString: Untagged
@@ -3947,9 +4007,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136151801}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -16.07}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1699655319}
   m_Father: {fileID: 2004214664}
@@ -3957,9 +4017,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -9.71, y: 9.94}
+  m_SizeDelta: {x: 220.23, y: 59.61}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136151803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4008,7 +4068,7 @@ Canvas:
   m_GameObject: {fileID: 2136151801}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -4020,6 +4080,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2136151806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136151801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf715b6a11cdca4c89bb869e9e5d0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2783110536851351163
 PrefabInstance:
   m_ObjectHideFlags: 0
