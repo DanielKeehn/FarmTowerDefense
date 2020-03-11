@@ -4,13 +4,13 @@ using UnityEngine;
 
 // Notice this class is a child of Enemy
 
-public class Sugarcane : Enemy
+public class AppleTree : Enemy
 {
-    public Sugarcane()
+    public AppleTree()
     {
-        name = "Sugarcane";
+        name = "Apple Tree";
         spell = 15;
-        costToKill = 15;
+        health = 15;
         isUnlocked = true;
     }
 }

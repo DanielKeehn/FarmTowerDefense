@@ -4,13 +4,13 @@ using UnityEngine;
 
 // Notice this class is a child of Enemy
 
-public class Wheat : Enemy
+public class Potato : Enemy
 {
-    public Wheat()
+    public Potato()
     {
-        name = "Wheat";
-        spell = 13;
-        costToKill = 13;
+        name = "Potato";
+        spell = 17;
+        health = 17;
         isUnlocked = true;
     }
 }

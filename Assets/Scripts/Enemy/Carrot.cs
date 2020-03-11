@@ -4,13 +4,13 @@ using UnityEngine;
 
 // Notice this class is a child of Enemy
 
-public class VenusFlytrap : Enemy
+public class Carrot : Enemy
 {
-    public VenusFlytrap()
+    public Carrot()
     {
-        name = "Venus Flytrap";
-        spell = 25;
-        costToKill = 25;
+        name = "Carrot";
+        spell = 8;
+        health = 8;
         isUnlocked = true;
     }
 }

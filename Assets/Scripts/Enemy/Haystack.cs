@@ -10,7 +10,7 @@ public class Haystack : Enemy
     {
         name = "Haystack";
         spell = 10;
-        costToKill = 10;
+        health = 10;
         isUnlocked = true;
     }
 }
