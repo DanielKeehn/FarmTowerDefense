@@ -1870,6 +1870,7 @@ MonoBehaviour:
   health: 30
   spell: 0
   isUnlocked: 1
+  attackPower: 10
 --- !u!114 &835538461
 MonoBehaviour:
   m_ObjectHideFlags: 0
