@@ -9,13 +9,15 @@ public class Enemy : MonoBehaviour
     public int health;
     public int spell;
     public bool isUnlocked;
+    public int attackPower;
 
     // This is the contructor
-    public Enemy(string n, int h, int s, bool u) {
+    public Enemy(string n, int h, int s, bool u, int a) {
         this.name = n;
         this.health = h;
         this.spell = s;
         this.isUnlocked = u;
+        this.attackPower = a;
     }
 
 
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
         this.health = 0;
         this.spell = 0;
         this.isUnlocked = false;
+        this.attackPower = 0;
     }
 
     public void TakeDamage(int healthLost) {

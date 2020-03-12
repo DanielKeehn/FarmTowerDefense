@@ -11,7 +11,7 @@ public class PathFinder : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.transform.gameObject == target) {
-			print("arrived at destination!");
+			Debug.Log("arrived at destination!");
 		}
 	}
 }
