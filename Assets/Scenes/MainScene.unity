@@ -1887,7 +1887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1509178089}
+  farmhouse: {fileID: 1509178089}
   agent: {fileID: 835538462}
+  spawnManager: {fileID: 1691529633}
 --- !u!195 &835538462
 NavMeshAgent:
   m_ObjectHideFlags: 0

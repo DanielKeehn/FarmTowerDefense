@@ -4,9 +4,6 @@ using System;
 using System.Collections;
 
 public class PathFinder : MonoBehaviour {
-
-	// ArrayList of all possible targets
-	ArrayList targetAL = new ArrayList();
 	
 	// This is the current target
 	public GameObject target;
@@ -16,10 +13,11 @@ public class PathFinder : MonoBehaviour {
 	
 	public NavMeshAgent agent;
 
+	public SpawnManager spawnManager;
+
 	void Start() {
 		// The farmhouse is added to the list of targets if the object is an enemy and it is the default target
 		if (gameObject.tag == "Enemy") {
-			targetAL.Add(farmhouse);
 			target = farmhouse;
 			agent.SetDestination(target.transform.position);
 		}
@@ -41,13 +39,30 @@ public class PathFinder : MonoBehaviour {
 
 	// This takes in all the possible targets and picks the closest target
 	void updateTarget() {
-		foreach (GameObject target in targetAL) {
-			Debug.Log(target);
+		
+		// These variables represent the closest target and the distanc of this closest object
+		GameObject closestTarget = null;
+		float closestTargetDistance = float.PositiveInfinity;
+		float distance;
+		
+		if (gameObject.tag == "Enemy") {
+			distance = Vector3.Distance(farmhouse.transform.position, transform.position);
+			if (distance < closestTargetDistance) {
+				closestTargetDistance = distance;
+				closestTarget = farmhouse;	
+			}
+			ArrayList spawnedAnimals = spawnManager.getSpawnedAnimalsArray();
+			foreach (GameObject animal in spawnedAnimals) {
+				distance = Vector3.Distance(animal.transform.position, transform.position);
+				if (distance < closestTargetDistance) {
+					closestTargetDistance = distance;
+					closestTarget = animal;
+				}
+			}
 		}
-	}
-
-	// This method adds targets to the target array list
-	public void addTarget(GameObject newTarget) {
-		targetAL.Add(newTarget);
-	}
+		
+		target = closestTarget;
+		agent.SetDestination(target.transform.position);
+		
+	}	
 }
