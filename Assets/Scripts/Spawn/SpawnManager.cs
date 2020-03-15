@@ -14,6 +14,8 @@ public class SpawnManager : MonoBehaviour
 
 	private Grid grid;
 
+    
+
 	private void Awake()
 	{
 		grid = FindObjectOfType<Grid>();
@@ -73,8 +75,8 @@ public class SpawnManager : MonoBehaviour
 			if (spawnPosition != Vector3.zero)
 			{
 				GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, worldRotation);
+                currAnimal.transform.position += new Vector3(0, foundAnimal.transform.position.y, 0);
 				currAnimal.SetActive(true);
-                currAnimal.transform.position += new Vector3(0, 0, 0);
 				spawnPoints -= costToSpawn;
 				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
 			}

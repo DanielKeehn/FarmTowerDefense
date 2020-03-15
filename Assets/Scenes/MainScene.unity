@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 448564188}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Farmhouse
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6078b991ca80ba48add7ed1da923254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 889998009}
+  target: {fileID: 1509178089}
   agent: {fileID: 835538462}
 --- !u!195 &835538462
 NavMeshAgent:
@@ -4430,7 +4430,7 @@ PrefabInstance:
     - target: {fileID: 7069917527039882479, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882479, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
@@ -4440,17 +4440,17 @@ PrefabInstance:
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.6
+      value: -16.19
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.19
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
