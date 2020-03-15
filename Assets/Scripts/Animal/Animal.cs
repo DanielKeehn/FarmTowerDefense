@@ -35,6 +35,13 @@ public class Animal: MonoBehaviour
     public void TakeDamage(int damage) {
         this.health -= damage;
         Debug.Log(this.name + " took " + damage + " damage");
+        checkForDead();
+    }
+
+    void checkForDead() {
+        if (this.health <= 0) {
+            Destroy(gameObject);
+        }
     }
 
 }
