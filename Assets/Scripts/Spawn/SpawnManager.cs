@@ -14,6 +14,9 @@ public class SpawnManager : MonoBehaviour
 
 	private Grid grid;
 
+    // This keeps track of all the current spawned animals
+    ArrayList spawnedAnimals = new ArrayList();
+
 	private void Awake()
 	{
 		grid = FindObjectOfType<Grid>();
@@ -33,7 +36,7 @@ public class SpawnManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
     }
 
     // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
@@ -73,9 +76,10 @@ public class SpawnManager : MonoBehaviour
 			if (spawnPosition != Vector3.zero)
 			{
 				GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, worldRotation);
+                currAnimal.transform.position += new Vector3(0, foundAnimal.transform.position.y, 0);
 				currAnimal.SetActive(true);
-                currAnimal.transform.position += new Vector3(0, 0, 0);
 				spawnPoints -= costToSpawn;
+                spawnedAnimals.Add(currAnimal);
 				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
 			}
 			else
@@ -91,5 +95,9 @@ public class SpawnManager : MonoBehaviour
 
     public Dictionary<string, GameObject> getAnimalDict() {
         return unlockedAnimalsDict;
+    }
+
+    public ArrayList getSpawnedAnimalsArray() {
+        return spawnedAnimals;
     }
 }

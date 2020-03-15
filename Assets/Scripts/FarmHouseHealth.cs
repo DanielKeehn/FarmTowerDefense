@@ -19,13 +19,12 @@ public class FarmHouseHealth : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            TakeDamage(10);
-        }
+    { 
+    
     }
 
-    void TakeDamage(int damage) {
+    // The barn house loses health every time this method is called
+     public void TakeDamage(int damage) {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
     }

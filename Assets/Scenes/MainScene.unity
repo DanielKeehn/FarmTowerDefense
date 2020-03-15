@@ -1871,6 +1871,9 @@ MonoBehaviour:
   spell: 0
   isUnlocked: 1
   attackPower: 10
+  attackSpeed: 3
+  attacking: 0
+  enemyAttacking: {fileID: 0}
 --- !u!114 &835538461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,7 +1887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1509178089}
+  farmhouse: {fileID: 1509178089}
   agent: {fileID: 835538462}
+  spawnManager: {fileID: 1691529633}
 --- !u!195 &835538462
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2080,6 +2085,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839270415}
   m_CullTransparentMesh: 0
+--- !u!1 &889998009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7069917527039882479, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7069917527070088309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889998010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889998009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
+--- !u!65 &889998011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889998009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9281197, y: 5.5291414, z: 9.37469}
+  m_Center: {x: -0.03403282, y: 0.0016579628, z: -1.8383155}
 --- !u!1001 &952067632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2892,6 +2932,11 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 85e329c9586c1154db74704f90aaf19a,
         type: 3}
       propertyPath: m_Name
+      value: Farmhouse
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85e329c9586c1154db74704f90aaf19a,
+        type: 3}
+      propertyPath: m_TagString
       value: Farmhouse
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e329c9586c1154db74704f90aaf19a,
@@ -4097,6 +4142,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783110536946291371, guid: 8259093ce3ba9e244a51c6d0fce5f597,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 2783110536946291370, guid: 8259093ce3ba9e244a51c6d0fce5f597,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4283,6 +4333,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6897402804004433880, guid: 1f4593124c8af16458ba883759357103,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 6897402804004433887, guid: 1f4593124c8af16458ba883759357103,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4379,20 +4434,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069917527039882479, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.65
+      value: -16.19
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.93
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882478, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
@@ -4458,6 +4518,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069917527039882473, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: health
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3ef6356c7bd414987cebee693ff1e1, type: 3}

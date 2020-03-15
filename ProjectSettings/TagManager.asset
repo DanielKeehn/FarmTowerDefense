@@ -8,6 +8,8 @@ TagManager:
   - SpawnMode
   - UpgradeMode
   - Enemy
+  - Farmhouse
+  - Animal
   layers:
   - Default
   - TransparentFX
