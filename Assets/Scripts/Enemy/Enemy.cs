@@ -81,6 +81,10 @@ public class Enemy : MonoBehaviour
     void Attack(GameObject enemyAttacking) {
         if (enemyAttacking.tag == "Farmhouse") {
             enemyAttacking.GetComponent<FarmHouseHealth>().TakeDamage(this.attackPower);
+        } else if (enemyAttacking.tag == "Animal") {
+            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower);
+        } else {
+            Debug.Log(this.name + " did not attack something with an animal or farmhouse tag");
         }
         attacktimer = 0.0f;
     }
