@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     // This timer is compared with that attack speed to determine when an enemy attacks
     float attacktimer;
 
+    int attackingIndex;
+
     // This is the contructor
     public Enemy(string n, int h, int s, bool u, int p, int sp, bool a, GameObject ea) {
         this.name = n;
@@ -65,10 +67,11 @@ public class Enemy : MonoBehaviour
     }
 
     // This takes in the thing the enemy is attacking and begins the proccess of attacking
-    public void BeginAttack(GameObject enemyAttacking) {
+    public void BeginAttack(GameObject enemyAttacking, int index) {
         Debug.Log("Attack Begun On " + enemyAttacking);
         attacking = true;
         this.enemyAttacking = enemyAttacking;
+        attackingIndex = index;
     }
 
     void checkForAttack(GameObject enemyAttacking) {
@@ -82,7 +85,7 @@ public class Enemy : MonoBehaviour
         if (enemyAttacking.tag == "Farmhouse") {
             enemyAttacking.GetComponent<FarmHouseHealth>().TakeDamage(this.attackPower);
         } else if (enemyAttacking.tag == "Animal") {
-            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower);
+            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower, attackingIndex);
         } else {
             Debug.Log(this.name + " did not attack something with an animal or farmhouse tag");
         }

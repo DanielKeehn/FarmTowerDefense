@@ -32,14 +32,16 @@ public class Animal: MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(int damage, int index) {
         this.health -= damage;
         Debug.Log(this.name + " took " + damage + " damage");
-        checkForDead();
+        checkForDead(index);
     }
 
-    void checkForDead() {
+    void checkForDead(int index) {
         if (this.health <= 0) {
+            ArrayList spawnedAnimals =  GameObject.FindObjectOfType<SpawnManager>().getSpawnedAnimalsArray();
+            spawnedAnimals.RemoveAt(index); 
             Destroy(gameObject);
         }
     }
