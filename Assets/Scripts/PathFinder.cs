@@ -12,6 +12,9 @@ public class PathFinder : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if(other.transform.gameObject == target) {
 			Debug.Log("arrived at destination!");
+			if (gameObject.tag == "Enemy") {
+				gameObject.GetComponent<Enemy>().BeginAttack(target);
+			}
 		}
 	}
 }

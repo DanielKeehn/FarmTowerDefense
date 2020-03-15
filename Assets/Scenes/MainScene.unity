@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 448564188}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Farmhouse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1871,6 +1871,9 @@ MonoBehaviour:
   spell: 0
   isUnlocked: 1
   attackPower: 10
+  attackSpeed: 3
+  attacking: 0
+  enemyAttacking: {fileID: 0}
 --- !u!114 &835538461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2892,6 +2895,11 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 85e329c9586c1154db74704f90aaf19a,
         type: 3}
       propertyPath: m_Name
+      value: Farmhouse
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85e329c9586c1154db74704f90aaf19a,
+        type: 3}
+      propertyPath: m_TagString
       value: Farmhouse
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e329c9586c1154db74704f90aaf19a,
