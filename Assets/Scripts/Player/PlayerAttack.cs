@@ -15,7 +15,6 @@ public class PlayerAttack : MonoBehaviour
     {
         weaponScript = gameObject.GetComponent<Weapon>();
         FindObjectOfType<GameManager>().runAttackMode += CheckForAttack;
-        
     }
 
     // Update is called once per frame
