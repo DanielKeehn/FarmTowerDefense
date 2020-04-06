@@ -122,7 +122,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void switchToMainGame() {
-         SceneManager.LoadScene("MainScene");
+        Debug.Log("LoadingMainScene");
+        SceneManager.LoadScene("MainScene");
     }
 
 }
