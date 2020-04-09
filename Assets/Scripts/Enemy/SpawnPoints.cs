@@ -33,6 +33,11 @@ public class SpawnPoints : MonoBehaviour
 
     void spawnEnemy(string name) {
         Dictionary<string, GameObject> enemyDict = enemyManager.enemyDict;
-        Transform randSpawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
+        GameObject enemyPrefab = enemyDict[name];
+
+        Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)]; 
+        
+        GameObject spawnedAnimal = Instantiate(enemyPrefab, spawnLocation);
+        spawnedAnimal.SetActive(true);
     }   
 }
