@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    int currentRound = 1;
+    int currentRoundIndex;
+    Round currentRound;
     public Round[] rounds;
+  
+    void Start() {
+        currentRoundIndex = 0;
+        currentRound = rounds[currentRoundIndex];
+    }
+
+    public Round GetCurrentRound() {
+        return currentRound;
+    }
+
 }

@@ -3171,6 +3171,7 @@ MonoBehaviour:
   - {fileID: 2043444152}
   - {fileID: 1028088247}
   enemyManager: {fileID: 350580101}
+  roundManager: {fileID: 1240799658}
 --- !u!114 &350580101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11702,6 +11703,8 @@ MonoBehaviour:
   roundNumber: 4
   numberOfEnemies: 30
   spawnSpeed: 1
+  winRound: 0
+  loseRound: 0
 --- !u!114 &1240799661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11717,6 +11720,8 @@ MonoBehaviour:
   roundNumber: 3
   numberOfEnemies: 20
   spawnSpeed: 3
+  winRound: 0
+  loseRound: 0
 --- !u!114 &1240799662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11732,6 +11737,8 @@ MonoBehaviour:
   roundNumber: 2
   numberOfEnemies: 10
   spawnSpeed: 4
+  winRound: 0
+  loseRound: 0
 --- !u!114 &1240799663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11746,7 +11753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundNumber: 1
   numberOfEnemies: 4
-  spawnSpeed: 10
+  spawnSpeed: 4
+  winRound: 0
+  loseRound: 0
 --- !u!1 &1266590170
 GameObject:
   m_ObjectHideFlags: 0
