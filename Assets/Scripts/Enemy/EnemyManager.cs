@@ -16,17 +16,14 @@ public class EnemyManager : MonoBehaviour
         enemyDict = new Dictionary<string, GameObject>();
         foreach (Transform child in transform)
         {
-            string enemyName = child.gameObject.name;
+            string name = child.gameObject.GetComponent<Enemy>().name;
             enemyDict.Add(name, child.gameObject);
         }
-        // This is temporary because the upgrade system is not implemented yet
-        UnlockEnemy("Carrot");
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     // This runs when a player unlocks an animal, the spawn manager will take note of this when this method runs as well
