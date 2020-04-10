@@ -15,6 +15,8 @@ public class Round : MonoBehaviour
     public bool winRound;
     public bool loseRound;
 
+    UIManager uIManager;
+
     public Round(int ne, int ss, int rn) {
         this.numberOfEnemies = ne;
         this.spawnSpeed = ss;
@@ -31,6 +33,10 @@ public class Round : MonoBehaviour
         this.loseRound = false;
     }
 
+    void Start() {
+        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+    }
+
     public bool EnemyReadyToSpawn(float currentTime) {
         if (currentTime >= this.spawnSpeed) {
             return true;
@@ -42,6 +48,7 @@ public class Round : MonoBehaviour
      // This method runs when an enemy is killed
     public void decreaseNumberOfEnemies() {
         this.numberOfEnemies--;
+        uIManager.updateEnemiesLeft(this.numberOfEnemies);
         checkWinState();
     }
 
@@ -55,5 +62,9 @@ public class Round : MonoBehaviour
         } else {
             return false;
         }
+    }
+
+    public int getNumEnemies() {
+        return this.numberOfEnemies;
     }
 }

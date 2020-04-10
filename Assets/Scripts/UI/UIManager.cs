@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject currentHealthUI;
     public GameObject currentCostToSpawnUI;
 
+    public GameObject roundNumberUI;
+    public GameObject enemiesLeftUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +75,14 @@ public class UIManager : MonoBehaviour
         currentAnimalUI.GetComponent<TMPro.TextMeshProUGUI>().text = name;
         currentHealthUI.GetComponent<TMPro.TextMeshProUGUI>().text = health;
         currentCostToSpawnUI.GetComponent<TMPro.TextMeshProUGUI>().text = costToSpawn;
+    }
+
+    public void updateRound(int roundNumber) {
+        roundNumberUI.GetComponent<TMPro.TextMeshProUGUI>().text = roundNumber.ToString();
+    }
+
+    public void updateEnemiesLeft(int enemiesLeft) {
+        enemiesLeftUI.GetComponent<TMPro.TextMeshProUGUI>().text = enemiesLeft.ToString();
     }
 
 }
