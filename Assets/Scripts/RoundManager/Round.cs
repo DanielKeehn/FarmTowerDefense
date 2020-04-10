@@ -49,6 +49,8 @@ public class Round : MonoBehaviour
     public bool checkWinState() {
         if (this.numberOfEnemies <= 0) {
             Debug.Log("Round Won!");
+            RoundManager roundManager = gameObject.GetComponent<RoundManager>();
+            roundManager.goToNextRound();
             return true;
         } else {
             return false;

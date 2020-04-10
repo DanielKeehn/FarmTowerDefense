@@ -17,4 +17,9 @@ public class RoundManager : MonoBehaviour
         return currentRound;
     }
 
+    public void goToNextRound() {
+        currentRoundIndex++;
+        currentRound = rounds[currentRoundIndex];
+    }
+
 }
