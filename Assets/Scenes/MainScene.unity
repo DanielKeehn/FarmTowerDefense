@@ -16225,7 +16225,7 @@ MonoBehaviour:
   health: 10
   spell: 8
   isUnlocked: 1
-  attackPower: 10
+  attackPower: 1
   attackSpeed: 1
   attacking: 0
   enemyAttacking: {fileID: 0}
@@ -41106,7 +41106,7 @@ PrefabInstance:
     - target: {fileID: 7069917527039882473, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: health
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7069917527039882473, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}

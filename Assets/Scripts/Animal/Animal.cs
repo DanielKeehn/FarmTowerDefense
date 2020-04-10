@@ -89,5 +89,13 @@ public class Animal: MonoBehaviour
         attacktimer = 0.0f;
     }
 
+       void Update()
+    {
+        // Checking for an attack only runs when this.attacking is true
+        if (this.attacking) {
+            checkForAttack(this.enemyAttacking);
+        }
+    }
+
 
 }
