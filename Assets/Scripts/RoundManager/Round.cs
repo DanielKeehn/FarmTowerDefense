@@ -38,4 +38,20 @@ public class Round : MonoBehaviour
             return false;
         }
     }
+
+     // This method runs when an enemy is killed
+    public void decreaseNumberOfEnemies() {
+        this.numberOfEnemies--;
+        checkWinState();
+    }
+
+    //This method checks if a round is won by checking how if there are zero enemies left to kill
+    public bool checkWinState() {
+        if (this.numberOfEnemies <= 0) {
+            Debug.Log("Round Won!");
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -19,12 +19,12 @@ public class SpawnPoints : MonoBehaviour
     void Start()
     {
         spawnTimer = 0.0f;
-        currentRound = roundManager.GetCurrentRound();
     }
 
     public void Update()
     {
         spawnTimer += Time.deltaTime;
+        currentRound = roundManager.GetCurrentRound();
         if (currentRound.EnemyReadyToSpawn(spawnTimer)) {
             spawnTimer = 0.0f;
             spawnEnemy("Carrot");
@@ -35,7 +35,7 @@ public class SpawnPoints : MonoBehaviour
         Dictionary<string, GameObject> enemyDict = enemyManager.enemyDict;
         GameObject enemyPrefab = enemyDict[name];
 
-        Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)]; 
+        Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
         
         GameObject spawnedAnimal = Instantiate(enemyPrefab, spawnLocation);
         spawnedAnimal.SetActive(true);
