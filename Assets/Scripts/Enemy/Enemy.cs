@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
         if (enemyAttacking.tag == "Farmhouse") {
             enemyAttacking.GetComponent<FarmHouseHealth>().TakeDamage(this.attackPower);
         } else if (enemyAttacking.tag == "Animal") {
-            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower, attackingIndex);
+            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower, attackingIndex, this);
         } else {
             Debug.Log(this.name + " did not attack something with an animal or farmhouse tag");
         }
