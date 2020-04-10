@@ -45,12 +45,13 @@ public class PathFinder : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.transform.gameObject == target) {
-			Debug.Log("arrived at destination!");
 			if (gameObject.tag == "Enemy") {
+				Debug.Log("Enemy arrived at destination!");
 				gameObject.GetComponent<Enemy>().BeginAttack(target, enemyAttackingIndex);
 			}
 			if (gameObject.tag == "Animal") {
-				Debug.Log("Animal is Attacking!");
+				Debug.Log("Animal arrived at destination!");
+				gameObject.GetComponent<Animal>().BeginAttack(target, enemyAttackingIndex);
 			}
 		}
 	}
