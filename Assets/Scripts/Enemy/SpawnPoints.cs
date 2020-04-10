@@ -16,6 +16,8 @@ public class SpawnPoints : MonoBehaviour
 
     float spawnTimer;
 
+    ArrayList spawnedEnemiesArray = new ArrayList();
+
     void Start()
     {
         spawnTimer = 0.0f;
@@ -37,7 +39,13 @@ public class SpawnPoints : MonoBehaviour
 
         Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
         
-        GameObject spawnedAnimal = Instantiate(enemyPrefab, spawnLocation);
-        spawnedAnimal.SetActive(true);
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnLocation);
+        spawnedEnemy.SetActive(true);
+
+        spawnedEnemiesArray.Add(spawnedEnemy);
+    }
+
+    public ArrayList getSpawnedEnemiesArray() {
+        return spawnedEnemiesArray;
     }   
 }
