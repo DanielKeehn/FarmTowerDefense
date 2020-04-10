@@ -1,39 +1,21 @@
 fileFormatVersion: 2
-guid: edb37ab029db1984087347a105369eae
+guid: d8cdbcd092d7b01429dd2462b935887a
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.321
-    second: {fileID: 2100000, guid: 75578113769c3d84498e439499f31abb, type: 2}
+      74: -5186851298803602900
+    second: Cow|CowAction
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.322
-    second: {fileID: 2100000, guid: a288e0a5df3765d45bc8ab0ceac6b2a5, type: 2}
+      74: 6518951126271790015
+    second: Cow|EyeAction
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.323
-    second: {fileID: 2100000, guid: a31f1ac84a8ca914c813a87c0217b147, type: 2}
+      74: 6658152143574888875
+    second: Eye|CowAction
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.324
-    second: {fileID: 2100000, guid: ab8675cef0f991641bbd14b14f86dfdb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.325
-    second: {fileID: 2100000, guid: 9f54b29f3954a0e4395e3bb24de4a241, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TransparentEye.012
-    second: {fileID: 2100000, guid: 7f0d9642872ae054abf0fc3a73e7325e, type: 2}
+      74: -2231937980524115336
+    second: Eye|EyeAction
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -117,7 +99,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

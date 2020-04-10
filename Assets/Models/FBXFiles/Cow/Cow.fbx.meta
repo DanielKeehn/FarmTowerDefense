@@ -3,37 +3,7 @@ guid: dd921b2765a1b3740a3617a1360d10d8
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.321
-    second: {fileID: 2100000, guid: 942da509bcaf6e8459051dbb03dd69d2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.322
-    second: {fileID: 2100000, guid: 74ed1370394394646871508fea3cb814, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.323
-    second: {fileID: 2100000, guid: c4b1f5b7283a50e4497043b88d0dbd20, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.324
-    second: {fileID: 2100000, guid: 23e15238ec125fc468355ea311e9c0c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.325
-    second: {fileID: 2100000, guid: 24aac8e948672b24babfdaa2748b2c72, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TransparentEye.012
-    second: {fileID: 2100000, guid: 6cede6bbf0eb48947a1d2a4025e7e6e8, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

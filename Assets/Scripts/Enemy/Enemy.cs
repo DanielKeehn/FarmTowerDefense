@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public bool attacking;
     public GameObject enemyAttacking;
 
+    public RoundManager roundManager;
+    Round currentRound; 
+
     // This timer is compared with that attack speed to determine when an enemy attacks
     float attacktimer;
 
@@ -62,6 +65,9 @@ public class Enemy : MonoBehaviour
         if (this.health <= 0) {
             Destroy(gameObject);
             Debug.Log(this.name + " has died");
+            roundManager = GameObject.Find("RoundManager").GetComponent<RoundManager>();
+            currentRound = roundManager.GetCurrentRound(); 
+            currentRound.decreaseNumberOfEnemies();
         }
         Debug.Log(this.name + " took " + healthLost + " damage");
     }
@@ -85,7 +91,7 @@ public class Enemy : MonoBehaviour
         if (enemyAttacking.tag == "Farmhouse") {
             enemyAttacking.GetComponent<FarmHouseHealth>().TakeDamage(this.attackPower);
         } else if (enemyAttacking.tag == "Animal") {
-            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower, attackingIndex);
+            enemyAttacking.GetComponent<Animal>().TakeDamage(this.attackPower, attackingIndex, this);
         } else {
             Debug.Log(this.name + " did not attack something with an animal or farmhouse tag");
         }

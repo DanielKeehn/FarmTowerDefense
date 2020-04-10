@@ -57,20 +57,20 @@ public class GameManager : MonoBehaviour
                 currState = ((int)gameState.SPAWNMODE); 
                 goToSpawnMode();
             }
-            if (Input.GetButtonDown("UpgradeMode")) {
-                currState = ((int)gameState.UPGRADEMENU); 
-                goToSpawnMode();
-            }
+            // if (Input.GetButtonDown("UpgradeMode")) {
+            //     currState = ((int)gameState.UPGRADEMENU); 
+            //     goToSpawnMode();
+            // }
         } else if (currState == ((int)gameState.SPAWNMODE)) {
             updateSpawnMode();
             if (Input.GetButtonDown("SpawnMode")) {
                 currState = ((int)gameState.ATTACKMODE); 
                 goToAttackMode();
             }
-            if (Input.GetButtonDown("UpgradeMode")) {
-                currState = ((int)gameState.UPGRADEMENU); 
-                goToSpawnMode();
-            } 
+            // if (Input.GetButtonDown("UpgradeMode")) {
+            //     currState = ((int)gameState.UPGRADEMENU); 
+            //     goToSpawnMode();
+            // } 
         } else if (currState == ((int)gameState.UPGRADEMENU)) {
             updateUpgradeMode();
             if (Input.GetButtonDown("UpgradeMode")) {

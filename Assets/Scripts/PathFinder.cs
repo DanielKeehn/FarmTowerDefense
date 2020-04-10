@@ -15,6 +15,8 @@ public class PathFinder : MonoBehaviour {
 
 	public SpawnManager spawnManager;
 
+	public SpawnPoints enemySpawner;
+
 	// This value will be true if this pathfinding is for an enemy and the enemy is targeting the farmhouse
 	bool attackingFarmHouse;
 
@@ -32,7 +34,7 @@ public class PathFinder : MonoBehaviour {
 			enemyAttackingIndex = -1;
 		} else {
 			attackingFarmHouse = false;
-			enemyAttackingIndex = 0;
+			enemyAttackingIndex = -1;
 		}
 	}
 
@@ -43,9 +45,13 @@ public class PathFinder : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.transform.gameObject == target) {
-			Debug.Log("arrived at destination!");
 			if (gameObject.tag == "Enemy") {
+				Debug.Log("Enemy arrived at destination!");
 				gameObject.GetComponent<Enemy>().BeginAttack(target, enemyAttackingIndex);
+			}
+			if (gameObject.tag == "Animal") {
+				Debug.Log("Animal arrived at destination!");
+				gameObject.GetComponent<Animal>().BeginAttack(target, enemyAttackingIndex);
 			}
 		}
 	}
@@ -74,6 +80,20 @@ public class PathFinder : MonoBehaviour {
 					closestTargetDistance = distance;
 					closestTarget = animal;
 					attackingFarmHouse = false;
+					enemyAttackingIndex = currIndex;
+				}
+				currIndex++;
+			}
+		}
+
+		if (gameObject.tag == "Animal") {
+			ArrayList spawnedEnemies = enemySpawner.getSpawnedEnemiesArray();
+			int currIndex = 0;
+			foreach (GameObject enemy in spawnedEnemies) {
+				distance = Vector3.Distance(enemy.transform.position, transform.position);
+				if (distance < closestTargetDistance) {
+					closestTargetDistance = distance;
+					closestTarget = enemy;
 					enemyAttackingIndex = currIndex;
 				}
 				currIndex++;
