@@ -49,10 +49,10 @@ public class PathFinder : MonoBehaviour {
 				Debug.Log("Enemy arrived at destination!");
 				gameObject.GetComponent<Enemy>().BeginAttack(target, enemyAttackingIndex);
 			}
-			if (gameObject.tag == "Animal") {
-				Debug.Log("Animal arrived at destination!");
-				gameObject.GetComponent<Animal>().BeginAttack(target, enemyAttackingIndex);
-			}
+			// if (gameObject.tag == "Animal") {
+			// 	Debug.Log("Animal arrived at destination!");
+			// 	gameObject.GetComponent<Animal>().BeginAttack(target, enemyAttackingIndex);
+			// }
 		}
 	}
 
@@ -86,19 +86,19 @@ public class PathFinder : MonoBehaviour {
 			}
 		}
 
-		if (gameObject.tag == "Animal") {
-			ArrayList spawnedEnemies = enemySpawner.getSpawnedEnemiesArray();
-			int currIndex = 0;
-			foreach (GameObject enemy in spawnedEnemies) {
-				distance = Vector3.Distance(enemy.transform.position, transform.position);
-				if (distance < closestTargetDistance) {
-					closestTargetDistance = distance;
-					closestTarget = enemy;
-					enemyAttackingIndex = currIndex;
-				}
-				currIndex++;
-			}
-		}
+		// if (gameObject.tag == "Animal") {
+		// 	ArrayList spawnedEnemies = enemySpawner.getSpawnedEnemiesArray();
+		// 	int currIndex = 0;
+		// 	foreach (GameObject enemy in spawnedEnemies) {
+		// 		distance = Vector3.Distance(enemy.transform.position, transform.position);
+		// 		if (distance < closestTargetDistance) {
+		// 			closestTargetDistance = distance;
+		// 			closestTarget = enemy;
+		// 			enemyAttackingIndex = currIndex;
+		// 		}
+		// 		currIndex++;
+		// 	}
+		// }
 		
 		target = closestTarget;
 		agent.SetDestination(target.transform.position);
