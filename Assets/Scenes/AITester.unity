@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 878696484}
   - component: {fileID: 878696483}
   - component: {fileID: 878696482}
+  - component: {fileID: 878696486}
   m_Layer: 0
   m_Name: AI1
   m_TagString: Untagged
@@ -243,7 +244,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878696481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -297,6 +298,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878696486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878696481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b34766a0579da4a9d8e01ba95f8035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Default Constructor
+  health: 0
+  attackPower: 0
+  attackSpeed: 0
 --- !u!1 &1553452688
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +326,7 @@ GameObject:
   - component: {fileID: 1553452691}
   - component: {fileID: 1553452690}
   - component: {fileID: 1553452689}
+  - component: {fileID: 1553452693}
   m_Layer: 0
   m_Name: A12
   m_TagString: Untagged
@@ -390,6 +408,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1553452693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553452688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b34766a0579da4a9d8e01ba95f8035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Default Constructor
+  health: 0
+  attackPower: 0
+  attackSpeed: 0
 --- !u!1 &1618265397
 GameObject:
   m_ObjectHideFlags: 0

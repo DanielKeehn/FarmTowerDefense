@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using AIStateNamespace;
 
-public class SpawnState : AIState<AI>
+// State when an AI first enters the game world
+public class SpawnState : State
 {
-    public override void EnterState(AI owner) {
+    public SpawnState(AI ai): base(ai){
 
     }
-
-    public override void ExitState(AI owner) {
-
+    public override IEnumerator EnterState() {
+        Debug.Log("Enter State");
+        yield return new WaitForSeconds(2f);
     }
 
-    public override void UpdateState(AI owner) {
+    public override IEnumerator ExitState() {
+        Debug.Log("Exit State");
+        yield return new WaitForSeconds(2f);
+    }
 
+    public override IEnumerator UpdateState() {
+        Debug.Log("Update State");
+        yield return new WaitForSeconds(2f);
     }
 }

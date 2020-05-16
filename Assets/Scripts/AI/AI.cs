@@ -3,39 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using AIStateNamespace;
 
-public class AI : MonoBehaviour
+public class AI : StateMachine
 {
 
-    // These are the varaibles all AI must have
-    public string name;
-    public int health;
-    public bool switchState = false;
-    public int attackPower;
-    public float attackSpeed;
+    public AIState<AI> temporaryObject;
 
-    public AIStateMachine<AI> stateMachine { get; set; }
+    #region Variable Declarations
+    // These are the varaibles all AI must have
+    // The name of the AI
+    public string name;
+    // How much health a AI currently has
+    public int health;
+    // How strong an AIs attacks are
+    public int attackPower;
+    // How fast an enemy attacks
+    public float attackSpeed;
+    // Reference to the state machine
+    #endregion
+
+    #region Constructors
+    public AI(string n, int h, int ap, float asp) {
+        this.name = n;
+        this.health = h;
+        this.attackPower = ap;
+        this.attackSpeed = asp;
+    }
+
+    public AI() {
+        this.name = "Default Constructor";
+        this.health = 0;
+        this.attackPower = 0;
+        this.attackSpeed = 0f;
+    }
+    #endregion
 
     private void Start()
     {
-        stateMachine = new AIStateMachine<AI>(this);
-        //stateMachine.ChangeState(FirstState.Instance);
-    }
-
-    private void Update()
-    {
-        // if(Time.time > gameTimer + 1)
-        // {
-        //     gameTimer = Time.time;
-        //     seconds++;
-        //     Debug.Log(seconds);
-        // }
-
-        // if(seconds == 5)
-        // {
-        //     seconds = 0;
-        //     switchState = !switchState;
-        // }
-
-        // stateMachine.Update();
+        ChangeState(new SpawnState(this));
     }
 }
