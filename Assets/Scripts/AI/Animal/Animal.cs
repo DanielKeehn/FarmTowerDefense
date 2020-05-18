@@ -2,53 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// This the class where all animals derive from the player spawns
+// Class for animals
 
-public class Animal: MonoBehaviour
+public class Animal: AI
 {
-
-    // These are the varaibles all animals have
-    public string name;
-    public int health;
+    // These are the varaibles all animals have that other AI do not
+    // How much it costs to spawn an animal 
     public int costToSpawn;
+    // If an animal is unlocked
     public bool isUnlocked;
-
-    public int attackPower;
-    public float attackSpeed;
+    // If an animal is attacking
     public bool attacking;
+    // The enemy an animal is attacking
     public GameObject enemyAttacking;
 
     // This timer is compared with that attack speed to determine when an enemy attacks
     float attacktimer;
 
     int attackingIndex;
-
-
-    // This is the contructor
-    public Animal(string n, int h, int c, bool u, int p, int sp, bool a, GameObject ea) {
-        this.name = n;
-        this.health = h;
-        this.costToSpawn = c;
-        isUnlocked = u;
-        this.attackPower = p;
-        this.attackSpeed = sp;
-        this.attacking = a;
-        this.enemyAttacking = ea;
-    }
-
-
-    // This is the contructor when no variables are given
-    public Animal() {
-        this.name = "No Name";
-        this.health = 0;
-        this.costToSpawn = 0;
-        this.isUnlocked = false;
-        this.attackPower = 0;
-        this.attackSpeed = 0.0f;
-        this.attacking = false;
-        this.enemyAttacking = null;
-
-    }
 
     public void TakeDamage(int damage, int index, Enemy enemy) {
         this.health -= damage;

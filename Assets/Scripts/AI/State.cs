@@ -13,6 +13,7 @@ public abstract class State
 
     // EnterState() runs when a state is first entered
     public abstract IEnumerator EnterState();
+    // The AI chooses a target here
 
     // ExitState() runs when a state is exited
     public abstract IEnumerator ExitState();
