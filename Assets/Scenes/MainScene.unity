@@ -833,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523428}
   - component: {fileID: 4523429}
+  - component: {fileID: 4523430}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -866,6 +867,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b3752c380f2fb4889971515faf916a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4523430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec7771bf9d127b49be23087f681e362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalList: []
+  vegetableList: []
 --- !u!1 &5290832
 GameObject:
   m_ObjectHideFlags: 0
@@ -47876,10 +47891,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Goose
   health: 20
-  costToSpawn: 20
-  isUnlocked: 1
   attackPower: 0
   attackSpeed: 0
+  attackRange: 0
+  currentTarget: {fileID: 0}
+  targets: []
+  agent: {fileID: 0}
+  costToSpawn: 20
+  isUnlocked: 1
   attacking: 0
   enemyAttacking: {fileID: 0}
 --- !u!1001 &4488694077394275841
@@ -48065,10 +48084,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pig
   health: 4
-  costToSpawn: 4
-  isUnlocked: 1
   attackPower: 0
   attackSpeed: 0
+  attackRange: 0
+  currentTarget: {fileID: 0}
+  targets: []
+  agent: {fileID: 0}
+  costToSpawn: 4
+  isUnlocked: 1
   attacking: 0
   enemyAttacking: {fileID: 0}
 --- !u!1001 &7069917527070088309

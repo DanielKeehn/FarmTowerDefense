@@ -24,11 +24,9 @@ public abstract class AI : StateMachine
     public UnityEngine.AI.NavMeshAgent agent;
     #endregion
 
-    public GameObject tempObject;
     private void Start()
     {
         ChangeState(new SearchState(this));
-        targets.Add(tempObject);
         currentTarget = null;
     }
 }
