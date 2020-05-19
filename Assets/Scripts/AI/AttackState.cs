@@ -55,7 +55,7 @@ public class AttackState : State
         try {
             AI.currentTarget.GetComponent<Health>().TakeDamage(AI.attackPower);
         } catch {
-            throw new System.ArgumentException("Couldn't Attack Target, make sure target has an attack script");
+            throw new System.ArgumentException("Couldn't Attack Target, make sure target has a health script");
         }
         attackTimer = 0.0f;
     }

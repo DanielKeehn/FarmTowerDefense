@@ -29,14 +29,14 @@ public class PlayerAttack : MonoBehaviour
 
     // This method runs when a player attacks
     private void DoAttack(){
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        // Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        // RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, weaponScript.attackRange)) {
-            if (hit.collider.tag == "Enemy") {
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                enemy.TakeDamage(weaponScript.attackDamage);
-            }
-        }
+        // if (Physics.Raycast(ray, out hit, weaponScript.attackRange)) {
+        //     if (hit.collider.tag == "Enemy") {
+        //         Enemy enemy = hit.collider.GetComponent<Enemy>();
+        //         enemy.TakeDamage(weaponScript.attackDamage);
+        //     }
+        // }
     }
 }

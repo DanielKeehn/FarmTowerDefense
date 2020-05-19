@@ -30,13 +30,14 @@ public abstract class AI : StateMachine
 
     // Check what type AI is and find list of targets AI can search for
     public List<GameObject> getTargetList() {
-        if (this.GetType() ==  typeof(Animal)) {
+        
+        if (this.GetType().IsSubclassOf(typeof(Animal))) {
             try {
                 return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().vegetableList;
             } catch {
                 throw new System.ArgumentException("Couldn't find list of vegetables to target, make sure current attackable object script is attached to game manager and game manager has a gamemanager tag");
             }
-        } else if (this.GetType() ==  typeof(Enemy)) {
+        } else if (this.GetType().IsSubclassOf(typeof(Enemy))) {
             try {
                 return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
             } catch {
