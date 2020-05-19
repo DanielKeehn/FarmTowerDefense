@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SearchState : State
 {
+
+    // The distance the AI is from its target 
+    protected float targetDistance;
     public SearchState(AI ai): base(ai){
 
     }
@@ -20,6 +23,9 @@ public class SearchState : State
     public override IEnumerator UpdateState() {
         if (FindClosestTarget()) {
             AI.agent.SetDestination(AI.currentTarget.transform.position);
+        }
+        if (CanAttack()) {
+            AI.ChangeState(new AttackState(AI));
         } 
         yield return new WaitForSeconds(2f);
     }
@@ -27,21 +33,19 @@ public class SearchState : State
     // Finds the closest target and updates closetTarget
     // Returns true if target is found and false if target is still null
     private bool FindClosestTarget() {
-        // Initialize the currentTarget and currentTarget distance
-        float closestTargetDistance;
         // The distance you are currently checking
         float currentDistance;
         // Make initial distance positive infinity if no target was chosen previously
         if (AI.currentTarget == null) {
-            closestTargetDistance = float.PositiveInfinity;
+            targetDistance = float.PositiveInfinity;
         // Find the distance of the current target if current target isn't null
         } else {
-            closestTargetDistance = Vector3.Distance(AI.gameObject.transform.position, AI.currentTarget.transform.position);
+            targetDistance = Vector3.Distance(AI.gameObject.transform.position, AI.currentTarget.transform.position);
         }
         foreach (var target in AI.targets) {
             currentDistance = Vector3.Distance(AI.gameObject.transform.position, target.transform.position);
-            if (currentDistance < closestTargetDistance) {
-                closestTargetDistance = currentDistance;
+            if (currentDistance < targetDistance) {
+                targetDistance = currentDistance;
                 AI.currentTarget = target;
             }
         }
@@ -50,5 +54,17 @@ public class SearchState : State
         } else {
             return true;
         } 
+    }
+
+    // Finds if an AI can attack a target or not depending on their range
+    private bool CanAttack() {
+        if (AI.currentTarget != null) {
+            if (targetDistance < AI.attackRange) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

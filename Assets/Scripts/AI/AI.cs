@@ -15,7 +15,9 @@ public abstract class AI : StateMachine
     public int attackPower;
     // How fast an enemy attacks
     public float attackSpeed;
-    // Object an AI is targeting
+    // How far an enemy can attack from
+    public float attackRange;
+      // Object an AI is targeting
     public GameObject currentTarget;
     // Objects an AI can target
     public List<GameObject> targets;
