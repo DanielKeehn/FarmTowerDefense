@@ -24,7 +24,15 @@ public class AttackState : State
             Attack();
             // Check if target is destroyed
             if (AI.currentTarget.GetComponent<Health>().IsDead()) {
-                AI.targets.Remove(AI.currentTarget);
+                
+                // Remove current target from the list of current attackable objects
+                List<GameObject> targets = AI.getTargetList();
+                if (targets != null) {
+                    targets.Remove(AI.currentTarget);
+                } else {
+                    throw new System.ArgumentException("Couldn't remove destroyed target from list or find list");
+                }
+                
                 AI.currentTarget = null;
                 AI.ChangeState(new SearchState(AI));
             }
@@ -47,7 +55,7 @@ public class AttackState : State
         try {
             AI.currentTarget.GetComponent<Health>().TakeDamage(AI.attackPower);
         } catch {
-            Debug.Log("Could not attack object, make sure the object has a health script attached");
+            throw new System.ArgumentException("Couldn't Attack Target, make sure target has an attack script");
         }
         attackTimer = 0.0f;
     }

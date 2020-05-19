@@ -35,6 +35,8 @@ public class SearchState : State
     private bool FindClosestTarget() {
         // The distance you are currently checking
         float currentDistance;
+        // List that contains all targets
+        List<GameObject> targets = null;
         // Make initial distance positive infinity if no target was chosen previously
         if (AI.currentTarget == null) {
             targetDistance = float.PositiveInfinity;
@@ -42,7 +44,11 @@ public class SearchState : State
         } else {
             targetDistance = Vector3.Distance(AI.gameObject.transform.position, AI.currentTarget.transform.position);
         }
-        foreach (var target in AI.targets) {
+
+        // Get List of objects AI can target
+        targets = AI.getTargetList();
+
+        foreach (var target in targets) {
             currentDistance = Vector3.Distance(AI.gameObject.transform.position, target.transform.position);
             if (currentDistance < targetDistance) {
                 targetDistance = currentDistance;

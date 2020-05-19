@@ -19,8 +19,6 @@ public abstract class AI : StateMachine
     public float attackRange;
       // Object an AI is targeting
     public GameObject currentTarget;
-    // Objects an AI can target
-    public List<GameObject> targets;
     public UnityEngine.AI.NavMeshAgent agent;
     #endregion
 
@@ -28,5 +26,24 @@ public abstract class AI : StateMachine
     {
         ChangeState(new SearchState(this));
         currentTarget = null;
+    }
+
+    // Check what type AI is and find list of targets AI can search for
+    public List<GameObject> getTargetList() {
+        if (this.GetType() ==  typeof(Animal)) {
+            try {
+                return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().vegetableList;
+            } catch {
+                throw new System.ArgumentException("Couldn't find list of vegetables to target, make sure current attackable object script is attached to game manager and game manager has a gamemanager tag");
+            }
+        } else if (this.GetType() ==  typeof(Enemy)) {
+            try {
+                return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
+            } catch {
+                throw new System.ArgumentException("Couldn't find list of animals to target, make sure current attackable object script is attached to game manager and game manager has a gamemanager tag");
+            }
+        } else {
+            throw new System.ArgumentException("The AI is not a vegetable or animal so a target list cannot be created");
+        }
     }
 }

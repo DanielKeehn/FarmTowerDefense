@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Farmhouse
   - Animal
+  - GameManager
   layers:
   - Default
   - TransparentFX

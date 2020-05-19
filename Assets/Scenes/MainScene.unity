@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 4523430}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19389,10 +19389,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Carrot
   health: 10
-  spell: 8
-  isUnlocked: 1
   attackPower: 1
   attackSpeed: 1
+  attackRange: 0
+  currentTarget: {fileID: 0}
+  targets: []
+  agent: {fileID: 0}
+  spell: 8
+  isUnlocked: 1
   attacking: 0
   enemyAttacking: {fileID: 0}
   roundManager: {fileID: 1240799658}
