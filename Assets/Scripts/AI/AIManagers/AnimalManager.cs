@@ -10,10 +10,13 @@ public class AnimalManager : AIManager
     // A list of unlocked animals
     public List<GameObject> UnlockedAnimals;
 
+    public GameObject Test;
+
     // Creates list of animals and seperate list of unlocked animals
     private void Start() {
         base.CreatePrefabList();
         CreateUnlockedAnimalsList();
+        UnlockAnimal(Test);
     }
     
     // Creates a list of unlocked animals at the beginning of a game
@@ -31,11 +34,20 @@ public class AnimalManager : AIManager
     }
     
     // This runs when a player unlocks an animal
-    public void UnlockAnimal(string name) {
-        // GameObject foundAnimal = animalDict[name];
-        // Animal animalScript = foundAnimal.gameObject.GetComponent<Animal>();
-        // animalScript.isUnlocked = true;
-        // SpawnManager sm = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        // sm.addAnimalToUnlockedDict(foundAnimal);
+    public void UnlockAnimal(GameObject animal) {
+        // Make sure parameter is contained in the list of animal prefabs
+        if (base.AIPrefabs.Contains(animal)) {
+            Animal animalScript = animal.GetComponent<Animal>(); 
+            // Make sure animal is not already unlocked
+            if (!animalScript.isUnlocked) {
+                // Unlock and add animal to unlocked animals dict here
+                animalScript.isUnlocked = true;
+                UnlockedAnimals.Add(animal);
+            } else {
+                throw new System.ArgumentException("Couldn't unlock " + animal + " because animal appears to already be unlocked");
+            }
+        } else {
+            throw new System.ArgumentException("Unable to find " + animal + " prefab. Make sure this gameObject is in the list of prefabs under the animal manager");
+        }
     }
 }

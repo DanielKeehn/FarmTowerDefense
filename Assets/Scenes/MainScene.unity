@@ -12038,6 +12038,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508107642}
   m_Mesh: {fileID: -3333242130798978311, guid: ca3ad3b9ebb7b4615903649cf5973718, type: 3}
+--- !u!1 &524251350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 983640684548101526, guid: 32b10f0c79bbc1342adc27ec7877a416,
+    type: 3}
+  m_PrefabInstance: {fileID: 983640684364031296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &524251351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 983640684548101527, guid: 32b10f0c79bbc1342adc27ec7877a416,
@@ -46490,6 +46496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIPrefabs: []
   UnlockedAnimals: []
+  Test: {fileID: 524251350}
 --- !u!1001 &2097028804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47509,7 +47516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1046552705, guid: 1c5818404b8f81949b5b768db257ca65, type: 3}
       propertyPath: isUnlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9076417079565343858, guid: 1c5818404b8f81949b5b768db257ca65,
         type: 3}
