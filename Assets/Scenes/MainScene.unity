@@ -2021,6 +2021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cow
       objectReference: {fileID: 0}
+    - target: {fileID: 4976595337758461813, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4976595337758461814, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2075,6 +2080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976595337758461815, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: isUnlocked
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3ef6356c7bd414987cebee693ff1e1, type: 3}
@@ -46475,9 +46485,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2096371176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72cb905844db724f9a748471f1d4886, type: 3}
+  m_Script: {fileID: 11500000, guid: d5388c280bc681748a5720a0654cc418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIPrefabs: []
+  UnlockedAnimals: []
 --- !u!1001 &2097028804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47333,10 +47345,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2096371177}
     m_Modifications:
+    - target: {fileID: 524251352, guid: 32b10f0c79bbc1342adc27ec7877a416, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 983640684548101526, guid: 32b10f0c79bbc1342adc27ec7877a416,
         type: 3}
       propertyPath: m_Name
       value: Goat
+      objectReference: {fileID: 0}
+    - target: {fileID: 983640684548101526, guid: 32b10f0c79bbc1342adc27ec7877a416,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 983640684548101527, guid: 32b10f0c79bbc1342adc27ec7877a416,
         type: 3}
@@ -47486,6 +47507,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2096371177}
     m_Modifications:
+    - target: {fileID: 1046552705, guid: 1c5818404b8f81949b5b768db257ca65, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9076417079565343858, guid: 1c5818404b8f81949b5b768db257ca65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47545,6 +47570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076417079565343885, guid: 1c5818404b8f81949b5b768db257ca65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5818404b8f81949b5b768db257ca65, type: 3}

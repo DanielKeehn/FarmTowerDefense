@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9076417079565343858}
   - component: {fileID: 1046552705}
+  - component: {fileID: 7459886831252740767}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Untagged
@@ -146,3 +147,16 @@ MonoBehaviour:
   agent: {fileID: 0}
   costToSpawn: 4
   isUnlocked: 1
+--- !u!114 &7459886831252740767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076417079565343885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4d879939308ba4db63f0f7234f13de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0

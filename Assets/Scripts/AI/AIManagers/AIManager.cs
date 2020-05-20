@@ -17,7 +17,7 @@ public abstract class AIManager : MonoBehaviour
     }
 
     // Creates a list of AI prefabs that are under the manager
-    private void CreatePrefabList() {
+    protected void CreatePrefabList() {
         foreach (Transform child in transform) {
             AIPrefabs.Add(child.gameObject);
         }
