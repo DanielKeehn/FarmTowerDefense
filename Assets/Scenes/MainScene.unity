@@ -8968,13 +8968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc822b46d9a45040a78b7fe008e20d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocations:
-  - {fileID: 195354357}
-  - {fileID: 690362939}
-  - {fileID: 2043444152}
-  - {fileID: 1028088247}
-  enemyManager: {fileID: 350580101}
-  roundManager: {fileID: 1240799658}
 --- !u!114 &350580101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,7 +8977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 350580098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433615b0c3ed04755a99d71c4b0de25f, type: 3}
+  m_Script: {fileID: 11500000, guid: 43838b672a4293c4e94982fda461f58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &355761986
@@ -12038,12 +12031,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508107642}
   m_Mesh: {fileID: -3333242130798978311, guid: ca3ad3b9ebb7b4615903649cf5973718, type: 3}
---- !u!1 &524251350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 983640684548101526, guid: 32b10f0c79bbc1342adc27ec7877a416,
-    type: 3}
-  m_PrefabInstance: {fileID: 983640684364031296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &524251351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 983640684548101527, guid: 32b10f0c79bbc1342adc27ec7877a416,
@@ -29227,11 +29214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754c5461449293a4185c89606955f2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rounds:
-  - {fileID: 1240799663}
-  - {fileID: 1240799662}
-  - {fileID: 1240799661}
-  - {fileID: 1240799660}
 --- !u!4 &1240799659
 Transform:
   m_ObjectHideFlags: 0
@@ -29258,11 +29240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d0c4cfa1f0fca48b4eba9f205ecbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundNumber: 4
-  numberOfEnemies: 1000
-  spawnSpeed: 1
-  winRound: 0
-  loseRound: 0
 --- !u!114 &1240799661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29275,11 +29252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d0c4cfa1f0fca48b4eba9f205ecbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundNumber: 3
-  numberOfEnemies: 10
-  spawnSpeed: 4
-  winRound: 0
-  loseRound: 0
 --- !u!114 &1240799662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29292,11 +29264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d0c4cfa1f0fca48b4eba9f205ecbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundNumber: 2
-  numberOfEnemies: 4
-  spawnSpeed: 10
-  winRound: 0
-  loseRound: 0
 --- !u!114 &1240799663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29309,11 +29276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d0c4cfa1f0fca48b4eba9f205ecbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundNumber: 1
-  numberOfEnemies: 1
-  spawnSpeed: 10
-  winRound: 0
-  loseRound: 0
 --- !u!1 &1245366070
 GameObject:
   m_ObjectHideFlags: 0
@@ -39347,7 +39309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: 311
-  playerSelectedAnimal: 
+  playerSelectedAnimal: {fileID: 0}
 --- !u!1 &1692886550
 GameObject:
   m_ObjectHideFlags: 0
@@ -40533,7 +40495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7967bbd675158b4796ae669d73e29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAnimal: 
 --- !u!1001 &1760638912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44676,12 +44637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff43f8d0986787d49975ee6f2e2f6ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsAmount: {fileID: 218955184}
-  currentAnimalUI: {fileID: 399910370}
-  currentHealthUI: {fileID: 1684379331}
-  currentCostToSpawnUI: {fileID: 703012192}
-  roundNumberUI: {fileID: 1097728935}
-  enemiesLeftUI: {fileID: 1960777815}
 --- !u!1 &2011135800
 GameObject:
   m_ObjectHideFlags: 0
@@ -46460,7 +46415,7 @@ GameObject:
   - component: {fileID: 2096371178}
   m_Layer: 0
   m_Name: AnimalManager
-  m_TagString: Untagged
+  m_TagString: AnimalManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46496,7 +46451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIPrefabs: []
   UnlockedAnimals: []
-  Test: {fileID: 524251350}
 --- !u!1001 &2097028804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47516,7 +47470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1046552705, guid: 1c5818404b8f81949b5b768db257ca65, type: 3}
       propertyPath: isUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9076417079565343858, guid: 1c5818404b8f81949b5b768db257ca65,
         type: 3}

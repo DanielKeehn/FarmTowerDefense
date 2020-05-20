@@ -10,13 +10,10 @@ public class AnimalManager : AIManager
     // A list of unlocked animals
     public List<GameObject> UnlockedAnimals;
 
-    public GameObject Test;
-
     // Creates list of animals and seperate list of unlocked animals
     private void Start() {
         base.CreatePrefabList();
         CreateUnlockedAnimalsList();
-        UnlockAnimal(Test);
     }
     
     // Creates a list of unlocked animals at the beginning of a game

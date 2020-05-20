@@ -8,14 +8,14 @@ public class SpawnManager : MonoBehaviour
     // This is the currency that determines if an animal can be spawned or not
     public int spawnPoints;
 
-    public Dictionary<string, GameObject> unlockedAnimalsDict;
-    int unlockedAnimalDictSize;
-	[HideInInspector] public string playerSelectedAnimal;
+    // A list of unlocked animals collected from animal manager
+    protected List<GameObject> UnlockedAnimals;
+	
+    // The animal the player is currently viewing when in spawn mode
+    [HideInInspector] public GameObject playerSelectedAnimal;
 
+    // The grid where a player can spawn animals
 	private Grid grid;
-
-    // This keeps track of all the current spawned animals
-    ArrayList spawnedAnimals = new ArrayList();
 
 	private void Awake()
 	{
@@ -25,39 +25,21 @@ public class SpawnManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        unlockedAnimalsDict = new Dictionary<string, GameObject>();
-        // The initial amount of spawn points a player has
-        unlockedAnimalDictSize = 0;
-
+        try {
+            GameObject animalManager = GameObject.FindWithTag("AnimalManager");
+            UnlockedAnimals = animalManager.GetComponent<AnimalManager>().UnlockedAnimals;
+        } catch {
+            throw new System.ArgumentException("Could not create list of unlocked animals, make sure you have an animal manager with an animal manager tag");
+        }
         FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
-
-        FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+        //FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
     }
 
-    // Update is called once per frame
-    void Update()
-    {   
-    }
-
-    // returns a boolean value and determines if a animal can be spawned or not based on the amount of spawn points a player has
-    bool isSpawnable(int cost) {
-        return (cost <= spawnPoints);
-    }
-
-    // This method runs after an animal is unlocked in the animal manager and allows an animal to be spawned
-    public void addAnimalToUnlockedDict(GameObject unlockedAnimal) {
-        unlockedAnimalDictSize++;
-        string name = unlockedAnimal.name;
-        unlockedAnimalsDict.Add(name,unlockedAnimal);
-    }
-
-    // This checks is an animal can be spawned
+    // This checks if a player is pressing the spawn button when a player is in spawn mode and creates a raycast
     void CheckForSpawnAnimal() {
-        //All the code in this method is temporary for now
         if (Input.GetButtonDown("Fire1")) {
 			RaycastHit hitInfo;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
 			if (Physics.Raycast(ray, out hitInfo))
 			{
 				SpawnAnimal(playerSelectedAnimal, hitInfo.point);
@@ -66,38 +48,42 @@ public class SpawnManager : MonoBehaviour
     }
 
     // This spawns an animal onto the screen
-    void SpawnAnimal(string name, Vector3 nearPoint) {
-        GameObject foundAnimal = unlockedAnimalsDict[name];
-        int costToSpawn = foundAnimal.GetComponent<Animal>().costToSpawn;
+    void SpawnAnimal(GameObject animal, Vector3 nearPoint) {
+        // The script of the animal object
+        Animal animalScript = animal.GetComponent<Animal>();
+        // The cost to spawn an animal
+        int costToSpawn = animalScript.costToSpawn;
 
-        if (isSpawnable(costToSpawn)) {
+        
+        // First check if the player has enough spawn points to spawn an animal
+        if (costToSpawn <= spawnPoints) {         
+            
+            // Create a rotation and position for an animal to spawn
             Quaternion worldRotation = transform.rotation;
 			Vector3 spawnPosition = grid.GetNearestPointOnGrid(nearPoint);
-			if (spawnPosition != Vector3.zero)
-			{
-				GameObject currAnimal = Instantiate(foundAnimal, spawnPosition, worldRotation);
-                currAnimal.transform.position += new Vector3(0, foundAnimal.transform.position.y, 0);
+			
+            // Check if there is something currently on a tile
+            if (spawnPosition != Vector3.zero) {
+                // Here is where animal is spawned
+				GameObject currAnimal = Instantiate(animal, spawnPosition, worldRotation);
 				currAnimal.SetActive(true);
 				spawnPoints -= costToSpawn;
-                spawnedAnimals.Add(currAnimal);
-				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+
+                // Add this instance to a list of currently spawned animals
+                try {
+                    List<GameObject> animalList = GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
+                    animalList.Add(currAnimal);
+                } catch {
+                    throw new System.ArgumentException("Couldn't find list of currently spawned animals, make sure you have a gamemanager with a gamemanager tag that has a current attacktable objects script attached");
+                }
+				//FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+			
+            } else {
+				Debug.Log("There is something on this tile already");
 			}
-			else
-			{
-				Debug.Log("There is something on this tile");
-			}
-		}
-		else
-		{
-            Debug.Log("You can't spawn a " + name);
+        
+        } else {
+            Debug.Log("You don't have enough spawn points to spawn a " + animalScript.name);
         }
-    }
-
-    public Dictionary<string, GameObject> getAnimalDict() {
-        return unlockedAnimalsDict;
-    }
-
-    public ArrayList getSpawnedAnimalsArray() {
-        return spawnedAnimals;
     }
 }

@@ -8,44 +8,44 @@ using UnityEngine;
 public class SpawnPoints : MonoBehaviour
 {
 
-    public Transform[] spawnLocations;
-    public EnemyManager enemyManager;
+    // public Transform[] spawnLocations;
+    // public EnemyManager enemyManager;
 
-    public RoundManager roundManager;
-    Round currentRound; 
+    // public RoundManager roundManager;
+    // Round currentRound; 
 
-    float spawnTimer;
+    // float spawnTimer;
 
-    ArrayList spawnedEnemiesArray = new ArrayList();
+    // ArrayList spawnedEnemiesArray = new ArrayList();
 
-    void Start()
-    {
-        spawnTimer = 0.0f;
-    }
+    // void Start()
+    // {
+    //     spawnTimer = 0.0f;
+    // }
 
-    public void Update()
-    {
-        spawnTimer += Time.deltaTime;
-        currentRound = roundManager.GetCurrentRound();
-        if (currentRound.EnemyReadyToSpawn(spawnTimer)) {
-            spawnTimer = 0.0f;
-            spawnEnemy("Carrot");
-        }
-    }
+    // public void Update()
+    // {
+    //     spawnTimer += Time.deltaTime;
+    //     currentRound = roundManager.GetCurrentRound();
+    //     if (currentRound.EnemyReadyToSpawn(spawnTimer)) {
+    //         spawnTimer = 0.0f;
+    //         spawnEnemy("Carrot");
+    //     }
+    // }
 
-    void spawnEnemy(string name) {
-        Dictionary<string, GameObject> enemyDict = enemyManager.enemyDict;
-        GameObject enemyPrefab = enemyDict[name];
+    // void spawnEnemy(string name) {
+    //     Dictionary<string, GameObject> enemyDict = enemyManager.enemyDict;
+    //     GameObject enemyPrefab = enemyDict[name];
 
-        Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
+    //     Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
         
-        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnLocation);
-        spawnedEnemy.SetActive(true);
+    //     GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnLocation);
+    //     spawnedEnemy.SetActive(true);
 
-        spawnedEnemiesArray.Add(spawnedEnemy);
-    }
+    //     spawnedEnemiesArray.Add(spawnedEnemy);
+    // }
 
-    public ArrayList getSpawnedEnemiesArray() {
-        return spawnedEnemiesArray;
-    }   
+    // public ArrayList getSpawnedEnemiesArray() {
+    //     return spawnedEnemiesArray;
+    // }   
 }
