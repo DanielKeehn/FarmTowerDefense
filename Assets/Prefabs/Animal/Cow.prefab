@@ -30,7 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 2.9074, z: 4.8316}
   m_Children: []
-  m_Father: {fileID: 4976595337758461814}
+  m_Father: {fileID: 3450520410489080566}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1791808362
@@ -101,19 +101,20 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4976595337758461814}
+  - component: {fileID: 3450520410489080566}
   - component: {fileID: 4976595337758461815}
   - component: {fileID: 4976595337758461816}
   - component: {fileID: 2093451257}
+  - component: {fileID: 1932319624303813583}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4976595337758461814
-Transform:
+  m_IsActive: 0
+--- !u!224 &3450520410489080566
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +128,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4976595337758461815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +153,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   agent: {fileID: 4976595337758461816}
   costToSpawn: 10
-  isUnlocked: 0
+  isUnlocked: 1
+  Icon: {fileID: 4104390135632883058, guid: 37a93b712552a244889bb34a0fad4f3a, type: 3}
 --- !u!195 &4976595337758461816
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -183,3 +190,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!222 &1932319624303813583
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976595337758461813}
+  m_CullTransparentMesh: 0

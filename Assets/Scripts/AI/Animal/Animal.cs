@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Class for animals
 
@@ -11,5 +12,7 @@ public abstract class Animal: AI
     public int costToSpawn;
     // If an animal is unlocked
     public bool isUnlocked;
-    // If an animal is attacking
+    // The 2D Icon displaying in spawn mode for each animal
+    public Sprite Icon;
+    
 }

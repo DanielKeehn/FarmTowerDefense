@@ -49,7 +49,7 @@ public class GetSelectedSlot : MonoBehaviour
 	{
 		ourItemSlot.Icon = itemSlot.Icon;
 		ourItemSlot.nameObj = itemSlot.nameObj;
-		ourItemSlot.UpdateIcon();
+		ourItemSlot.UpdateIcon(itemSlot.Icon, itemSlot.nameObj);
 		Animal animalScript = spawnManager.playerSelectedAnimal.GetComponent<Animal>();
 		Name.text = animalScript.name;
 		costValue.text = animalScript.costToSpawn.ToString();

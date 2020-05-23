@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Toolbar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Toolbar : MonoBehaviour
 
 	private int slotIndex = 0;
 	private SpawnManager spawnManager;
+	private AnimalManager animalManager;
 
 	private KeyCode[] keyCodes = {
 		 KeyCode.Alpha1,
@@ -27,6 +29,8 @@ public class Toolbar : MonoBehaviour
     {
 		itemSlots = GetComponentsInChildren<itemSlot>();
 		spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+		animalManager = GameObject.Find("AnimalManager").GetComponent<AnimalManager>();
+		initializeItemSlotAssignments();
 	}
 
     // Update is called once per frame
@@ -73,5 +77,14 @@ public class Toolbar : MonoBehaviour
 	public itemSlot getItemSlot()
 	{
 		return itemSlots[slotIndex];
+	}
+
+	// Assigns item slots with animals unlocked at the beginning of the game
+	public void initializeItemSlotAssignments() {
+		for (int i = 0; i < animalManager.UnlockedAnimals.Count; i++) {
+			Animal currentAnimalScript = animalManager.UnlockedAnimals[i].GetComponent<Animal>();
+			Sprite sprite = currentAnimalScript.Icon;
+			itemSlots[i].UpdateIcon(sprite, currentAnimalScript.name);
+		}
 	}
 }
