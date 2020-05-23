@@ -7,7 +7,7 @@ public class GetSelectedSlot : MonoBehaviour
 {
 	private Toolbar toolbar;
 	private itemSlot itemSlot;
-	private AnimalManager animalManager;
+	private SpawnManager spawnManager;
 
 	[SerializeField] private itemSlot ourItemSlot;
 	[SerializeField] private TextMeshProUGUI Name;
@@ -16,45 +16,44 @@ public class GetSelectedSlot : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI damageValue;
 
 	// Start is called before the first frame update
-	// void Start()
-	// {
-	// 	toolbar = FindObjectOfType<Toolbar>();
-	// 	animalManager = FindObjectOfType<AnimalManager>();
-	// 	if (!animalManager)
-	// 	{
-	// 		Debug.LogWarning("No animal manager found");
-	// 	}
-	// 	if (!toolbar)
-	// 	{
-	// 		Debug.LogWarning("No toolbar found");
-	// 	}
+	void Start()
+	{
+		toolbar = FindObjectOfType<Toolbar>();
+		spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+		if (!spawnManager)
+		{
+			Debug.LogWarning("No animal manager found");
+		}
+		if (!toolbar)
+		{
+			Debug.LogWarning("No toolbar found");
+		}
 
-	// 	if (!healthValue || !costValue)
-	// 	{
-	// 		Debug.LogWarning("text values box found");
-	// 	}
-	// }
+		if (!healthValue || !costValue)
+		{
+			Debug.LogWarning("text values box found");
+		}
+	}
 
-	// // Update is called once per frame
-	// void Update()
-	// {
-	// 	if (!itemSlot || itemSlot != toolbar.getItemSlot())
-	// 	{
-	// 	itemSlot = toolbar.getItemSlot();
-	// 	UpdateSelectedSlotData();
-	// 	}
-	// }
+	// Update is called once per frame
+	void Update()
+	{
+		if (!itemSlot || itemSlot != toolbar.getItemSlot())
+		{
+		itemSlot = toolbar.getItemSlot();
+		UpdateSelectedSlotData();
+		}
+	}
 
-	// private void UpdateSelectedSlotData()
-	// {
-	// 	ourItemSlot.Icon = itemSlot.Icon;
-	// 	ourItemSlot.nameObj = itemSlot.nameObj;
-	// 	ourItemSlot.UpdateIcon();
-	// 	Name.text = ourItemSlot.nameObj;
-	// 	GameObject foundAnimal = animalManager.animalDict[ourItemSlot.nameObj];
-	// 	Animal animalScript = foundAnimal.gameObject.GetComponent<Animal>();
-	// 	costValue.text = animalScript.costToSpawn.ToString();
-	// 	healthValue.text = animalScript.health.ToString();
-	// 	//damageValue.text = animalScript.damage.ToString();
-	// }
+	private void UpdateSelectedSlotData()
+	{
+		ourItemSlot.Icon = itemSlot.Icon;
+		ourItemSlot.nameObj = itemSlot.nameObj;
+		ourItemSlot.UpdateIcon();
+		Animal animalScript = spawnManager.playerSelectedAnimal.GetComponent<Animal>();
+		Name.text = animalScript.name;
+		costValue.text = animalScript.costToSpawn.ToString();
+		healthValue.text = animalScript.health.ToString();
+		//damageValue.text = animalScript.damage.ToString();
+	}
 }

@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public int spawnPoints;
 
     // A list of unlocked animals collected from animal manager
-    protected List<GameObject> UnlockedAnimals;
+    public List<GameObject> UnlockedAnimals;
 	
     // The animal the player is currently viewing when in spawn mode
     [HideInInspector] public GameObject playerSelectedAnimal;
@@ -32,6 +32,7 @@ public class SpawnManager : MonoBehaviour
             throw new System.ArgumentException("Could not create list of unlocked animals, make sure you have an animal manager with an animal manager tag");
         }
         FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
+        playerSelectedAnimal = UnlockedAnimals[0];
         //FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
     }
 

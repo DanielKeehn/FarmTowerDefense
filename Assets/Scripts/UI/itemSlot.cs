@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class itemSlot : MonoBehaviour
 {
-	// public string nameObj;
-	// public Sprite Icon;
+	public string nameObj;
+	public Sprite Icon;
 
-    // void Start()
-    // {
-	// 	UpdateIcon();
-	// }
+    void Start()
+    {
+		UpdateIcon();
+	}
 
-	// public void UpdateIcon()
-	// {
-	// 	GameObject itemImage = transform.Find("Border/ItemImage").gameObject;
-	// 	Image image = itemImage.GetComponent<Image>();
-	// 	image.sprite = Icon;
-	// }
+	public void UpdateIcon()
+	{
+		GameObject itemImage = transform.Find("Border/ItemImage").gameObject;
+		Image image = itemImage.GetComponent<Image>();		
+		image.sprite = Icon;
+	}
 }

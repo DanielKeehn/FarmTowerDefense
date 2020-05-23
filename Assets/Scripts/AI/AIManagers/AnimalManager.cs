@@ -11,7 +11,7 @@ public class AnimalManager : AIManager
     public List<GameObject> UnlockedAnimals;
 
     // Creates list of animals and seperate list of unlocked animals
-    private void Start() {
+    private void Awake() {
         base.CreatePrefabList();
         CreateUnlockedAnimalsList();
     }
