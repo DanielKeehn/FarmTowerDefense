@@ -78,13 +78,6 @@ public class GameManager : MonoBehaviour
                 goToAttackMode();
             } 
         }
-        if (Input.GetKeyDown("r")) {
-            switchToMainGame();
-        }
-        if (Input.GetKeyDown("t")) {
-            SceneManager.LoadScene("TitleScreen");
-        }
-
     }
 
     void goToAttackMode() {
