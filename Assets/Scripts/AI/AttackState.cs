@@ -42,6 +42,10 @@ public class AttackState : State
 
     // This method checks if the AI can attack
     private bool checkForAttack() {
+        // Make sure target has not already been killed by another AI
+        if (AI.currentTarget == null) {
+            AI.ChangeState(new SearchState(AI));
+        }
         attackTimer += Time.deltaTime;
         if (attackTimer >= AI.attackSpeed) {
             return true;

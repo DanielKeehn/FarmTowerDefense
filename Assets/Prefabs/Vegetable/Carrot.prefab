@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 789503586}
   m_Layer: 0
   m_Name: Carrot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,10 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Carrot
-  health: 8
-  attackPower: 1
-  attackSpeed: 0.93
-  attackRange: 1.36
+  health: 10
+  attackPower: 5
+  attackSpeed: 2
+  attackRange: 15
   currentTarget: {fileID: 0}
   agent: {fileID: 4426856719800832849}
   spell: 8
@@ -186,4 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4d879939308ba4db63f0f7234f13de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
