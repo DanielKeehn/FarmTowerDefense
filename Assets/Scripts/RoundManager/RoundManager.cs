@@ -36,14 +36,10 @@ public class RoundManager : MonoBehaviour
     }
 
     //This method checks if a round is won by checking how if there are zero enemies left to kill
-    public bool checkWinState() {
+    private void checkWinState() {
         if (this.numberOfEnemies <= 0) {
             Debug.Log("Round Won!");
-            RoundManager roundManager = gameObject.GetComponent<RoundManager>();
-            roundManager.goToNextRound();
-            return true;
-        } else {
-            return false;
+            goToNextRound();
         }
     }
 

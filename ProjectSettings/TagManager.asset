@@ -12,6 +12,7 @@ TagManager:
   - Animal
   - GameManager
   - AnimalManager
+  - RoundManager
   layers:
   - Default
   - TransparentFX

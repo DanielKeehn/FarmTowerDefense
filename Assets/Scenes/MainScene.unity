@@ -29173,7 +29173,7 @@ GameObject:
   - component: {fileID: 1240799660}
   m_Layer: 0
   m_Name: RoundManager
-  m_TagString: Untagged
+  m_TagString: RoundManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34196,7 +34196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8378f9831f786794bb13f39fc5943160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  health: 100
   currentHealth: 100
   healthbar: {fileID: 1699655321}
 --- !u!65 &1509178091
