@@ -74,6 +74,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Spawn the enemy
         GameObject spawnedEnemy = Instantiate(enemy, spawnLocation);
+        spawnedEnemy.SetActive(true);
         
         // Add enemy to list of enemies currently in game
         vegetableList.Add(spawnedEnemy);

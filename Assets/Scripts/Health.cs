@@ -31,6 +31,7 @@ public class Health : MonoBehaviour
     // This method runs when something attacks an object with this attribute 
     public virtual  void TakeDamage(int amount) {
         health -= amount;
+        IsDead();
     }
 
     // Check if you are dead by running this method. Object is destroyed if dead

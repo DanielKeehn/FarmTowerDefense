@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 524251352}
   - component: {fileID: 1889121933459602495}
   - component: {fileID: 8963779752481048837}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Goat
   m_TagString: Animal
   m_Icon: {fileID: 0}

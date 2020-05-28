@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1956562943}
   - component: {fileID: 1956562942}
   - component: {fileID: 1956562941}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +104,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2788462581165115033}
   - component: {fileID: 2788462581165115032}
-  - component: {fileID: 4426856719800832849}
   - component: {fileID: 789503586}
-  m_Layer: 0
+  - component: {fileID: 1863426014}
+  m_Layer: 11
   m_Name: Carrot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,34 +146,12 @@ MonoBehaviour:
   attackSpeed: 2
   attackRange: 15
   currentTarget: {fileID: 0}
-  agent: {fileID: 4426856719800832849}
+  agent: {fileID: 1863426014}
   spell: 8
   isUnlocked: 1
   attacking: 0
   enemyAttacking: {fileID: 0}
   roundManager: {fileID: 0}
---- !u!195 &4426856719800832849
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2788462581165115034}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.62
-  m_Speed: 10
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 123.61
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &789503586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +165,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+--- !u!195 &1863426014
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788462581165115034}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

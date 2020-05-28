@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
 	// This determines how high a player can jump
 	[SerializeField] private float jumpHeight = 3f;
 	// This refrences sphere which checks for ground
-	[SerializeField] private Transform groundCheck;
+	public Transform groundCheck;
 	/// This is the radius of sphere
 	[SerializeField] private float groundDistance = 0.4f;
 	// This is a reference to the pitchfork
-	[SerializeField] private Transform pitchfork;
+	public Transform pitchfork;
 
 	// This controls what objects ground check should check for
 	private LayerMask groundMask;

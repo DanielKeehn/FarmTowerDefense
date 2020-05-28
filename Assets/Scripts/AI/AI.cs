@@ -8,7 +8,7 @@ public abstract class AI : StateMachine
     #region Variable Declarations
     // These are the varaibles all AI must have
     // The name of the AI
-    public string name;
+    public new string name;
     // How much health a AI currently has
     public int health;
     // How strong an AIs attacks are

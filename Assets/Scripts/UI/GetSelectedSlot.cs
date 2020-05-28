@@ -9,11 +9,11 @@ public class GetSelectedSlot : MonoBehaviour
 	private itemSlot itemSlot;
 	private SpawnManager spawnManager;
 
-	[SerializeField] private itemSlot ourItemSlot;
-	[SerializeField] private TextMeshProUGUI Name;
-	[SerializeField] private TextMeshProUGUI costValue;
-	[SerializeField] private TextMeshProUGUI healthValue;
-	[SerializeField] private TextMeshProUGUI damageValue;
+	public itemSlot ourItemSlot;
+	public TextMeshProUGUI Name;
+	public TextMeshProUGUI costValue;
+	public TextMeshProUGUI healthValue;
+	public TextMeshProUGUI damageValue;
 
 	// Start is called before the first frame update
 	void Start()

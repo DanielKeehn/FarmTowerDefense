@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fae086a3cf99a444a9494f421233bf98, type: 2}
 --- !u!1001 &728170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2016,6 +2016,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2096371177}
     m_Modifications:
+    - target: {fileID: 1791808358, guid: 4a3ef6356c7bd414987cebee693ff1e1, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3450520410489080566, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2125,6 +2129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976595337758461813, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3ef6356c7bd414987cebee693ff1e1, type: 3}
@@ -4190,7 +4199,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: b832dd038f278fa4e803f5ce0cc62074, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9f2bd7340adfc534992db74392353bcc, type: 2}
 --- !u!4 &129694906
 Transform:
   m_ObjectHideFlags: 0
@@ -4199,7 +4208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129694904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.25045, y: 5.108059, z: -47.68758}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4217,13 +4226,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: -902729914
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1591
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -4231,9 +4240,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 3.5866668
+  m_VoxelSize: 1.0466667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: b10323761dc3a9f468c4131de8d1297e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: fea794881596294418ec3088301d2347, type: 2}
 --- !u!1001 &131109625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34149,7 +34158,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 85e329c9586c1154db74704f90aaf19a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e329c9586c1154db74704f90aaf19a,
         type: 3}
@@ -34197,7 +34206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  currentHealth: 100
   healthbar: {fileID: 1699655321}
 --- !u!65 &1509178091
 BoxCollider:
@@ -47441,7 +47449,7 @@ PrefabInstance:
     - target: {fileID: 4488694077263897699, guid: 42c731be94868c74a9cddb91a12c8940,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4488694077263897699, guid: 42c731be94868c74a9cddb91a12c8940,
         type: 3}

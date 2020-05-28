@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    public Camera camera;
+    public new Camera camera;
     public Weapon weaponScript;
 
     private float attackTimer;
@@ -29,14 +29,14 @@ public class PlayerAttack : MonoBehaviour
 
     // This method runs when a player attacks
     private void DoAttack(){
-        // Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        // RaycastHit hit;
-
-        // if (Physics.Raycast(ray, out hit, weaponScript.attackRange)) {
-        //     if (hit.collider.tag == "Enemy") {
-        //         Enemy enemy = hit.collider.GetComponent<Enemy>();
-        //         enemy.TakeDamage(weaponScript.attackDamage);
-        //     }
-        // }
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, weaponScript.attackRange)) {
+            if (hit.collider.tag == "Enemy") {
+                GameObject parent = hit.collider.transform.parent.gameObject;
+                Health enemyHealth = parent.GetComponent<Health>();
+                enemyHealth.TakeDamage(weaponScript.attackDamage);
+            }
+        }
     }
 }
