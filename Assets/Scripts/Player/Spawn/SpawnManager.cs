@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
         }
         FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
         playerSelectedAnimal = UnlockedAnimals[0];
-        //FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+        FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
     }
 
     // This checks if a player is pressing the spawn button when a player is in spawn mode and creates a raycast
@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
                 } catch {
                     throw new System.ArgumentException("Couldn't find list of currently spawned animals, make sure you have a gamemanager with a gamemanager tag that has a current attacktable objects script attached");
                 }
-				//FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
 			
             } else {
 				Debug.Log("There is something on this tile already");
