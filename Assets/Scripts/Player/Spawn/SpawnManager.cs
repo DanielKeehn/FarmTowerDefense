@@ -17,6 +17,12 @@ public class SpawnManager : MonoBehaviour
     // The grid where a player can spawn animals
 	private Grid grid;
 
+    // The current tile the spawn manager is looking at
+    private Tile currentTile; 
+
+    // The current preview for a spawned animal
+    private GameObject currentPreview;
+
 	private void Awake()
 	{
 		grid = FindObjectOfType<Grid>();
@@ -38,14 +44,35 @@ public class SpawnManager : MonoBehaviour
 
     // This checks if a player is pressing the spawn button when a player is in spawn mode and creates a raycast
     void CheckForSpawnAnimal() {
-        if (Input.GetButtonDown("Fire1")) {
-			RaycastHit hitInfo;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hitInfo))
-			{
-				SpawnAnimal(playerSelectedAnimal, hitInfo.point);
-			}
+        RaycastHit hitInfo;
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out hitInfo)) {
+            GameObject hitTile = hitInfo.transform.gameObject;
+            if (hitTile.tag == "SpawnTile") {
+                if (currentTile != null) {
+                    currentTile.ChangeTileColorToDefault();
+                }
+                currentTile = hitTile.transform.parent.gameObject.GetComponent<Tile>();
+                currentTile.ChangeTileColorToSpawnColor();
+                PlaceAnimalPreviewOnGrid();
+                if (currentTile.CanSpawn()) {
+                    if (Input.GetButtonDown("Fire1")) {
+                        SpawnAnimal(playerSelectedAnimal, hitInfo.point);
+                    }
+                }
+            }
         }
+    }
+
+    public void PlaceAnimalPreviewOnGrid() {
+        if (currentPreview != null) {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
+        GameObject getAnimalPreview = playerSelectedAnimal.GetComponent<Animal>().preview;
+        Quaternion worldRotation = transform.rotation;
+        Vector3 spawnPosition = currentTile.transform.position; 
+        currentPreview = Instantiate(getAnimalPreview, spawnPosition, worldRotation);
     }
 
     // This spawns an animal onto the screen
@@ -54,34 +81,27 @@ public class SpawnManager : MonoBehaviour
         Animal animalScript = animal.GetComponent<Animal>();
         // The cost to spawn an animal
         int costToSpawn = animalScript.costToSpawn;
-
-        
         // First check if the player has enough spawn points to spawn an animal
         if (costToSpawn <= spawnPoints) {         
-            
             // Create a rotation and position for an animal to spawn
             Quaternion worldRotation = transform.rotation;
-			Vector3 spawnPosition = grid.GetNearestPointOnGrid(nearPoint);
 			
-            // Check if there is something currently on a tile
-            if (spawnPosition != Vector3.zero) {
-                // Here is where animal is spawned
-				GameObject currAnimal = Instantiate(animal, spawnPosition, worldRotation);
-				currAnimal.SetActive(true);
-				spawnPoints -= costToSpawn;
+            Vector3 spawnPosition = currentTile.transform.position;
+			
+            // Here is where animal is spawned
+            GameObject currAnimal = Instantiate(animal, spawnPosition, worldRotation);
+            currAnimal.SetActive(true);
+            spawnPoints -= costToSpawn;
 
-                // Add this instance to a list of currently spawned animals
-                try {
-                    List<GameObject> animalList = GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
-                    animalList.Add(currAnimal);
-                } catch {
-                    throw new System.ArgumentException("Couldn't find list of currently spawned animals, make sure you have a gamemanager with a gamemanager tag that has a current attacktable objects script attached");
-                }
-				FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
-			
-            } else {
-				Debug.Log("There is something on this tile already");
-			}
+            // Add this instance to a list of currently spawned animals
+            try {
+                List<GameObject> animalList = GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
+                animalList.Add(currAnimal);
+            } catch {
+                throw new System.ArgumentException("Couldn't find list of currently spawned animals, make sure you have a gamemanager with a gamemanager tag that has a current attacktable objects script attached");
+            }
+            FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+
         
         } else {
             Debug.Log("You don't have enough spawn points to spawn a " + animalScript.name);

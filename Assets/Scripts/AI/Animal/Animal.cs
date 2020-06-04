@@ -14,5 +14,7 @@ public abstract class Animal: AI
     public bool isUnlocked;
     // The 2D Icon displaying in spawn mode for each animal
     public Sprite Icon;
+    // The model of an animal that determines if an animal can be spawned or not
+    public GameObject preview;
     
 }

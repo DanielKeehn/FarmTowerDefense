@@ -14,6 +14,8 @@ TagManager:
   - AnimalManager
   - RoundManager
   - Ground
+  - SpawnTile
+  - Walkable
   layers:
   - Default
   - TransparentFX
