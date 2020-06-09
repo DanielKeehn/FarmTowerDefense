@@ -16,6 +16,7 @@ TagManager:
   - Ground
   - SpawnTile
   - Walkable
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

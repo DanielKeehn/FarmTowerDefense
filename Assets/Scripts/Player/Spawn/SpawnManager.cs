@@ -37,7 +37,15 @@ public class SpawnManager : MonoBehaviour
         } catch {
             throw new System.ArgumentException("Could not create list of unlocked animals, make sure you have an animal manager with an animal manager tag");
         }
-        FindObjectOfType<GameManager>().runSpawnMode += CheckForSpawnAnimal;
+        try {
+            SwitchBetweenAttackAndSpawnMode gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.runSpawnMode += CheckForSpawnAnimal;
+            gameManager.switchFromSpawnToAttack += DeactivateSpawnManager;
+            gameManager.switchFromAttackToSpawn += ActivateSpawnManager;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add CheckForSpawnAnimal() Function To runSpawnMode Event");
+        }
+        
         playerSelectedAnimal = UnlockedAnimals[0];
         FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
     }
@@ -73,6 +81,7 @@ public class SpawnManager : MonoBehaviour
         Quaternion worldRotation = transform.rotation;
         Vector3 spawnPosition = currentTile.transform.position; 
         currentPreview = Instantiate(getAnimalPreview, spawnPosition, worldRotation);
+        currentPreview.transform.parent = gameObject.transform;
     }
 
     // This spawns an animal onto the screen
@@ -106,5 +115,15 @@ public class SpawnManager : MonoBehaviour
         } else {
             Debug.Log("You don't have enough spawn points to spawn a " + animalScript.name);
         }
+    }
+
+    // Hides spawnmanager which also hides grid and animal preview
+    // Runs when spawn mode is exited
+    public void ActivateSpawnManager() {
+        gameObject.SetActive(true);
+    }
+
+    public void DeactivateSpawnManager() {
+        gameObject.SetActive(false);
     }
 }

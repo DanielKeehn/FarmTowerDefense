@@ -15,9 +15,14 @@ public class CreateGrid : MonoBehaviour
     public int gridLength;
     public int gridHeight;
 
+    // Reference to SpawnManager
+    private GameObject spawnManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        spawnManager = GameObject.FindWithTag("SpawnManager");
+        gameObject.transform.parent = spawnManager.transform;
         createGrid();
     }
 

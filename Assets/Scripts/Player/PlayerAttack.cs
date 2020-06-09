@@ -14,7 +14,12 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         weaponScript = gameObject.GetComponent<Weapon>();
-        FindObjectOfType<GameManager>().runAttackMode += CheckForAttack;
+        try {
+            SwitchBetweenAttackAndSpawnMode gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.runAttackMode += CheckForAttack;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add CheckForAttack() Function To runAttackMode Event");
+        }
     }
 
     // Update is called once per frame

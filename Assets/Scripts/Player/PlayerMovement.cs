@@ -44,17 +44,17 @@ public class PlayerMovement : MonoBehaviour
 	//This is a reference to the player's animator
 	private Animator animator;
 	// This is a reference to the gameManager
-	private GameManager gameManager;
+	private SwitchBetweenAttackAndSpawnMode gameManager;
 
     void Start()
     {
-		gameManager = FindObjectOfType<GameManager>();
-		if (!gameManager)
-		{
-			Debug.LogWarning("No game manager found");
-		}
-		gameManager.attackModeEvent += setPitchForkActive;
-		gameManager.spawnModeEvent += setPitchForkInActive;
+        try {
+            gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.switchFromSpawnToAttack += setPitchForkActive;
+            gameManager.switchFromAttackToSpawn += setPitchForkInActive;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add setPitchForkActive() and setPitchForkInActive() to events");
+        }
 
 		groundMask = LayerMask.GetMask("Environment");
 		controller = GetComponent<CharacterController>();
@@ -124,8 +124,8 @@ public class PlayerMovement : MonoBehaviour
 	private void UpdateAnimator()
 	{
 		animator.SetBool("Walking", (move.x > 0 || move.x < 0 || move.z > 0) ? true : false);
-		animator.SetBool("inAttackState", (gameManager.getCurrentState() == 3) ? true : false);
-		animator.SetBool("inSpawnState", (gameManager.getCurrentState() == 4) ? true : false);
+		animator.SetBool("inAttackState", (gameManager.onAttackMode) ? true : false);
+		animator.SetBool("inSpawnState", (!gameManager.onAttackMode) ? true : false);
 	}
 
 	public void setPitchForkActive() {

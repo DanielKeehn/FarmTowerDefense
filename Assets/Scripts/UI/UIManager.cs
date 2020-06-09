@@ -15,19 +15,19 @@ public class UIManager : MonoBehaviour
     public GameObject roundNumberUI;
     public GameObject enemiesLeftUI;
 
+    private SwitchBetweenAttackAndSpawnMode gameManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<GameManager>().attackModeEvent += updateStateUI;
-        FindObjectOfType<GameManager>().spawnModeEvent += updateStateUI;
-        FindObjectOfType<GameManager>().upgradeModeEvent += updateStateUI;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        try {
+            gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.switchFromAttackToSpawn += updateStateUI;
+            gameManager.switchFromSpawnToAttack += updateStateUI;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add updateStateUI() Function To Events");
+        }
     }
 
     public void changeSpawnPointsAmountUI(int newNum){
@@ -39,27 +39,19 @@ public class UIManager : MonoBehaviour
     public void updateStateUI() {
         Transform canvas = transform.GetChild(0);
         int UIModes = canvas.childCount;
-        int currState = FindObjectOfType<GameManager>().getCurrentState();
          for (int i = 0; i < UIModes; i++) {
             GameObject currUIMode = canvas.GetChild(i).gameObject;
-            if (currState == 3) {
+            if (!gameManager.onAttackMode) {
                 if (currUIMode.tag == "AttackMode") {
                     currUIMode.SetActive(true);
                 } else {
                     currUIMode.SetActive(false);
                 }
             }             
-            if (currState == 4) {
+            if (gameManager.onAttackMode) {
                 if (currUIMode.tag == "SpawnMode") {
                     currUIMode.SetActive(true);
                 } else {
-                    currUIMode.SetActive(false);
-                }
-            }
-            if (currState == 5) {
-                if (currUIMode.tag == "UpgradeMode") {
-                    currUIMode.SetActive(true);
-                } else {    
                     currUIMode.SetActive(false);
                 }
             }
