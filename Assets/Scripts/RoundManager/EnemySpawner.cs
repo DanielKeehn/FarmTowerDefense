@@ -44,6 +44,13 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // Run this function when a new round starts to reset values for spawning logic
+    public void ResetEnemySpanwer() {
+        spawnTimer = 0.0f;
+        enemiesAllSpawned = false;
+        getSpawnSpeed();
+    }
+
     // Decides if an vegetable is ready to be spawned
     private bool EnemyReadyToSpawn(float currentTime) {
         if (currentTime >= spawnSpeed) {

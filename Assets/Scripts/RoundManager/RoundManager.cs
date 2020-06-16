@@ -12,6 +12,9 @@ public class RoundManager : MonoBehaviour
 
     public TextMeshProUGUI enemiesLeftUI;
     public TextMeshProUGUI currentRoundUI;
+
+    // A reference to the enemy spawner
+    private EnemySpawner enemySpawner;
     
     SwitchBetweenRoundModeandUpgradeMode switchBetweenRoundModeandUpgradeMode;
   
@@ -27,14 +30,25 @@ public class RoundManager : MonoBehaviour
         if (switchBetweenRoundModeandUpgradeMode == null) {
             throw new System.ArgumentException("Couldn't find reference to SwitchBetweenRoundModeandUpgradeMode script. Make sure SwitchBetweenRoundModeandUpgradeMode component is inside the game manager");
         }
+        try {
+            enemySpawner = gameObject.GetComponent<EnemySpawner>();
+        } catch {
+            throw new System.ArgumentException("Couldn't find enemy spawner");
+        }
         enemiesLeftUI.text = numberOfEnemies.ToString(); 
         currentRoundUI.text = (currentRoundIndex + 1).ToString();
     }
     private void goToNextRound() {  
         currentRoundIndex++;
-        currentRound = rounds[currentRoundIndex];
-        enemiesLeftUI.text = numberOfEnemies.ToString(); 
-        currentRoundUI.text = (currentRoundIndex + 1).ToString();
+        try {
+            currentRound = rounds[currentRoundIndex];
+            getNumberOfEnemies();
+            enemySpawner.ResetEnemySpanwer();
+            enemiesLeftUI.text = numberOfEnemies.ToString(); 
+            currentRoundUI.text = (currentRoundIndex + 1).ToString();
+        } catch {
+            Debug.Log("YOU WIN!!!!!");
+        }
     }
 
      // This method runs when an enemy is killed
@@ -48,6 +62,7 @@ public class RoundManager : MonoBehaviour
     private void checkWinState() {
         if (this.numberOfEnemies <= 0) {
             Debug.Log("Round Won!");
+            goToNextRound();
             switchBetweenRoundModeandUpgradeMode.SwitchToUpgradeMode();
         }
     }

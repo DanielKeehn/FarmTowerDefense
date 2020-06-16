@@ -47,6 +47,7 @@ MonoBehaviour:
   spawnPoints: 311
   UnlockedAnimals: []
   playerSelectedAnimal: {fileID: 0}
+  spawnPointsUI: {fileID: 0}
 --- !u!1001 &3807394750476126160
 PrefabInstance:
   m_ObjectHideFlags: 0

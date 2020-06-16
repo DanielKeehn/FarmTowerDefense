@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rounds: []
+  enemiesLeftUI: {fileID: 0}
+  currentRoundUI: {fileID: 0}
 --- !u!114 &6941839625214339327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +78,7 @@ MonoBehaviour:
   loseRound: 0
   enemies:
   - enemy: {fileID: 2788462581165115034, guid: 9cc7427e0a76e184d9edefe46d649c9e, type: 3}
-    amount: 10
+    amount: 2
   spawnLocations:
   - {fileID: 6941839626326798247}
   - {fileID: 6941839626821872489}
