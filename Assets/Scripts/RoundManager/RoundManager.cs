@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
@@ -9,18 +10,16 @@ public class RoundManager : MonoBehaviour
     public Round[] rounds;
     private int numberOfEnemies;
 
-    UIManager uIManager;
-
+    public TextMeshProUGUI enemiesLeftUI;
+    public TextMeshProUGUI currentRoundUI;
+    
     SwitchBetweenRoundModeandUpgradeMode switchBetweenRoundModeandUpgradeMode;
   
     void Awake() {
         rounds = gameObject.GetComponents<Round>();
         currentRoundIndex = 0;
         currentRound = rounds[currentRoundIndex];
-        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         getNumberOfEnemies();
-        uIManager.updateRound(currentRoundIndex + 1);
-        uIManager.updateEnemiesLeft(numberOfEnemies);
     }
 
     private void Start() {
@@ -28,18 +27,20 @@ public class RoundManager : MonoBehaviour
         if (switchBetweenRoundModeandUpgradeMode == null) {
             throw new System.ArgumentException("Couldn't find reference to SwitchBetweenRoundModeandUpgradeMode script. Make sure SwitchBetweenRoundModeandUpgradeMode component is inside the game manager");
         }
+        enemiesLeftUI.text = numberOfEnemies.ToString(); 
+        currentRoundUI.text = (currentRoundIndex + 1).ToString();
     }
     private void goToNextRound() {  
         currentRoundIndex++;
         currentRound = rounds[currentRoundIndex];
-        uIManager.updateEnemiesLeft(numberOfEnemies);
-        uIManager.updateRound(currentRoundIndex + 1);
+        enemiesLeftUI.text = numberOfEnemies.ToString(); 
+        currentRoundUI.text = (currentRoundIndex + 1).ToString();
     }
 
      // This method runs when an enemy is killed
     public void decreaseNumberOfEnemies() {
         numberOfEnemies--;
-        uIManager.updateEnemiesLeft(numberOfEnemies);
+        enemiesLeftUI.text = numberOfEnemies.ToString();
         checkWinState();
     }
 

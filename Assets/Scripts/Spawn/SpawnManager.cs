@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class SpawnManager : MonoBehaviour
 
     // The current preview for a spawned animal
     private GameObject currentPreview;
+
+    public TextMeshProUGUI spawnPointsUI;
 
 	private void Awake()
 	{
@@ -47,7 +50,7 @@ public class SpawnManager : MonoBehaviour
         }
         
         playerSelectedAnimal = UnlockedAnimals[0];
-        FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+        spawnPointsUI.text = spawnPoints.ToString();
     }
 
     // This checks if a player is pressing the spawn button when a player is in spawn mode and creates a raycast
@@ -109,7 +112,7 @@ public class SpawnManager : MonoBehaviour
             } catch {
                 throw new System.ArgumentException("Couldn't find list of currently spawned animals, make sure you have a gamemanager with a gamemanager tag that has a current attacktable objects script attached");
             }
-            FindObjectOfType<UIManager>().GetComponent<UIManager>().changeSpawnPointsAmountUI(spawnPoints);
+            spawnPointsUI.text = spawnPoints.ToString();
 
         
         } else {

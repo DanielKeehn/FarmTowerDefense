@@ -17,6 +17,12 @@ TagManager:
   - SpawnTile
   - Walkable
   - SpawnManager
+  - UIManager
+  - UpgradeMenu
+  - AttackModeUI
+  - SpawnModeUI
+  - RoundModeUI
+  - UpgradeModeUI
   layers:
   - Default
   - TransparentFX
