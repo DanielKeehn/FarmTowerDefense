@@ -10,8 +10,10 @@ public class RoundManager : MonoBehaviour
     private int numberOfEnemies;
 
     UIManager uIManager;
+
+    SwitchBetweenRoundModeandUpgradeMode switchBetweenRoundModeandUpgradeMode;
   
-    void Start() {
+    void Awake() {
         rounds = gameObject.GetComponents<Round>();
         currentRoundIndex = 0;
         currentRound = rounds[currentRoundIndex];
@@ -21,7 +23,13 @@ public class RoundManager : MonoBehaviour
         uIManager.updateEnemiesLeft(numberOfEnemies);
     }
 
-    private void goToNextRound() {
+    private void Start() {
+        switchBetweenRoundModeandUpgradeMode = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenRoundModeandUpgradeMode>();
+        if (switchBetweenRoundModeandUpgradeMode == null) {
+            throw new System.ArgumentException("Couldn't find reference to SwitchBetweenRoundModeandUpgradeMode script. Make sure SwitchBetweenRoundModeandUpgradeMode component is inside the game manager");
+        }
+    }
+    private void goToNextRound() {  
         currentRoundIndex++;
         currentRound = rounds[currentRoundIndex];
         uIManager.updateEnemiesLeft(numberOfEnemies);
@@ -30,7 +38,7 @@ public class RoundManager : MonoBehaviour
 
      // This method runs when an enemy is killed
     public void decreaseNumberOfEnemies() {
-        this.numberOfEnemies--;
+        numberOfEnemies--;
         uIManager.updateEnemiesLeft(numberOfEnemies);
         checkWinState();
     }
@@ -39,7 +47,7 @@ public class RoundManager : MonoBehaviour
     private void checkWinState() {
         if (this.numberOfEnemies <= 0) {
             Debug.Log("Round Won!");
-            goToNextRound();
+            switchBetweenRoundModeandUpgradeMode.SwitchToUpgradeMode();
         }
     }
 

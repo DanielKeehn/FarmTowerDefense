@@ -24,11 +24,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9200647401639416481}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.3680363, y: 2.7739248, z: 5.558219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5786547284598631777}
+  - {fileID: 4809836662526805411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIPrefabs: []
   UnlockedAnimals: []
---- !u!1001 &9200647402807060375
+--- !u!1001 &7880541776281358165
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 3450520410489080566, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3450520410489080566, guid: 4a3ef6356c7bd414987cebee693ff1e1,
         type: 3}
@@ -163,11 +163,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cow
       objectReference: {fileID: 0}
+    - target: {fileID: 4976595337758461813, guid: 4a3ef6356c7bd414987cebee693ff1e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3ef6356c7bd414987cebee693ff1e1, type: 3}
---- !u!224 &5786547284598631777 stripped
+--- !u!224 &4809836662526805411 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3450520410489080566, guid: 4a3ef6356c7bd414987cebee693ff1e1,
     type: 3}
-  m_PrefabInstance: {fileID: 9200647402807060375}
+  m_PrefabInstance: {fileID: 7880541776281358165}
   m_PrefabAsset: {fileID: 0}

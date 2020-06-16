@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 688822378656331792}
   - component: {fileID: 6535771059351553257}
   - component: {fileID: 3579941949600229695}
-  - component: {fileID: 3579941949600229694}
+  - component: {fileID: 4758107541263024757}
   m_Layer: 0
   m_Name: Farmhouse
   m_TagString: Farmhouse
@@ -171,7 +171,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.28038135, y: 0.19112888, z: 0.24833529}
   m_Center: {x: 0.0073343897, y: 0.002188511, z: 0.0058700372}
---- !u!114 &3579941949600229694
+--- !u!114 &4758107541263024757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4796174355165851701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8378f9831f786794bb13f39fc5943160, type: 3}
+  m_Script: {fileID: 11500000, guid: ea0f5985ed87300408b3b62c4ffaaf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100

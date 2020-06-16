@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 291942369377142901}
   - component: {fileID: 291942369377142906}
   - component: {fileID: 291942369377142907}
-  - component: {fileID: 291942369377142900}
+  - component: {fileID: 6095419716160194021}
   m_Layer: 0
   m_Name: Tile
   m_TagString: SpawnTile
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &291942369377142900
+--- !u!114 &6095419716160194021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,11 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 291942369377142905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50745c40a87a98449f22f3349a1552e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e778b74165df1a4f81c1fb33cb844ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSpawnColor: {r: 0.21382368, g: 1, b: 0, a: 0.4117647}
-  cannotSpawnColor: {r: 0.9811321, g: 0.14346743, b: 0.14346743, a: 0.4117647}
+  canSpawnColor: {r: 0.06607044, g: 1, b: 0, a: 0}
+  cannotSpawnColor: {r: 1, g: 0, b: 0, a: 0}
   canSpawn: 0
 --- !u!1 &6649893514431752257
 GameObject:

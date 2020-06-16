@@ -23,16 +23,16 @@ GameObject:
   m_Component:
   - component: {fileID: 3450520410489080566}
   - component: {fileID: 4976595337758461815}
-  - component: {fileID: 2093451257}
   - component: {fileID: 1932319624303813583}
   - component: {fileID: 1453292965}
+  - component: {fileID: 8387545375390783869}
   m_Layer: 12
   m_Name: Cow
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3450520410489080566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76,19 +76,6 @@ MonoBehaviour:
   isUnlocked: 1
   Icon: {fileID: 4104390135632883058, guid: 37a93b712552a244889bb34a0fad4f3a, type: 3}
   preview: {fileID: 7924468763672183614, guid: 122eb89ad5aaad6438d47828983fed31, type: 3}
---- !u!114 &2093451257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976595337758461813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4d879939308ba4db63f0f7234f13de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
 --- !u!222 &1932319624303813583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -119,6 +106,19 @@ NavMeshAgent:
   m_BaseOffset: 2.7
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8387545375390783869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976595337758461813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bea43d7daa619649ba042ceb8d08bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &5052391791925209773
 PrefabInstance:
   m_ObjectHideFlags: 0

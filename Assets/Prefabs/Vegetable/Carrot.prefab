@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4165400208645567658}
   m_Layer: 11
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914983259464479127}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5609192
   m_Height: 2.5906034
@@ -104,8 +104,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1297269268901050281}
   - component: {fileID: 2788462581165115032}
-  - component: {fileID: 789503586}
   - component: {fileID: 1863426014}
+  - component: {fileID: 2414996896222904089}
   m_Layer: 11
   m_Name: Carrot
   m_TagString: Enemy
@@ -157,19 +157,6 @@ MonoBehaviour:
   attacking: 0
   enemyAttacking: {fileID: 0}
   roundManager: {fileID: 0}
---- !u!114 &789503586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2788462581165115034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4d879939308ba4db63f0f7234f13de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
 --- !u!195 &1863426014
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -192,3 +179,16 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2414996896222904089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788462581165115034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bea43d7daa619649ba042ceb8d08bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
