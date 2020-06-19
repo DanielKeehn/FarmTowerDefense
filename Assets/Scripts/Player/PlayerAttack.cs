@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    public Camera camera;
+    public new Camera camera;
     public Weapon weaponScript;
 
     private float attackTimer;
@@ -14,7 +14,12 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         weaponScript = gameObject.GetComponent<Weapon>();
-        FindObjectOfType<GameManager>().runAttackMode += CheckForAttack;
+        try {
+            SwitchBetweenAttackAndSpawnMode gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.runAttackMode += CheckForAttack;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add CheckForAttack() Function To runAttackMode Event");
+        }
     }
 
     // Update is called once per frame
@@ -31,11 +36,11 @@ public class PlayerAttack : MonoBehaviour
     private void DoAttack(){
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit, weaponScript.attackRange)) {
             if (hit.collider.tag == "Enemy") {
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                enemy.TakeDamage(weaponScript.attackDamage);
+                GameObject parent = hit.collider.transform.parent.gameObject;
+                Health enemyHealth = parent.GetComponent<Health>();
+                enemyHealth.TakeDamage(weaponScript.attackDamage);
             }
         }
     }

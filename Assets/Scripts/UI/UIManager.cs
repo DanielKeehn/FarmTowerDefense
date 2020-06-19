@@ -5,84 +5,85 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
 
-    public GameObject spawnPointsAmount;
+    // Refrences to all of the UI categories
+    private GameObject roundModeUI;
+    private GameObject upgradeModeUI;
+    private GameObject attackModeUI;
+    private GameObject spawnModeUI;
+    private SwitchBetweenAttackAndSpawnMode gameManager;
 
-    // This is all of the UI that will be altered when in the upgrade menu
-    public GameObject currentAnimalUI;
-    public GameObject currentHealthUI;
-    public GameObject currentCostToSpawnUI;
-
-    public GameObject roundNumberUI;
-    public GameObject enemiesLeftUI;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<GameManager>().attackModeEvent += updateStateUI;
-        FindObjectOfType<GameManager>().spawnModeEvent += updateStateUI;
-        FindObjectOfType<GameManager>().upgradeModeEvent += updateStateUI;
-    }
+        try {
+            gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.switchFromAttackToSpawn += ActivateSpawnModeUI;
+            gameManager.switchFromAttackToSpawn += DeactivateAttackModeUI;
+            gameManager.switchFromSpawnToAttack += ActivateAttackModeUI;
+            gameManager.switchFromSpawnToAttack += DeactivateSpawnModeUI;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add updateStateUI() Function To Events");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void changeSpawnPointsAmountUI(int newNum){
-        string newNumString = newNum.ToString();
-        spawnPointsAmount.GetComponent<TMPro.TextMeshProUGUI>().text = newNumString;
-    }
-
-    // This function changes the UI on screen when a user changes states
-    public void updateStateUI() {
-        Transform canvas = transform.GetChild(0);
-        int UIModes = canvas.childCount;
-        int currState = FindObjectOfType<GameManager>().getCurrentState();
-         for (int i = 0; i < UIModes; i++) {
-            GameObject currUIMode = canvas.GetChild(i).gameObject;
-            if (currState == 3) {
-                if (currUIMode.tag == "AttackMode") {
-                    currUIMode.SetActive(true);
-                } else {
-                    currUIMode.SetActive(false);
-                }
-            }             
-            if (currState == 4) {
-                if (currUIMode.tag == "SpawnMode") {
-                    currUIMode.SetActive(true);
-                } else {
-                    currUIMode.SetActive(false);
-                }
+        // Loop Through UI Managers Children And Find Refrences For All UI types
+        foreach (Transform child in transform){
+            if (child.tag == "RoundModeUI") {
+                roundModeUI = child.gameObject;
             }
-            if (currState == 5) {
-                if (currUIMode.tag == "UpgradeMode") {
-                    currUIMode.SetActive(true);
-                } else {    
-                    currUIMode.SetActive(false);
-                }
+            if (child.tag == "UpgradeModeUI") {
+                upgradeModeUI = child.gameObject;
             }
+            if (child.tag == "AttackModeUI") {
+                attackModeUI = child.gameObject;
+            }
+            if (child.tag == "SpawnModeUI") {
+                spawnModeUI = child.gameObject;
+            }
+        }
+        if (roundModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Round Mode UI");
+        }
+        if (upgradeModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Upgrade Mode UI");
+        }
+        if (attackModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Attack Mode UI");
+        }
+        if (spawnModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Spawn Mode UI");
         }
     }
 
-    // This function updates the UI for what is shown on the upgrade menu
-    public void changeUpgradeStatsUI() {
-        GameObject currentAnimal = FindObjectOfType<UpgradeManager>().GetComponent<UpgradeManager>().getCurrentAnimal();
-        string name = currentAnimal.GetComponent<Animal>().name;
-        string health = currentAnimal.GetComponent<Animal>().health.ToString();
-        string costToSpawn = currentAnimal.GetComponent<Animal>().costToSpawn.ToString();
-        currentAnimalUI.GetComponent<TMPro.TextMeshProUGUI>().text = name;
-        currentHealthUI.GetComponent<TMPro.TextMeshProUGUI>().text = health;
-        currentCostToSpawnUI.GetComponent<TMPro.TextMeshProUGUI>().text = costToSpawn;
+    public void ActivateRoundModeUI() {
+        roundModeUI.SetActive(true);
     }
 
-    public void updateRound(int roundNumber) {
-        roundNumberUI.GetComponent<TMPro.TextMeshProUGUI>().text = roundNumber.ToString();
+    public void DeactivateRoundModeUI() {
+        roundModeUI.SetActive(false);
     }
 
-    public void updateEnemiesLeft(int enemiesLeft) {
-        enemiesLeftUI.GetComponent<TMPro.TextMeshProUGUI>().text = enemiesLeft.ToString();
+    public void ActivateUpgradeModeUI() {
+        upgradeModeUI.SetActive(true);
     }
 
+    public void DeactivateUpgradeModeUI() {
+        upgradeModeUI.SetActive(false);
+    }
+
+    public void ActivateAttackModeUI() {
+        attackModeUI.SetActive(true);
+    }
+
+    public void DeactivateAttackModeUI() {
+        attackModeUI.SetActive(false);
+    }
+
+    public void ActivateSpawnModeUI() {
+        spawnModeUI.SetActive(true);
+    }
+
+    public void DeactivateSpawnModeUI() {
+        spawnModeUI.SetActive(false);
+    }
 }

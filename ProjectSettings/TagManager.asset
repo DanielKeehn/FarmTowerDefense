@@ -10,6 +10,19 @@ TagManager:
   - Enemy
   - Farmhouse
   - Animal
+  - GameManager
+  - AnimalManager
+  - RoundManager
+  - Ground
+  - SpawnTile
+  - Walkable
+  - SpawnManager
+  - UIManager
+  - UpgradeMenu
+  - AttackModeUI
+  - SpawnModeUI
+  - RoundModeUI
+  - UpgradeModeUI
   layers:
   - Default
   - TransparentFX
@@ -20,11 +33,11 @@ TagManager:
   - 
   - 
   - 
-  - Environment
-  - Ground
+  - Obstacle
+  - Walkable
   - Enemy
-  - 
-  - 
+  - Animal
+  - Player
   - 
   - 
   - 

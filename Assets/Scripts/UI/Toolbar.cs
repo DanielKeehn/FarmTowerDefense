@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Toolbar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Toolbar : MonoBehaviour
 
 	private int slotIndex = 0;
 	private SpawnManager spawnManager;
+	private AnimalManager animalManager;
 
 	private KeyCode[] keyCodes = {
 		 KeyCode.Alpha1,
@@ -27,7 +29,8 @@ public class Toolbar : MonoBehaviour
     {
 		itemSlots = GetComponentsInChildren<itemSlot>();
 		spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-		spawnManager.playerSelectedAnimal = itemSlots[slotIndex].nameObj;
+		animalManager = GameObject.Find("AnimalManager").GetComponent<AnimalManager>();
+		initializeItemSlotAssignments();
 	}
 
     // Update is called once per frame
@@ -46,26 +49,26 @@ public class Toolbar : MonoBehaviour
 				slotIndex++;
 			}
 
-			if (slotIndex > itemSlots.Length - 1)
+			if (slotIndex > spawnManager.UnlockedAnimals.Count - 1)
 			{
 				slotIndex = 0;
 			}
 			if (slotIndex < 0)
 			{
-				slotIndex = itemSlots.Length - 1;
+				slotIndex = spawnManager.UnlockedAnimals.Count - 1;
 			}
 
 			highlight.position = itemSlots[slotIndex].gameObject.transform.position;
-			spawnManager.playerSelectedAnimal = itemSlots[slotIndex].nameObj;
+			spawnManager.playerSelectedAnimal = spawnManager.UnlockedAnimals[slotIndex];
 		}
 
-		for (int i = 0; i < keyCodes.Length; i++)
+		for (int i = 0; i < spawnManager.UnlockedAnimals.Count; i++)
 		{
 			if (Input.GetKeyDown(keyCodes[i]))
 			{
 				slotIndex = i;
 				highlight.position = itemSlots[slotIndex].gameObject.transform.position;
-				spawnManager.playerSelectedAnimal = itemSlots[slotIndex].nameObj;
+				spawnManager.playerSelectedAnimal = spawnManager.UnlockedAnimals[slotIndex];
 			}
 		}
 
@@ -74,5 +77,14 @@ public class Toolbar : MonoBehaviour
 	public itemSlot getItemSlot()
 	{
 		return itemSlots[slotIndex];
+	}
+
+	// Assigns item slots with animals unlocked at the beginning of the game
+	public void initializeItemSlotAssignments() {
+		for (int i = 0; i < animalManager.UnlockedAnimals.Count; i++) {
+			Animal currentAnimalScript = animalManager.UnlockedAnimals[i].GetComponent<Animal>();
+			Sprite sprite = currentAnimalScript.Icon;
+			itemSlots[i].UpdateIcon(sprite, currentAnimalScript.name);
+		}
 	}
 }

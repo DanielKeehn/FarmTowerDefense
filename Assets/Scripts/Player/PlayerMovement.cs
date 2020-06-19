@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
 	// This determines how high a player can jump
 	[SerializeField] private float jumpHeight = 3f;
 	// This refrences sphere which checks for ground
-	[SerializeField] private Transform groundCheck;
+	public Transform groundCheck;
 	/// This is the radius of sphere
 	[SerializeField] private float groundDistance = 0.4f;
 	// This is a reference to the pitchfork
-	[SerializeField] private Transform pitchfork;
+	public Transform pitchfork;
 
 	// This controls what objects ground check should check for
 	private LayerMask groundMask;
@@ -44,17 +44,17 @@ public class PlayerMovement : MonoBehaviour
 	//This is a reference to the player's animator
 	private Animator animator;
 	// This is a reference to the gameManager
-	private GameManager gameManager;
+	private SwitchBetweenAttackAndSpawnMode gameManager;
 
     void Start()
     {
-		gameManager = FindObjectOfType<GameManager>();
-		if (!gameManager)
-		{
-			Debug.LogWarning("No game manager found");
-		}
-		gameManager.attackModeEvent += setPitchForkActive;
-		gameManager.spawnModeEvent += setPitchForkInActive;
+        try {
+            gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+            gameManager.switchFromSpawnToAttack += setPitchForkActive;
+            gameManager.switchFromAttackToSpawn += setPitchForkInActive;
+        } catch {
+            throw new System.ArgumentException("Couldn't Add setPitchForkActive() and setPitchForkInActive() to events");
+        }
 
 		groundMask = LayerMask.GetMask("Environment");
 		controller = GetComponent<CharacterController>();
@@ -124,8 +124,8 @@ public class PlayerMovement : MonoBehaviour
 	private void UpdateAnimator()
 	{
 		animator.SetBool("Walking", (move.x > 0 || move.x < 0 || move.z > 0) ? true : false);
-		animator.SetBool("inAttackState", (gameManager.getCurrentState() == 3) ? true : false);
-		animator.SetBool("inSpawnState", (gameManager.getCurrentState() == 4) ? true : false);
+		animator.SetBool("inAttackState", (gameManager.onAttackMode) ? true : false);
+		animator.SetBool("inSpawnState", (!gameManager.onAttackMode) ? true : false);
 	}
 
 	public void setPitchForkActive() {

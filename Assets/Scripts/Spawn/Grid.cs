@@ -2,7 +2,7 @@
 
 public class Grid : MonoBehaviour
 {
-	[SerializeField] private float size = 1f;
+	[SerializeField] [Range(5,20)] private float size = 1f;
 
 	public float Size { get { return size; } }
 

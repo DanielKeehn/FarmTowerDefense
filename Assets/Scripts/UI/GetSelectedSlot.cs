@@ -7,20 +7,20 @@ public class GetSelectedSlot : MonoBehaviour
 {
 	private Toolbar toolbar;
 	private itemSlot itemSlot;
-	private AnimalManager animalManager;
+	private SpawnManager spawnManager;
 
-	[SerializeField] private itemSlot ourItemSlot;
-	[SerializeField] private TextMeshProUGUI Name;
-	[SerializeField] private TextMeshProUGUI costValue;
-	[SerializeField] private TextMeshProUGUI healthValue;
-	[SerializeField] private TextMeshProUGUI damageValue;
+	public itemSlot ourItemSlot;
+	public TextMeshProUGUI Name;
+	public TextMeshProUGUI costValue;
+	public TextMeshProUGUI healthValue;
+	public TextMeshProUGUI damageValue;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		toolbar = FindObjectOfType<Toolbar>();
-		animalManager = FindObjectOfType<AnimalManager>();
-		if (!animalManager)
+		spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+		if (!spawnManager)
 		{
 			Debug.LogWarning("No animal manager found");
 		}
@@ -49,10 +49,9 @@ public class GetSelectedSlot : MonoBehaviour
 	{
 		ourItemSlot.Icon = itemSlot.Icon;
 		ourItemSlot.nameObj = itemSlot.nameObj;
-		ourItemSlot.UpdateIcon();
-		Name.text = ourItemSlot.nameObj;
-		GameObject foundAnimal = animalManager.animalDict[ourItemSlot.nameObj];
-		Animal animalScript = foundAnimal.gameObject.GetComponent<Animal>();
+		ourItemSlot.UpdateIcon(itemSlot.Icon, itemSlot.nameObj);
+		Animal animalScript = spawnManager.playerSelectedAnimal.GetComponent<Animal>();
+		Name.text = animalScript.name;
 		costValue.text = animalScript.costToSpawn.ToString();
 		healthValue.text = animalScript.health.ToString();
 		//damageValue.text = animalScript.damage.ToString();

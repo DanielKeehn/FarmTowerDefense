@@ -6,17 +6,21 @@ using UnityEngine.UI;
 public class itemSlot : MonoBehaviour
 {
 	public string nameObj;
+	
 	public Sprite Icon;
 
     void Start()
     {
-		UpdateIcon();
+		nameObj = "Locked Item Slot";
 	}
 
-	public void UpdateIcon()
+	public void UpdateIcon(Sprite sprite, string name)
 	{
+		nameObj = name;
+		Icon = sprite;
 		GameObject itemImage = transform.Find("Border/ItemImage").gameObject;
-		Image image = itemImage.GetComponent<Image>();
-		image.sprite = Icon;
+		Image imageComponent = itemImage.GetComponent<Image>();	
+		imageComponent.sprite = Icon;
 	}
+
 }

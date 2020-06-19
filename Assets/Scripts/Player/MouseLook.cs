@@ -21,7 +21,7 @@ public class MouseLook : MonoBehaviour
 	[SerializeField] private float mouseSensitivity = 100f;
 
 	// This is the transform of the Player Object
-	[SerializeField] private Transform playerBody;
+	public Transform playerBody;
 
     // This value deals with how much the camera is rotated when mouse is moved on y axis
     private float xRotation = 0f;

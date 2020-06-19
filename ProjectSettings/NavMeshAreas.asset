@@ -69,14 +69,14 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  m_LastAgentTypeID: -1372625422
+  m_LastAgentTypeID: -902729914
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 2.42
-    agentHeight: 3.55
-    agentSlope: 10.9
-    agentClimb: 0.75
+    agentRadius: 1
+    agentHeight: 4.41
+    agentSlope: 36.8
+    agentClimb: 1.58
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -88,11 +88,11 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   - serializedVersion: 2
-    agentTypeID: -1372625422
-    agentRadius: 3.5
-    agentHeight: 5
-    agentSlope: 14
-    agentClimb: 0.5
+    agentTypeID: -902729914
+    agentRadius: 3.14
+    agentHeight: 3.18
+    agentSlope: 13.6
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -104,5 +104,5 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   m_SettingNames:
-  - Humanoid
+  - Carrot
   - Cow
