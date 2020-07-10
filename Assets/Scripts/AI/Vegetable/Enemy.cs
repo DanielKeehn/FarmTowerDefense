@@ -11,6 +11,15 @@ public abstract class Enemy : AI
     public GameObject enemyAttacking;
 
     public RoundManager roundManager;
-    Round currentRound; 
+    Round currentRound;
+
+    // This function checks if a vegetable has hit the barn collider
+    // The Vegetable AI will go into attack mode when it hits the barn collider
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Barn") {
+            agent.isStopped = true;
+            ChangeState(new AttackState(this));
+        }
+    } 
 
 }

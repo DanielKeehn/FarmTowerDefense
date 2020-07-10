@@ -32,7 +32,7 @@ public class AttackState : State
                 } else {
                     throw new System.ArgumentException("Couldn't remove destroyed target from list or find list");
                 }
-                
+                AI.agent.isStopped = false;
                 AI.currentTarget = null;
                 AI.ChangeState(new SearchState(AI));
             }

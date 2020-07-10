@@ -28,4 +28,29 @@ public class Pause : MonoBehaviour
         gamePaused = true;
     }
 
+    // Pauses or resumes the game based on the game paused boolean
+    private void PauseOrResume() {
+        if (gamePaused == false) {
+            PauseGame();
+        } else {
+            ResumeGame();
+        }
+    }
+
+    // Checks if the player presses the input to enter or exit the pause menu
+    private bool PressedPause() {
+        if (Input.GetButtonDown("Pause")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private void Update() {
+        if (PressedPause() == true) {
+            PauseOrResume();
+        }
+    }
+
 }

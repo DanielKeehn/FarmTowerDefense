@@ -22,16 +22,15 @@ public class CreateGrid : MonoBehaviour
     void Start()
     {
         spawnManager = GameObject.FindWithTag("SpawnManager");
-        gameObject.transform.parent = spawnManager.transform;
         createGrid();
     }
 
     public void createGrid() {
-        float currentPosX = 0;
-        float currentPosZ = 0;
+        float currentPosX = spawnManager.transform.position.x;
+        float currentPosZ = spawnManager.transform.position.z;
         for (int x  = 0; x < gridLength; x++) {
             currentPosX += tileSize;
-            currentPosZ = 0;
+            currentPosZ = spawnManager.transform.position.z;
             for (int z = 0; z < gridHeight; z++) {
                 Vector3 position = new Vector3(currentPosX + 0.5f, 0, currentPosZ + 0.5f);
                 GameObject currentTile = Instantiate(tile, position, Quaternion.identity);

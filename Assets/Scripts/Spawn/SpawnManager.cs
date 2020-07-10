@@ -51,6 +51,7 @@ public class SpawnManager : MonoBehaviour
         
         playerSelectedAnimal = UnlockedAnimals[0];
         spawnPointsUI.text = spawnPoints.ToString();
+        DeactivateSpawnManager();
     }
 
     // This checks if a player is pressing the spawn button when a player is in spawn mode and creates a raycast
@@ -59,6 +60,7 @@ public class SpawnManager : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hitInfo)) {
             GameObject hitTile = hitInfo.transform.gameObject;
+            Debug.Log(hitTile.tag);
             if (hitTile.tag == "SpawnTile") {
                 if (currentTile != null) {
                     currentTile.ChangeTileColorToDefault();

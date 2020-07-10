@@ -25,6 +25,7 @@ public class SearchState : State
             AI.agent.SetDestination(AI.currentTarget.transform.position);
         }
         if (CanAttack()) {
+            AI.agent.isStopped = true;
             AI.ChangeState(new AttackState(AI));
         } 
         yield return new WaitForSeconds(2f);
