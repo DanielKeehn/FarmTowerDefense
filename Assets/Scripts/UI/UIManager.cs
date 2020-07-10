@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     private GameObject upgradeModeUI;
     private GameObject attackModeUI;
     private GameObject spawnModeUI;
+    private GameObject pauseModeUI;
+    
+
     private SwitchBetweenAttackAndSpawnMode gameManager;
 
     
@@ -40,6 +43,9 @@ public class UIManager : MonoBehaviour
             if (child.tag == "SpawnModeUI") {
                 spawnModeUI = child.gameObject;
             }
+            if (child.tag == "PauseModeUI") {
+                pauseModeUI = child.gameObject;
+            }
         }
         if (roundModeUI == null) {
             throw new System.ArgumentException("Couldn't Find Round Mode UI");
@@ -52,6 +58,9 @@ public class UIManager : MonoBehaviour
         }
         if (spawnModeUI == null) {
             throw new System.ArgumentException("Couldn't Find Spawn Mode UI");
+        }
+        if (pauseModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Pause Mode UI");
         }
     }
 
@@ -85,5 +94,13 @@ public class UIManager : MonoBehaviour
 
     public void DeactivateSpawnModeUI() {
         spawnModeUI.SetActive(false);
+    }
+
+    public void ActivatePauseModeUI() {
+        pauseModeUI.SetActive(true);
+    }
+
+    public void DeactivatePauseModeUI() {
+        pauseModeUI.SetActive(false);
     }
 }

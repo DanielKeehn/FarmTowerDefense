@@ -23,6 +23,7 @@ TagManager:
   - RoundModeUI
   - UpgradeModeUI
   - Barn
+  - PauseModeUI
   layers:
   - Default
   - TransparentFX

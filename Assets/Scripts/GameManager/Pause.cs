@@ -8,6 +8,19 @@ public class Pause : MonoBehaviour
 
     // Bool keeping track if the game is paused
     public static bool gamePaused = false;
+
+    // A reference to the UI manager
+    private UIManager uIManager;
+
+    // Get a reference to the UI manager
+    private void Start() {
+        try {
+            uIManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
+        }
+        catch {
+            throw new System.ArgumentException("Couldn't Find The UI Manager Script");
+        }  
+    }
     
 
     public void ResumeGame() {
@@ -32,8 +45,10 @@ public class Pause : MonoBehaviour
     private void PauseOrResume() {
         if (gamePaused == false) {
             PauseGame();
+            uIManager.ActivatePauseModeUI();
         } else {
             ResumeGame();
+            uIManager.DeactivatePauseModeUI();
         }
     }
 
