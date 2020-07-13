@@ -24,6 +24,7 @@ TagManager:
   - UpgradeModeUI
   - Barn
   - PauseModeUI
+  - LoseModeUI
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     private GameObject attackModeUI;
     private GameObject spawnModeUI;
     private GameObject pauseModeUI;
+    private GameObject loseModeUI;
     
 
     private SwitchBetweenAttackAndSpawnMode gameManager;
@@ -46,6 +47,9 @@ public class UIManager : MonoBehaviour
             if (child.tag == "PauseModeUI") {
                 pauseModeUI = child.gameObject;
             }
+            if (child.tag == "LoseModeUI") {
+                loseModeUI = child.gameObject;
+            }
         }
         if (roundModeUI == null) {
             throw new System.ArgumentException("Couldn't Find Round Mode UI");
@@ -61,6 +65,9 @@ public class UIManager : MonoBehaviour
         }
         if (pauseModeUI == null) {
             throw new System.ArgumentException("Couldn't Find Pause Mode UI");
+        }
+        if (loseModeUI == null) {
+            throw new System.ArgumentException("Couldn't Find Lose Mode UI");
         }
     }
 
@@ -102,5 +109,13 @@ public class UIManager : MonoBehaviour
 
     public void DeactivatePauseModeUI() {
         pauseModeUI.SetActive(false);
+    }
+
+    public void ActivateLoseModeUI() {
+        loseModeUI.SetActive(true);
+    }
+
+    public void DeactivateLoseModeUI() {
+        loseModeUI.SetActive(false);
     }
 }

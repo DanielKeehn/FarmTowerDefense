@@ -30,6 +30,8 @@ public class Pause : MonoBehaviour
         }
         Time.timeScale = 1f;
         gamePaused = false;
+        // This reactivates the cursor
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     public void PauseGame() {
@@ -39,6 +41,8 @@ public class Pause : MonoBehaviour
         }
         Time.timeScale = 0f;
         gamePaused = true;
+        // This reactivates the cursor
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Pauses or resumes the game based on the game paused boolean
