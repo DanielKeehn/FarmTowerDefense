@@ -32,8 +32,6 @@ public class SwitchBetweenRoundModeandUpgradeMode : MonoBehaviour
         uIManager.DeactivateAttackModeUI();
         uIManager.DeactivateRoundModeUI();
         uIManager.DeactivateSpawnModeUI();
-        // This reactivates the cursor
-        Cursor.lockState = CursorLockMode.None;
     }
 
     // Actions That Occur When A Player Switches To Round Mode
@@ -41,8 +39,6 @@ public class SwitchBetweenRoundModeandUpgradeMode : MonoBehaviour
         pauseScript.ResumeGame();
         uIManager.DeactivateUpgradeModeUI();
         uIManager.ActivateAttackModeUI();
-        uIManager.ActivateRoundModeUI();
-        // This reactivates the cursor
-        Cursor.lockState = CursorLockMode.Locked;        
+        uIManager.ActivateRoundModeUI();       
     }
 }

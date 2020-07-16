@@ -25,6 +25,11 @@ TagManager:
   - Barn
   - PauseModeUI
   - LoseModeUI
+  - UpgradePanel
+  - PitchforkUpgrades
+  - GridUpgrades
+  - BarnUpgrades
+  - AnimalsUpgrades
   layers:
   - Default
   - TransparentFX

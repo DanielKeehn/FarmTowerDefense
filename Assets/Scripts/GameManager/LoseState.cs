@@ -8,6 +8,8 @@ public class LoseState : MonoBehaviour
 
     // A reference to the UI manager
     private UIManager uIManager;
+    // A reference to game manager
+    private GameManager gameManager;
 
     // A reference to pause script
     private Pause pause;
@@ -21,6 +23,11 @@ public class LoseState : MonoBehaviour
         }
         catch {
             throw new System.ArgumentException("Couldn't Find The UI Manager Script");
+        }
+
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        if (gameManager == null) {
+            throw new System.ArgumentException("Couldn't Find The Game Manager Script");
         }
 
         pause = gameObject.GetComponent<Pause>();
@@ -45,6 +52,6 @@ public class LoseState : MonoBehaviour
 
     // Method Occurs when player presses the Go To Main Menu button
     public void GoToMainMenu() {
-
-    }
+        gameManager.switchToTitleScreen();
+    }   
 }
