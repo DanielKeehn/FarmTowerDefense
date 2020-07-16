@@ -1825,6 +1825,36 @@ PrefabInstance:
       propertyPath: m_UseSpriteMesh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 407772549}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PressDoneButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107722641615516439, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1287190608160563428, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1910,6 +1940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpgradeModeUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553948267543032592, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7553948267543032604, guid: 4b5e190e8c08e374ca39ffe40aa953d2,
         type: 3}
@@ -2177,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 6728583578818879683, guid: 1ba31d850c81aa446b02a36c0f0ab0f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba31d850c81aa446b02a36c0f0ab0f8, type: 3}
@@ -2447,7 +2482,7 @@ PrefabInstance:
     - target: {fileID: 3166569275680936803, guid: 196fa2fdb9b8c1140b34da00175f0564,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3166569277029425732, guid: 196fa2fdb9b8c1140b34da00175f0564,
         type: 3}
@@ -2476,7 +2511,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768024677, guid: 0bf238a153707254c8cad6373f9dda87, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569964586227623087, guid: 0bf238a153707254c8cad6373f9dda87,
         type: 3}

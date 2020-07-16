@@ -19,6 +19,9 @@ public class UpgradeManager : MonoBehaviour
     // List of tags (strings) representing Upgrade Cateogry Game Objects
     private List<string> upgradeCategoryTags;
 
+    // Reference to SwitchBetweenRoundModeAndUpgradeModeClass
+    SwitchBetweenRoundModeandUpgradeMode switchBetweenRoundModeandUpgrade;
+
 
     private void Start() {
         // Assign the upgrade panel
@@ -48,6 +51,16 @@ public class UpgradeManager : MonoBehaviour
         // Assign the upgrade category being viewed
         currentUpgradeCategory = null;
         ChangeCurrentUpgradeCategory(upgradeCategoryTags[0]);
+
+        // Get Switch Between Round and Upgrade Mode Script
+        try {
+            switchBetweenRoundModeandUpgrade = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenRoundModeandUpgradeMode>();
+            if (switchBetweenRoundModeandUpgrade == null) {
+                throw new System.ArgumentException("Object found with GameManager tag did not have SwitchBetweenRoundModeandUpgradeMode Script");
+            }
+        } catch {
+            throw new System.ArgumentException("Couldn't Find Game Manager because no object found with GameManager tag");
+        }
         
     }
 
@@ -98,6 +111,6 @@ public class UpgradeManager : MonoBehaviour
 
     // Logic that occurs when the player presses the done button
     public void PressDoneButton() {
-
+        switchBetweenRoundModeandUpgrade.SwitchToRoundMode();
     }
 }
