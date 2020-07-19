@@ -19,6 +19,10 @@ public abstract class AI : StateMachine
     public float attackRange;
       // Object an AI is targeting
     public GameObject currentTarget;
+
+    // Reference to the animator
+    public Animator animator;
+
     public UnityEngine.AI.NavMeshAgent agent;
     #endregion
 

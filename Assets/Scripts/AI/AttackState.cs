@@ -34,6 +34,7 @@ public class AttackState : State
                 }
                 AI.agent.isStopped = false;
                 AI.currentTarget = null;
+                AI.animator.SetBool("CanAttack", false);
                 AI.ChangeState(new SearchState(AI));
             }
         }

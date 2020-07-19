@@ -18,6 +18,7 @@ public abstract class Enemy : AI
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Barn") {
             agent.isStopped = true;
+            animator.SetBool("CanAttack", true);
             ChangeState(new AttackState(this));
         }
     } 

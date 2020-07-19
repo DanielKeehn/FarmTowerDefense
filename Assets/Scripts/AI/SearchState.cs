@@ -26,6 +26,7 @@ public class SearchState : State
         }
         if (CanAttack()) {
             AI.agent.isStopped = true;
+            AI.animator.SetBool("CanAttack", true);
             AI.ChangeState(new AttackState(AI));
         } 
         yield return new WaitForSeconds(2f);
