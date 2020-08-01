@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using AIStateNamespace;
 
+[System.Serializable]
+
 public abstract class AI : StateMachine
 {
     #region Variable Declarations

@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 // Class for animals
 
+[System.Serializable]
+
 public abstract class Animal: AI
 {
+    [Header("Animal Variables")]
     // These are the varaibles all animals have that other AI do not
     // How much it costs to spawn an animal 
     public int costToSpawn;

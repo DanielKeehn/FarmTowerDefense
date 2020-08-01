@@ -42,9 +42,10 @@ public class EnemySpawner : MonoBehaviour
                 if (checkEnemiesAllSpawned()) {
                     enemiesAllSpawned = true;
                 } else {
-                    spawnVegetable();
                     getSpawnSpeed();
                     spawnTimer = 0.0f;
+                    spawnVegetable();
+                    
                 }
             }
         }
