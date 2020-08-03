@@ -2,10 +2,9 @@
 
     public enum PageType {
         None,
-        Loading,
-        Pause,
+        Round,
         Upgrade,
-        Menu
-
+        Lose,
+        Pause
     }
 }
