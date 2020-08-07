@@ -4,6 +4,8 @@
         None,
         Round,
         Upgrade,
+        Attack,
+        Spawn,
         Lose,
         Pause
     }

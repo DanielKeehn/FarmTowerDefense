@@ -8,16 +8,16 @@ namespace Menu {
 #if UNITY_EDITOR
     private void Update() {
         if (Input.GetKeyUp(KeyCode.F)) {
-            pageController.TurnPageOn(PageType.Loading);
+            pageController.TurnPageOn(PageType.Upgrade);
         }
         if (Input.GetKeyUp(KeyCode.G)) {
-            pageController.TurnPageOff(PageType.Loading);
+            pageController.TurnPageOn(PageType.Attack);
         }
         if (Input.GetKeyUp(KeyCode.H)) {
-            pageController.TurnPageOff(PageType.Loading, PageType.Menu);
+            pageController.TurnPageOn(PageType.Pause);
         }
         if (Input.GetKeyUp(KeyCode.J)) {
-            pageController.TurnPageOff(PageType.Loading, PageType.Menu, true);
+            pageController.TurnPageOn(PageType.Lose);
         }
     }
 #endif

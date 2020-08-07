@@ -7,7 +7,7 @@ public class LoseState : MonoBehaviour
 {
 
     // A reference to the UI manager
-    private UIManager uIManager;
+    private Menu.UIManager uIManager;
     // A reference to game manager
     private GameManager gameManager;
 
@@ -19,7 +19,7 @@ public class LoseState : MonoBehaviour
     void Start()
     {
         try {
-            uIManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
+            uIManager = GameObject.FindWithTag("UIManager").GetComponent<Menu.UIManager>();
         }
         catch {
             throw new System.ArgumentException("Couldn't Find The UI Manager Script");
@@ -39,10 +39,7 @@ public class LoseState : MonoBehaviour
     // Method runs when player goes to lose state
     public void GoToLoseState() {
         pause.PauseGame();
-        uIManager.DeactivateAttackModeUI();
-        uIManager.DeactivateRoundModeUI();
-        uIManager.DeactivateSpawnModeUI();
-        uIManager.ActivateLoseModeUI();
+        uIManager.ShowLoseStateUI();
     }
 
     // Method occurs when player presses the restart round button
