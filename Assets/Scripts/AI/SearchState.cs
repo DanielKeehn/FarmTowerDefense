@@ -7,10 +7,24 @@ public class SearchState : State
 
     // The distance the AI is from its target 
     protected float targetDistance;
-    public SearchState(AI ai): base(ai){
 
+    // Variables for playing sound
+        // A min an max variable for how often a walk sound plays
+        // Eventually implement code that adjusts value based on amount of enemies on screen of certain AI type
+        float minWalkSoundFrequency = 10.0f;
+        float maxWalkSoundFrequency = 20.0f;
+        
+        // This value is the timer for when the walk sound actaully plays
+        float walkSoundFrequency;
+
+        // Keeps track of current time
+        float currentTime = 0.0f;
+    
+    public SearchState(AI ai): base(ai) {
+        
     }
     public override IEnumerator EnterState() {
+        GetWalkSoundFrequency();
         Debug.Log("A " + AI.name + " has entered search state");
         yield return new WaitForSeconds(2f);
     }
@@ -28,7 +42,10 @@ public class SearchState : State
             AI.agent.isStopped = true;
             AI.animator.SetBool("CanAttack", true);
             AI.ChangeState(new AttackState(AI));
-        } 
+        }
+
+        CheckForPlayingWalkingSound(); 
+        
         yield return new WaitForSeconds(2f);
     }
 
@@ -74,5 +91,21 @@ public class SearchState : State
             }
         }
         return false;
+    }
+
+    // Decides if a random walking sound should be played
+    private void CheckForPlayingWalkingSound() {
+        if (currentTime >= walkSoundFrequency) {
+            GetWalkSoundFrequency();
+            currentTime = 0.0f;
+            AI.aIAudioPlayer.PlayWalkSound();
+        } else {
+            currentTime += Time.deltaTime;
+        }
+    }
+
+    // Get a time for when to play the next walk sound effect
+    private void GetWalkSoundFrequency() {
+        walkSoundFrequency = Random.Range(minWalkSoundFrequency, maxWalkSoundFrequency);
     }
 }

@@ -30,6 +30,7 @@ TagManager:
   - GridUpgrades
   - BarnUpgrades
   - AnimalsUpgrades
+  - AudioManager
   layers:
   - Default
   - TransparentFX

@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 1047843853595665560}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1167,7 +1167,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047843853595665566}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.4817, y: 2.2120912, z: 4.140519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1206,9 +1206,35 @@ MonoBehaviour:
   - source: {fileID: 1047843853634369648}
     audio:
     - type: 2
-      clip: {fileID: 8300000, guid: f256d468dfe470c47aa0a7db2e4f6419, type: 3}
-    - type: 3
+      clip: {fileID: 0}
+    - type: 2
       clip: {fileID: 8300000, guid: f5faee9655daa2f438ee2132e36ce2a7, type: 3}
+  - source: {fileID: 1047843852243163954}
+    audio:
+    - type: 4
+      clip: {fileID: 8300000, guid: ba23064b339a4dd45a34cf677df420ca, type: 3}
+    - type: 5
+      clip: {fileID: 8300000, guid: c7347a4f06ae7b145a80a9e217d501b9, type: 3}
+    - type: 6
+      clip: {fileID: 8300000, guid: 461ce208461f36946aa822a992557b87, type: 3}
+    - type: 7
+      clip: {fileID: 8300000, guid: edaaa9416fb157948905e33a01ee953d, type: 3}
+    - type: 8
+      clip: {fileID: 8300000, guid: 91719023d8faf074492fd565eee5a8ba, type: 3}
+    - type: 9
+      clip: {fileID: 8300000, guid: ac638a53301a3094287ffb49235722c5, type: 3}
+    - type: 10
+      clip: {fileID: 8300000, guid: 719abae5a53d4b645a16b8fa204e6adb, type: 3}
+    - type: 11
+      clip: {fileID: 8300000, guid: 69f1ce25f8661394d9fc39040f6eb240, type: 3}
+    - type: 12
+      clip: {fileID: 8300000, guid: 0ee18e8a3929c404b95ab0c39954d47e, type: 3}
+    - type: 13
+      clip: {fileID: 8300000, guid: 14610e9edd571de4c80b48b2f528b8c9, type: 3}
+    - type: 14
+      clip: {fileID: 8300000, guid: e473d219ef156e344bd92cf11c112050, type: 3}
+    - type: 15
+      clip: {fileID: 8300000, guid: 079c25c92c9472f459d7b56da9341786, type: 3}
 --- !u!1 &1047843853634369649
 GameObject:
   m_ObjectHideFlags: 0

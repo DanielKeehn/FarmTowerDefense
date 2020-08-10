@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 9196343112424110723}
   - component: {fileID: 9196343112424110722}
   - component: {fileID: 9196343112424110725}
+  - component: {fileID: 146496069742760837}
   m_Layer: 11
   m_Name: Apple
   m_TagString: Enemy
@@ -96,6 +97,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   animator: {fileID: 6084167767176226082}
   agent: {fileID: 9196343112424110720}
+  aIAudioPlayer: {fileID: 0}
   spell: 15
   isUnlocked: 1
   attacking: 0
@@ -130,6 +132,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &146496069742760837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbc7b25c81e62e459093e53b18db5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioController: {fileID: 0}
+  spawnSound: 4
+  deathSound: 5
+  walkSounds: 0d0000000e0000000f000000
+  attackSounds: 060000000700000008000000
+  takeDamageSounds: 090000000a0000000b0000000c000000
 --- !u!1001 &9196343113955058498
 PrefabInstance:
   m_ObjectHideFlags: 0

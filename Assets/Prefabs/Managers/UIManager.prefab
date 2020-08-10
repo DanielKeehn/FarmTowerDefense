@@ -1716,6 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff43f8d0986787d49975ee6f2e2f6ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pageController: {fileID: 7485690985723103925}
 --- !u!114 &7485690985723103925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2647,7 +2648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768024677, guid: 0bf238a153707254c8cad6373f9dda87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3569964586227623087, guid: 0bf238a153707254c8cad6373f9dda87,
         type: 3}

@@ -3,7 +3,7 @@
 namespace Audio {
     public class TestAudio : MonoBehaviour
     {
-    public AudioController audioController;
+    public Audio.AudioController audioController;
 
 #region Unity Functions
 #if UNITY_EDITOR
