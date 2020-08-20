@@ -87,7 +87,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4510073284624717113}
+  - {fileID: 5929646125446938215}
   m_Father: {fileID: 6941839625214339321}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,17 +171,11 @@ MonoBehaviour:
   winRound: 0
   loseRound: 0
   enemies:
-  - enemy: {fileID: 9196343112424110782, guid: ed5a3995759834f4cbe83f36ea4ef008, type: 3}
-    amount: 3
+  - enemy: {fileID: 5929646125446938200}
+    amount: 1
     spawnLocations:
     - {fileID: 515294811}
     - {fileID: 685738553}
-  - enemy: {fileID: 2788462581165115034, guid: 9cc7427e0a76e184d9edefe46d649c9e, type: 3}
-    amount: 2
-    spawnLocations:
-    - {fileID: 6941839626326798247}
-    - {fileID: 6941839626821872489}
-    - {fileID: 6941839625482193642}
 --- !u!1 &6941839625482193637
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,88 +301,13 @@ Transform:
   m_Father: {fileID: 6941839625743373957}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4686284136786112440
+--- !u!1001 &3302736023434233062
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 2449132768828313482}
     m_Modifications:
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: walkSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: attackSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: takeDamageSounds.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: spawnSound
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: deathSound
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: walkSounds.Array.data[0]
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: walkSounds.Array.data[1]
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: walkSounds.Array.data[2]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: attackSounds.Array.data[0]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: attackSounds.Array.data[1]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: attackSounds.Array.data[2]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: takeDamageSounds.Array.data[0]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: takeDamageSounds.Array.data[1]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: takeDamageSounds.Array.data[2]
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 146496069742760837, guid: ed5a3995759834f4cbe83f36ea4ef008,
-        type: 3}
-      propertyPath: takeDamageSounds.Array.data[3]
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 9196343112424110721, guid: ed5a3995759834f4cbe83f36ea4ef008,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,9 +425,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed5a3995759834f4cbe83f36ea4ef008, type: 3}
---- !u!224 &4510073284624717113 stripped
+--- !u!1 &5929646125446938200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9196343112424110782, guid: ed5a3995759834f4cbe83f36ea4ef008,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302736023434233062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5929646125446938215 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9196343112424110721, guid: ed5a3995759834f4cbe83f36ea4ef008,
     type: 3}
-  m_PrefabInstance: {fileID: 4686284136786112440}
+  m_PrefabInstance: {fileID: 3302736023434233062}
   m_PrefabAsset: {fileID: 0}
