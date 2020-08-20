@@ -32,8 +32,9 @@ public class AttackState : State
                 } else {
                     throw new System.ArgumentException("Couldn't remove destroyed target from list or find list");
                 }
-                
+                AI.agent.isStopped = false;
                 AI.currentTarget = null;
+                AI.animator.SetBool("CanAttack", false);
                 AI.ChangeState(new SearchState(AI));
             }
         }
@@ -58,6 +59,7 @@ public class AttackState : State
     private void Attack() {
         try {
             AI.currentTarget.GetComponent<Health>().TakeDamage(AI.attackPower);
+            AI.aIAudioPlayer.PlayAttackSound();
         } catch {
             throw new System.ArgumentException("Couldn't Attack Target, make sure target has a health script");
         }

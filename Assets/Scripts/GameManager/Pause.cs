@@ -8,6 +8,19 @@ public class Pause : MonoBehaviour
 
     // Bool keeping track if the game is paused
     public static bool gamePaused = false;
+
+    // A reference to the UI manager
+    private Menu.UIManager uIManager;
+
+    // Get a reference to the UI manager
+    private void Start() {
+        try {
+            uIManager = GameObject.FindWithTag("UIManager").GetComponent<Menu.UIManager>();
+        }
+        catch {
+            throw new System.ArgumentException("Couldn't Find The UI Manager Script");
+        }  
+    }
     
 
     public void ResumeGame() {
@@ -17,6 +30,8 @@ public class Pause : MonoBehaviour
         }
         Time.timeScale = 1f;
         gamePaused = false;
+        // This reactivates the cursor
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     public void PauseGame() {
@@ -26,6 +41,35 @@ public class Pause : MonoBehaviour
         }
         Time.timeScale = 0f;
         gamePaused = true;
+        // This reactivates the cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    // Pauses or resumes the game based on the game paused boolean
+    private void PauseOrResume() {
+        if (gamePaused == false) {
+            PauseGame();
+            uIManager.ShowPauseMenuUI();
+        } else {
+            ResumeGame();
+            uIManager.HidePauseMenuUI();
+        }
+    }
+
+    // Checks if the player presses the input to enter or exit the pause menu
+    private bool PressedPause() {
+        if (Input.GetButtonDown("Pause")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private void Update() {
+        if (PressedPause() == true) {
+            PauseOrResume();
+        }
     }
 
 }

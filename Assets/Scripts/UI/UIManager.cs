@@ -2,88 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
-{
+namespace Menu {
+    public class UIManager : MonoBehaviour {
+        private SwitchBetweenAttackAndSpawnMode gameManager;
+        public PageController pageController;
 
-    // Refrences to all of the UI categories
-    private GameObject roundModeUI;
-    private GameObject upgradeModeUI;
-    private GameObject attackModeUI;
-    private GameObject spawnModeUI;
-    private SwitchBetweenAttackAndSpawnMode gameManager;
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        try {
-            gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
-            gameManager.switchFromAttackToSpawn += ActivateSpawnModeUI;
-            gameManager.switchFromAttackToSpawn += DeactivateAttackModeUI;
-            gameManager.switchFromSpawnToAttack += ActivateAttackModeUI;
-            gameManager.switchFromSpawnToAttack += DeactivateSpawnModeUI;
-        } catch {
-            throw new System.ArgumentException("Couldn't Add updateStateUI() Function To Events");
-        }
-
-        // Loop Through UI Managers Children And Find Refrences For All UI types
-        foreach (Transform child in transform){
-            if (child.tag == "RoundModeUI") {
-                roundModeUI = child.gameObject;
+        // Start is called before the first frame update
+        void Start()
+        {
+            try {
+                gameManager = GameObject.FindWithTag("GameManager").GetComponent<SwitchBetweenAttackAndSpawnMode>();
+                gameManager.switchFromAttackToSpawn += SwitchFromAttackToSpawnUI;
+                gameManager.switchFromSpawnToAttack += SwitchFromSpawnToAttackUI;
+            } catch {
+                throw new System.ArgumentException("Couldn't Add updateStateUI() Function To Events");
             }
-            if (child.tag == "UpgradeModeUI") {
-                upgradeModeUI = child.gameObject;
-            }
-            if (child.tag == "AttackModeUI") {
-                attackModeUI = child.gameObject;
-            }
-            if (child.tag == "SpawnModeUI") {
-                spawnModeUI = child.gameObject;
-            }
+
+            pageController.TurnPageOn(PageType.Attack);           
         }
-        if (roundModeUI == null) {
-            throw new System.ArgumentException("Couldn't Find Round Mode UI");
+
+        public void SwitchFromAttackToSpawnUI() {
+            pageController.TurnPageOff(PageType.Attack, PageType.Spawn);
         }
-        if (upgradeModeUI == null) {
-            throw new System.ArgumentException("Couldn't Find Upgrade Mode UI");
+
+        public void SwitchFromSpawnToAttackUI() {
+            pageController.TurnPageOff(PageType.Spawn, PageType.Attack);
         }
-        if (attackModeUI == null) {
-            throw new System.ArgumentException("Couldn't Find Attack Mode UI");
+
+        public void SwitchToUpgradeModeUI() {
+            pageController.TurnPageOff(PageType.Spawn);
+            pageController.TurnPageOff(PageType.Attack);
+            pageController.TurnPageOff(PageType.Round, PageType.Upgrade);
         }
-        if (spawnModeUI == null) {
-            throw new System.ArgumentException("Couldn't Find Spawn Mode UI");
+
+        public void SwitchToRoundModeUI() {
+            pageController.TurnPageOff(PageType.Upgrade, PageType.Round);
+            pageController.TurnPageOn(PageType.Attack);
         }
-    }
 
-    public void ActivateRoundModeUI() {
-        roundModeUI.SetActive(true);
-    }
+        public void ShowPauseMenuUI() {
+            pageController.TurnPageOn(PageType.Pause);
+        }
 
-    public void DeactivateRoundModeUI() {
-        roundModeUI.SetActive(false);
-    }
+        public void HidePauseMenuUI() {
+            pageController.TurnPageOff(PageType.Pause);
+        }
 
-    public void ActivateUpgradeModeUI() {
-        upgradeModeUI.SetActive(true);
-    }
-
-    public void DeactivateUpgradeModeUI() {
-        upgradeModeUI.SetActive(false);
-    }
-
-    public void ActivateAttackModeUI() {
-        attackModeUI.SetActive(true);
-    }
-
-    public void DeactivateAttackModeUI() {
-        attackModeUI.SetActive(false);
-    }
-
-    public void ActivateSpawnModeUI() {
-        spawnModeUI.SetActive(true);
-    }
-
-    public void DeactivateSpawnModeUI() {
-        spawnModeUI.SetActive(false);
+        public void ShowLoseStateUI() {
+            pageController.TurnPageOff(PageType.Attack);
+            pageController.TurnPageOff(PageType.Spawn);
+            pageController.TurnPageOff(PageType.Round,PageType.Lose);
+        }
     }
 }

@@ -26,9 +26,7 @@ public class SwitchBetweenAttackAndSpawnMode : MonoBehaviour
     // Determines if on Attack Mode or Spawn Mode
     // True = Attack Mode
     // False = Spawn Mode
-    public bool onAttackMode;
-    
-    
+    public bool onAttackMode;     
     // Game Starts on Attack Mode When First Run
     void Start()
     {

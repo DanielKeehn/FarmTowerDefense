@@ -8,7 +8,6 @@ TagManager:
   - SpawnMode
   - UpgradeMode
   - Enemy
-  - Farmhouse
   - Animal
   - GameManager
   - AnimalManager
@@ -23,6 +22,15 @@ TagManager:
   - SpawnModeUI
   - RoundModeUI
   - UpgradeModeUI
+  - Barn
+  - PauseModeUI
+  - LoseModeUI
+  - UpgradePanel
+  - PitchforkUpgrades
+  - GridUpgrades
+  - BarnUpgrades
+  - AnimalsUpgrades
+  - AudioManager
   layers:
   - Default
   - TransparentFX
@@ -38,7 +46,7 @@ TagManager:
   - Enemy
   - Animal
   - Player
-  - 
+  - Barn
   - 
   - 
   - 

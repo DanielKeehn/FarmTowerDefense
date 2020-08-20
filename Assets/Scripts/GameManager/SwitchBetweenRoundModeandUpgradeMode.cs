@@ -11,7 +11,7 @@ public class SwitchBetweenRoundModeandUpgradeMode : MonoBehaviour
     Pause pauseScript;
 
     // A reference to UI Manager
-    UIManager uIManager;
+    Menu.UIManager uIManager;
 
     private void Start() {
         pauseScript = gameObject.GetComponent<Pause>();
@@ -19,7 +19,7 @@ public class SwitchBetweenRoundModeandUpgradeMode : MonoBehaviour
             throw new System.ArgumentException("Couldn't find reference to pause script. Make sure this component and a pause script is inside the game manager");
         }
         try {
-            uIManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
+            uIManager = GameObject.FindWithTag("UIManager").GetComponent<Menu.UIManager>();
         } catch {
             throw new System.ArgumentException("Couldn't find UI Manager, make sure you have a UI Manager Object with tag and UI Manager Script");
         }   
@@ -28,21 +28,12 @@ public class SwitchBetweenRoundModeandUpgradeMode : MonoBehaviour
     // Actions That Occur When A Player Switches To Upgrade Mode
     public void SwitchToUpgradeMode() {
         pauseScript.PauseGame();
-        uIManager.ActivateUpgradeModeUI();
-        uIManager.DeactivateAttackModeUI();
-        uIManager.DeactivateRoundModeUI();
-        uIManager.DeactivateSpawnModeUI();
-        // This reactivates the cursor
-        Cursor.lockState = CursorLockMode.None;
+        uIManager.SwitchToUpgradeModeUI();
     }
 
     // Actions That Occur When A Player Switches To Round Mode
     public void SwitchToRoundMode() {
         pauseScript.ResumeGame();
-        uIManager.DeactivateUpgradeModeUI();
-        uIManager.ActivateAttackModeUI();
-        uIManager.ActivateRoundModeUI();
-        // This reactivates the cursor
-        Cursor.lockState = CursorLockMode.Locked;        
+        uIManager.SwitchToRoundModeUI();
     }
 }

@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e778b74165df1a4f81c1fb33cb844ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSpawnColor: {r: 0.06607044, g: 1, b: 0, a: 0}
-  cannotSpawnColor: {r: 1, g: 0, b: 0, a: 0}
+  canSpawnColor: {r: 0.06607044, g: 1, b: 0, a: 0.7019608}
+  cannotSpawnColor: {r: 1, g: 0, b: 0, a: 0.70980394}
   canSpawn: 0
 --- !u!1 &6649893514431752257
 GameObject:

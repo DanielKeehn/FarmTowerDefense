@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     private float spawnSpeed;
     private bool enemiesAllSpawned;
 
+    // The current enemies possible to spawn
+    private Round.EnemyAmount[] spawnOptions;
     void Start()
     {
         roundManager = gameObject.GetComponent<RoundManager>();
@@ -28,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
         }
         spawnTimer = 0.0f;
         enemiesAllSpawned = false;
+        spawnOptions = roundManager.GetCurrentRound().enemies;
         getSpawnSpeed();
     }
 
@@ -35,11 +38,15 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!enemiesAllSpawned) {
             spawnTimer += Time.deltaTime;
-            getSpawnSpeed();
             if (EnemyReadyToSpawn(spawnTimer)) {
-                spawnVegetable();
-                getSpawnSpeed();
-                spawnTimer = 0.0f;
+                if (checkEnemiesAllSpawned()) {
+                    enemiesAllSpawned = true;
+                } else {
+                    getSpawnSpeed();
+                    spawnTimer = 0.0f;
+                    spawnVegetable();
+                    
+                }
             }
         }
     }
@@ -48,6 +55,7 @@ public class EnemySpawner : MonoBehaviour
     public void ResetEnemySpanwer() {
         spawnTimer = 0.0f;
         enemiesAllSpawned = false;
+        spawnOptions = roundManager.GetCurrentRound().enemies;
         getSpawnSpeed();
     }
 
@@ -60,27 +68,45 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Spawns a random vegetable
+    // Spawns a random enemy
     private void spawnVegetable() {
-        // Get the random vegetable
-        Round.EnemyAmount[] spawnOptions = roundManager.GetCurrentRound().enemies;
-        int randomIndex = Random.Range(0, spawnOptions.Length);
-        GameObject enemy = spawnOptions[randomIndex].enemy;
+        // Boolean determing if enemy is found that can be spawned
+        bool foundEnemy = false;
+        // The enemy you want to spawn
+        GameObject enemy;
         
-        // Decrement Amount of enemies left to spawn
-        roundManager.GetCurrentRound().enemies[randomIndex].amount--;
+        // The index of the enemy you want to spawn
+        int randomIndex = 0;
 
-        // Check here is all enemies have been spawned for the current round
-        if (checkEnemiesAllSpawned()) {
-            enemiesAllSpawned = true;
+        // Run while loop until enemy is found
+        while (!foundEnemy) {
+            // Get the random enemy index
+            randomIndex = Random.Range(0, spawnOptions.Length);
+            
+            // Check if there the amount for this enemy is greater than zero
+            if (spawnOptions[randomIndex].amount > 0) {
+                foundEnemy = true;
+                // Assign enemy variable
+                enemy = spawnOptions[randomIndex].enemy;
+            // Remove index with zero enemies here if enemy can't be spawned 
+            } else {
+                var enemies = new List<Round.EnemyAmount>(spawnOptions);
+                enemies.RemoveAt(randomIndex);
+                spawnOptions = enemies.ToArray();
+            }
         }
+
+        // Spawn the enemy here
         
-        // Get Spawn Location
-        Transform[] spawnLocations = roundManager.GetCurrentRound().spawnLocations;
+        // Decrement enemy amount first
+        spawnOptions[randomIndex].amount--;
+        
+        // Get Spawn Locations
+        Transform[] spawnLocations = spawnOptions[randomIndex].spawnLocations;
         Transform spawnLocation = spawnLocations[Random.Range(0,spawnLocations.Length)];
 
         // Spawn the enemy
-        GameObject spawnedEnemy = Instantiate(enemy, spawnLocation);
+        GameObject spawnedEnemy = Instantiate(spawnOptions[randomIndex].enemy, spawnLocation);
         spawnedEnemy.SetActive(true);
         
         // Add enemy to list of enemies currently in game
@@ -95,7 +121,6 @@ public class EnemySpawner : MonoBehaviour
 
     // Check if all enemies have been spawned for a certain round
     private bool checkEnemiesAllSpawned() {
-        Round.EnemyAmount[] spawnOptions = roundManager.GetCurrentRound().enemies;
         foreach (Round.EnemyAmount enemy in spawnOptions) {
             if (enemy.amount > 0) {
                 return false;
@@ -103,5 +128,4 @@ public class EnemySpawner : MonoBehaviour
         }
         return true;
     }
-
 }

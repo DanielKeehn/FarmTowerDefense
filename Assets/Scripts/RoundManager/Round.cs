@@ -20,11 +20,9 @@ public class Round: MonoBehaviour
         public GameObject enemy;
         [Range(0,100)]
         public int amount;
+        public Transform[] spawnLocations;
     }
     
     [Header("Enemies")]
     public EnemyAmount[] enemies;
-
-    [Header("SpawnLocations")]
-    public Transform[] spawnLocations;
  }

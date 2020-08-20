@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using AIStateNamespace;
 
+[System.Serializable]
+
 public abstract class AI : StateMachine
 {
     #region Variable Declarations
@@ -19,13 +21,31 @@ public abstract class AI : StateMachine
     public float attackRange;
       // Object an AI is targeting
     public GameObject currentTarget;
+
+    // Reference to the animator
+    public Animator animator;
     public UnityEngine.AI.NavMeshAgent agent;
+
+    public Audio.AIAudioPlayer aIAudioPlayer;
     #endregion
 
     private void Start()
     {
         ChangeState(new SearchState(this));
         currentTarget = null;
+
+        aIAudioPlayer = gameObject.GetComponent<Audio.AIAudioPlayer>();
+        
+        if (aIAudioPlayer == null) {
+            throw new System.ArgumentException("Could not find audio player attached to " + name);
+        }
+
+        StartCoroutine(SpawnSoundCoroutine());
+    }
+
+    IEnumerator SpawnSoundCoroutine() {
+        yield return null;
+        aIAudioPlayer.PlaySpawnSound();
     }
 
     // Check what type AI is and find list of targets AI can search for

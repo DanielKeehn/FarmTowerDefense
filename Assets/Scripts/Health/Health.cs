@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     protected List<GameObject> animalList;
     protected RoundManager roundManager;
 
+    public Audio.AIAudioPlayer aIAudioPlayer;
     protected virtual void Start()
     {
         try {
@@ -25,6 +26,12 @@ public class Health : MonoBehaviour
             roundManager = GameObject.FindWithTag("RoundManager").GetComponent<RoundManager>();
         } catch {
             throw new System.ArgumentException("Couldn't find round manager script. Make sure there is a round manager object with the proper tag and this object has a round manager script");
+        }
+
+        aIAudioPlayer = gameObject.GetComponent<Audio.AIAudioPlayer>();
+        
+        if (aIAudioPlayer == null) {
+            throw new System.ArgumentException("Could not find audio player attached to " + name);
         }   
     }
 
@@ -38,9 +45,11 @@ public class Health : MonoBehaviour
     public virtual bool IsDead() {
         if (health <= 0) {
             removeFromList();
+            aIAudioPlayer.PlayDeathSound();
             Destroy(gameObject);
             return true;
         } else {
+            aIAudioPlayer.PlayTakingDamageSound();
             return false;
         }
     }

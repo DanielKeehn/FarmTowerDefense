@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &9196343113114350702
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918193639508277835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.1583835
+  m_Height: 3.7398157
+  m_Direction: 1
+  m_Center: {x: 0.03438057, y: 0.54769516, z: -0.14787169}
+--- !u!1 &9196343112424110782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9196343112424110721}
+  - component: {fileID: 9196343112424110723}
+  - component: {fileID: 9196343112424110720}
+  - component: {fileID: 9196343112424110722}
+  - component: {fileID: 9196343112424110725}
+  - component: {fileID: 146496069742760837}
+  m_Layer: 11
+  m_Name: Apple
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9196343112424110721
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.1751, y: 2.1751, z: 2.1751}
+  m_Children:
+  - {fileID: 4243883543299557464}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9196343112424110723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edfedf4cf6714c49bdcab19780e8e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Apple
+  health: 15
+  attackPower: 10
+  attackSpeed: 1
+  attackRange: 10
+  currentTarget: {fileID: 0}
+  animator: {fileID: 6084167767176226082}
+  agent: {fileID: 9196343112424110720}
+  aIAudioPlayer: {fileID: 0}
+  spell: 15
+  isUnlocked: 1
+  attacking: 0
+  enemyAttacking: {fileID: 0}
+  roundManager: {fileID: 0}
+--- !u!195 &9196343112424110720
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_Enabled: 1
+  m_AgentTypeID: 287145453
+  m_Radius: 1.8
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3
+  m_BaseOffset: 0.67
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &9196343112424110722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bea43d7daa619649ba042ceb8d08bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  aIAudioPlayer: {fileID: 0}
+--- !u!54 &9196343112424110725
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &146496069742760837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196343112424110782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbc7b25c81e62e459093e53b18db5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioController: {fileID: 0}
+  spawnSound: 4
+  deathSound: 5
+  walkSounds: 0d0000000e0000000f000000
+  attackSounds: 060000000700000008000000
+  takeDamageSounds: 090000000a0000000b0000000c000000
+--- !u!1001 &9196343113955058498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9196343112424110721}
+    m_Modifications:
+    - target: {fileID: -6636477861969114091, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -6636477861969114091, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -6636477861969114091, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cc96c7c64f0fd414e992edee3181e9d6, type: 2}
+    - target: {fileID: -6057140222963153312, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_Name
+      value: Apple_Model
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290867594810509830, guid: d343a62d3ce51ee44921f694690e4bfb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d343a62d3ce51ee44921f694690e4bfb, type: 3}
+--- !u!1 &918193639508277835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d343a62d3ce51ee44921f694690e4bfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 9196343113955058498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4243883543299557464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d343a62d3ce51ee44921f694690e4bfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 9196343113955058498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6084167767176226082 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: d343a62d3ce51ee44921f694690e4bfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 9196343113955058498}
+  m_PrefabAsset: {fileID: 0}
