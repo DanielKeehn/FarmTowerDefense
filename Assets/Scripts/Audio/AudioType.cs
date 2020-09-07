@@ -25,6 +25,16 @@
         SFX_Onion,
         SFX_Potato,
         SFX_Turnip,
-        SFX_Wheat
+        SFX_Wheat,
+        Cow_Spawn,
+        Cow_Death,
+        Cow_Attack1,
+        Cow_Attack2,
+        Cow_Attack3,
+        Cow_TakeDamage1,
+        Cow_TakeDamage2,
+        Cow_TakeDamage3,
+        Cow_Walk1,
+        Cow_Walk2
     }
 } 

@@ -5,7 +5,7 @@ using AIStateNamespace;
 
 [System.Serializable]
 
-public abstract class AI : StateMachine
+public class AI : StateMachine
 {
     #region Variable Declarations
     // These are the varaibles all AI must have
@@ -51,13 +51,13 @@ public abstract class AI : StateMachine
     // Check what type AI is and find list of targets AI can search for
     public List<GameObject> getTargetList() {
         
-        if (this.GetType().IsSubclassOf(typeof(Animal))) {
+        if (this.GetType().IsSubclassOf(typeof(Animal)) || this.GetType() == typeof(Animal)) {
             try {
                 return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().vegetableList;
             } catch {
                 throw new System.ArgumentException("Couldn't find list of vegetables to target, make sure current attackable object script is attached to game manager and game manager has a gamemanager tag");
             }
-        } else if (this.GetType().IsSubclassOf(typeof(Enemy))) {
+        } else if (this.GetType().IsSubclassOf(typeof(Enemy)) || this.GetType() == typeof(Enemy)) {
             try {
                 return GameObject.FindWithTag("GameManager").GetComponent<CurrentAttackableObjects>().animalList;
             } catch {

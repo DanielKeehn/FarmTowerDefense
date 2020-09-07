@@ -28,11 +28,14 @@ public class Health : MonoBehaviour
             throw new System.ArgumentException("Couldn't find round manager script. Make sure there is a round manager object with the proper tag and this object has a round manager script");
         }
 
-        aIAudioPlayer = gameObject.GetComponent<Audio.AIAudioPlayer>();
+        if (gameObject.tag != "Barn") {
+            aIAudioPlayer = gameObject.GetComponent<Audio.AIAudioPlayer>();
         
-        if (aIAudioPlayer == null) {
-            throw new System.ArgumentException("Could not find audio player attached to " + name);
-        }   
+            if (aIAudioPlayer == null) {
+                throw new System.ArgumentException("Could not find audio player attached to " + name);
+            }
+        }
+   
     }
 
     // This method runs when something attacks an object with this attribute 

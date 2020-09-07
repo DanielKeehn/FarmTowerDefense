@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 1932319624303813583}
   - component: {fileID: 1453292965}
   - component: {fileID: 8387545375390783869}
+  - component: {fileID: 1101132087979355667}
   m_Layer: 12
   m_Name: Cow
   m_TagString: Animal
@@ -71,7 +72,9 @@ MonoBehaviour:
   attackSpeed: 2
   attackRange: 15
   currentTarget: {fileID: 0}
+  animator: {fileID: 0}
   agent: {fileID: 1453292965}
+  aIAudioPlayer: {fileID: 0}
   costToSpawn: 10
   isUnlocked: 1
   Icon: {fileID: 4104390135632883058, guid: 37a93b712552a244889bb34a0fad4f3a, type: 3}
@@ -119,6 +122,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  aIAudioPlayer: {fileID: 0}
+--- !u!114 &1101132087979355667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976595337758461813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbc7b25c81e62e459093e53b18db5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioController: {fileID: 0}
+  spawnSound: 24
+  deathSound: 25
+  walkSounds: 2000000021000000
+  attackSounds: 1a0000001b0000001c000000
+  takeDamageSounds: 1d0000001e0000001f000000
 --- !u!1001 &5052391791925209773
 PrefabInstance:
   m_ObjectHideFlags: 0

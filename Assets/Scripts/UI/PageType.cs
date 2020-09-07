@@ -7,6 +7,8 @@
         Attack,
         Spawn,
         Lose,
-        Pause
+        Pause,
+        TitleScreen_Main,
+        TitleScreen_Credits
     }
 }

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public void switchToTitleScreen() {
         Debug.Log("LoadingTitleScreen");
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("TitleScreen_New");
     }
 
 }
